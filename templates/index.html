@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Samba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .status {
+            margin-top: 20px;
+        }
+        .status span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .green {
+            background-color: green;
+        }
+        .red {
+            background-color: red;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .message {
+            margin-top: 20px;
+            color: #333;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestion du Conteneur Samba 4.6.3</h1>
+
+    <!-- Afficher un voyant vert ou rouge selon l'état du conteneur -->
+    <div class="status">
+        <p>Status du conteneur Samba:</p>
+        <span class="{{ 'green' if container_status else 'red' }}"></span>
+        <p>{{ 'Conteneur en ligne' if container_status else 'Conteneur hors ligne' }}</p>
+    </div>
+
+    <!-- Boutons pour démarrer, exploiter et arrêter le conteneur -->
+    <form action="/start_samba" method="post">
+        <button type="submit">Démarrer le Conteneur Samba</button>
+    </form>
+
+    <form action="/exploit_samba" method="post">
+        <button type="submit">Exploiter CVE-2017-7494 (Samba)</button>
+    </form>
+
+    <form action="/stop_samba" method="post">
+        <button type="submit">Arrêter le Conteneur Samba</button>
+    </form>
+
+    <!-- Message de retour -->
+    <div class="message">
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
