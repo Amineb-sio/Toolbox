@@ -70,7 +70,7 @@ Suivez ces étapes pour configurer l'application :
 3. **Accédez à l'application via votre navigateur :**
 
    ```
-   http://localhost:5000
+   https://localhost:10000
    ```
 
 ## Fonctionnalités
