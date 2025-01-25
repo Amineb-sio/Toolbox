@@ -1,0 +1,5 @@
+services:
+ web:
+   image: vulhub/webmin:1.910
+   ports:
+    - "10000:10000"
