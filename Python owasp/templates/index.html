@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWASP ZAP - Outil de test de sécurité</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }
+        h1 { color: #333; }
+        input, button { padding: 10px; margin: 5px; }
+        .status { font-weight: bold; color: blue; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+    </style>
+</head>
+<body>
+    <h1>OWASP ZAP - Outil de test de sécurité</h1>
+    <label for="url">Lancer un scan :</label>
+    <input type="text" id="url" placeholder="http://example.com">
+    <button onclick="startScan('passif')">Scan Passif</button>
+    <button onclick="startScan('actif')">Scan Actif</button>
+    
+    <h2>Statut du scan</h2>
+    <p id="scanStatus" class="status">En attente...</p>
+    
+    <h2>Vulnérabilités détectées</h2>
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Risque</th>
+            </tr>
+        </thead>
+        <tbody id="resultsBody">
+            <tr><td colspan="3">Aucune donnée disponible.</td></tr>
+        </tbody>
+    </table>
+    
+    <h2>Rapports</h2>
+    <button onclick="downloadReport('html')">Télécharger le rapport HTML</button>
+    <button onclick="downloadReport('json')">Télécharger le rapport JSON</button>
+
+    <script>
+        function startScan(type) {
+            let url = document.getElementById('url').value;
+            if (!url) {
+                alert('Veuillez entrer une URL valide.');
+                return;
+            }
+            document.getElementById('scanStatus').innerHTML = 'Scan en cours... Veuillez patienter';
+            fetch(`/start_scan?type=${type}&url=${encodeURIComponent(url)}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('scanStatus').innerHTML = 'Scan terminé';
+                    loadResults();
+                })
+                .catch(error => console.error('Erreur lors du scan:', error));
+        }
+        
+        function loadResults() {
+            fetch('/get_results')
+                .then(response => response.json())
+                .then(data => {
+                    let tbody = document.getElementById('resultsBody');
+                    tbody.innerHTML = '';
+                    data.alerts.forEach(alert => {
+                        let row = tbody.insertRow();
+                        row.innerHTML = `<td>${alert.name}</td><td>${alert.description}</td><td>${alert.risk}</td>`;
+                    });
+                })
+                .catch(error => console.error('Erreur lors du chargement des résultats:', error));
+        }
+        
+        function downloadReport(type) {
+            window.location.href = `/download_report?type=${type}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[project]
+name = "ls"
+version = "0.1.0"
+description = "\"A toolbox with Flask, Docker, and PyShark\""
+authors = [
+    {name = "Stéphane Jérémy Amine"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask (>=3.1.0,<4.0.0)",
+    "docker (>=7.1.0,<8.0.0)",
+    "pyshark (>=0.6,<0.7)"
+]
+
+packages = [
+    { include = "toolbox" }
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
