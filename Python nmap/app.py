@@ -1,15 +1,30 @@
 from flask import Flask, request, jsonify, render_template
 import nmap
+import os
 
-app = Flask(__name__)
+# Définir le chemin absolu du dossier "templates"
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
-# Fonction pour exécuter un scan Nmap
+# Vérifier si le dossier templates existe et le créer si nécessaire
+if not os.path.exists(TEMPLATE_DIR):
+    os.makedirs(TEMPLATE_DIR)
+
+# Vérifier si index.html est bien présent
+if "index.html" not in os.listdir(TEMPLATE_DIR):
+    print("⚠️ ERREUR : Le fichier index.html est manquant dans templates/")
+
+# Création de l'application Flask en spécifiant le dossier des templates
+app = Flask(__name__, template_folder=TEMPLATE_DIR)
+
+# Fonction pour exécuter un scan Nmap complet
 def run_nmap_scan(target_ip, ports):
     nm = nmap.PortScanner()
 
     try:
-        # Exécute le scan avec détection de version
-        nm.scan(target_ip, ports, arguments="-sV")
+        # Exécute le scan avec toutes les options demandées
+        scan_command = f"-p {ports} -sC -sV -A -O -T4 --script=all -Pn -v"
+        nm.scan(hosts=target_ip, arguments=scan_command)
 
         # Vérifie si l'hôte est actif
         if target_ip not in nm.all_hosts():
@@ -19,6 +34,7 @@ def run_nmap_scan(target_ip, ports):
         result = {
             "host": target_ip,
             "state": nm[target_ip].state(),
+            "os": nm[target_ip].get("osmatch", []),
             "ports": []
         }
 
@@ -42,7 +58,8 @@ def run_nmap_scan(target_ip, ports):
 # Route pour afficher l'interface graphique
 @app.route('/')
 def home():
-    return render_template('index.html')
+    print("📂 Contenu du dossier templates/:", os.listdir(TEMPLATE_DIR))  # Debugging pour voir les fichiers
+    return render_template('index.html')  # Vérifier que index.html est bien dans "templates/"
 
 # Route API pour exécuter un scan Nmap
 @app.route('/scan', methods=['POST'])
@@ -50,7 +67,7 @@ def scan():
     data = request.json
 
     target_ip = data.get('target')
-    ports = data.get('ports', '1-1000')
+    ports = data.get('ports', '1-100')
 
     if not target_ip:
         return jsonify({"error": "Paramètre 'target' manquant."}), 400

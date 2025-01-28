@@ -11,19 +11,19 @@ def index():
 
 @app.route('/nmap')
 def nmap():
-    return redirect(f"{base_url}:5001")  # Utilisation de l'IP et du port
+    return redirect(f"{base_url}:5001/")  # Redirection vers le bon port
 
 @app.route('/webmin')
 def webmin():
-    return redirect(f"{base_url}:5002")  # Utilisation de l'IP et du port
+    return redirect(f"{base_url}:5002/")  # Redirection vers le bon port
 
 @app.route('/wireshark')
 def wireshark():
-    return redirect(f"{base_url}:5003")  # Utilisation de l'IP et du port
+    return redirect(f"{base_url}:5003/")  # Redirection vers le bon port
 
 @app.route('/owasp')
 def owasp():
-    return redirect(f"{base_url}:5004")  # Utilisation de l'IP et du port
+    return redirect(f"{base_url}:5004/")  # Redirection vers le bon port
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)

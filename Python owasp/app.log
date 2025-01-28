@@ -1,10 +1,100 @@
  * Serving Flask app 'app'
  * Debug mode: on
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5004
  * Running on http://192.168.47.128:5004
-Press CTRL+C to quit
+[33mPress CTRL+C to quit[0m
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 408-716-281
+ * Debugger PIN: 156-800-191
+192.168.47.1 - - [28/Jan/2025 17:46:30] "GET / HTTP/1.1" 200 -
+192.168.47.1 - - [28/Jan/2025 17:46:39] "[35m[1mGET /start_scan?type=passif&url=192.168.1.161 HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 445, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fa356ce4320>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /JSON/spider/action/scan/?apikey=tonapikey&url=192.168.1.161&recurse=True (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fa356ce4320>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/Desktop/Toolbox test/Python owasp/app.py", line 27, in start_scan
+    response = requests.get(scan_url)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox-HLBm-9gv-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /JSON/spider/action/scan/?apikey=tonapikey&url=192.168.1.161&recurse=True (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fa356ce4320>: Failed to establish a new connection: [Errno 111] Connection refused'))
+192.168.47.1 - - [28/Jan/2025 17:47:29] "GET / HTTP/1.1" 200 -
+192.168.47.1 - - [28/Jan/2025 17:50:11] "GET / HTTP/1.1" 200 -
+192.168.47.128 - - [28/Jan/2025 17:50:29] "GET / HTTP/1.1" 200 -
