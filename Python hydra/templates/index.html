@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTP Brute Force avec Hydra</title>
+</head>
+<body>
+    <h1>FTP Brute Force avec Hydra</h1>
+
+    <form method="POST">
+        <label for="ftp_address">Adresse FTP:</label>
+        <input type="text" name="ftp_address" id="ftp_address" required><br><br>
+
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" name="username" id="username" required><br><br>
+
+        <label for="wordlist">Chemin du fichier de mots de passe:</label>
+        <input type="text" name="wordlist" id="wordlist" required><br><br>
+
+        <button type="submit">Lancer l'attaque</button>
+    </form>
+
+    {% if result %}
+        <h2>Résultat :</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
