@@ -18,8 +18,7 @@
     <h1>OWASP ZAP - Outil de test de sécurité</h1>
     <label for="url">Lancer un scan :</label>
     <input type="text" id="url" placeholder="http://example.com">
-    <button onclick="startScan('passif')">Scan Passif</button>
-    <button onclick="startScan('actif')">Scan Actif</button>
+    <button onclick="startScan()">Lancer le scan</button>
     
     <h2>Statut du scan</h2>
     <p id="scanStatus" class="status">En attente...</p>
@@ -31,10 +30,12 @@
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Risque</th>
+                <th>Lien</th>
+                <th>Localisation</th>
             </tr>
         </thead>
         <tbody id="resultsBody">
-            <tr><td colspan="3">Aucune donnée disponible.</td></tr>
+            <tr><td colspan="5">Aucune donnée disponible.</td></tr>
         </tbody>
     </table>
     
@@ -43,20 +44,25 @@
     <button onclick="downloadReport('json')">Télécharger le rapport JSON</button>
 
     <script>
-        function startScan(type) {
+        function startScan() {
             let url = document.getElementById('url').value;
             if (!url) {
                 alert('Veuillez entrer une URL valide.');
                 return;
             }
             document.getElementById('scanStatus').innerHTML = 'Scan en cours... Veuillez patienter';
-            fetch(`/start_scan?type=${type}&url=${encodeURIComponent(url)}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('scanStatus').innerHTML = 'Scan terminé';
-                    loadResults();
-                })
-                .catch(error => console.error('Erreur lors du scan:', error));
+            
+            fetch('/start_scan', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `url=${encodeURIComponent(url)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('scanStatus').innerHTML = 'Scan terminé';
+                loadResults();
+            })
+            .catch(error => console.error('Erreur lors du scan:', error));
         }
         
         function loadResults() {
@@ -67,7 +73,13 @@
                     tbody.innerHTML = '';
                     data.alerts.forEach(alert => {
                         let row = tbody.insertRow();
-                        row.innerHTML = `<td>${alert.name}</td><td>${alert.description}</td><td>${alert.risk}</td>`;
+                        row.innerHTML = `
+                            <td>${alert.name}</td>
+                            <td>${alert.description || 'N/A'}</td>
+                            <td>${alert.risk}</td>
+                            <td><a href="${alert.link}" target="_blank">Détails</a></td>
+                            <td><a href="${alert.location}" target="_blank">Voir sur site</a></td>
+                        `;
                     });
                 })
                 .catch(error => console.error('Erreur lors du chargement des résultats:', error));

@@ -25,5 +25,11 @@ def wireshark():
 def owasp():
     return redirect(f"{base_url}:5004/")  # Redirection vers le bon port
 
+
+@app.route('/hydra')
+def hydra():
+    return redirect(f"{base_url}:5011/")  # Redirection vers le bon port
+
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)

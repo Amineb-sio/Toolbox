@@ -1,29 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FTP Brute Force avec Hydra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 500px;
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+            color: #ff6600;
+        }
+    </style>
 </head>
 <body>
-    <h1>FTP Brute Force avec Hydra</h1>
 
-    <form method="POST">
-        <label for="ftp_address">Adresse FTP:</label>
-        <input type="text" name="ftp_address" id="ftp_address" required><br><br>
+<div class="container">
+    <h2 class="text-center text-primary">FTP Brute Force avec Hydra</h2>
+    
+    <form method="POST" id="attackForm">
+        <div class="mb-3">
+            <label for="ftp_address" class="form-label">Adresse FTP :</label>
+            <input type="text" class="form-control" name="ftp_address" id="ftp_address" required>
+        </div>
 
-        <label for="username">Nom d'utilisateur:</label>
-        <input type="text" name="username" id="username" required><br><br>
+        <div class="mb-3">
+            <label for="username" class="form-label">Nom d'utilisateur :</label>
+            <input type="text" class="form-control" name="username" id="username" required>
+        </div>
 
-        <label for="wordlist">Chemin du fichier de mots de passe:</label>
-        <input type="text" name="wordlist" id="wordlist" required><br><br>
+        <div class="mb-3">
+            <label for="wordlist" class="form-label">Chemin du fichier de mots de passe :</label>
+            <input type="text" class="form-control" name="wordlist" id="wordlist" required>
+        </div>
 
-        <button type="submit">Lancer l'attaque</button>
+        <button type="submit" class="btn btn-primary w-100">Lancer l'attaque 🚀</button>
     </form>
 
+    <div class="loading mt-3" id="loadingMessage">
+        <span>⏳ Veuillez patienter, attaque en cours...</span>
+    </div>
+
     {% if result %}
-        <h2>Résultat :</h2>
-        <p>{{ result }}</p>
+        <div class="alert alert-info mt-4" role="alert">
+            <h4 class="alert-heading">Résultat :</h4>
+            <p>{{ result }}</p>
+        </div>
     {% endif %}
+</div>
+
+<script>
+    document.getElementById("attackForm").addEventListener("submit", function() {
+        document.getElementById("loadingMessage").style.display = "block";
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,68 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Traffic Monitor</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        form {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            font-size: 16px;
-            margin-bottom: 10px;
-            display: block;
-        }
-        select, input[type="number"], button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Analyseur de Paquets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Network Traffic Monitor</h1>
-    <form method="POST" action="/capture">
-        <label for="interface">Select Interface:</label>
-        <select name="interface" id="interface">
-            {% for interface in interfaces %}
-                <option value="{{ interface }}">{{ interface }}</option>
-            {% endfor %}
-        </select>
-        
-        <label for="duration">Capture Duration (seconds):</label>
-        <input type="number" name="duration" id="duration" min="1" required>
-        
-        <button type="submit">Start Capture</button>
-    </form>
+    <div class="container mt-5">
+        <h1 class="text-center">Analyseur de Paquets Réseau</h1>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="interface" class="form-label">Sélectionnez une interface réseau :</label>
+                <select name="interface" id="interface" class="form-select" required>
+                    {% for iface in interfaces %}
+                        <option value="{{ iface }}">{{ iface }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="duration" class="form-label">Durée de capture (en secondes) :</label>
+                <input type="number" name="duration" id="duration" class="form-control" min="1" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Démarrer la capture</button>
+        </form>
+
+        {% if packets %}
+            <hr>
+            <h2 class="text-center">Résultats de la Capture</h2>
+            {% if packets[0].error %}
+                <div class="alert alert-danger">{{ packets[0].error }}</div>
+            {% else %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Temps (s)</th>
+                            <th>Source</th>
+                            <th>Destination</th>
+                            <th>Protocole</th>
+                            <th>Info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for packet in packets %}
+                            <tr>
+                                <td>{{ packet.no }}</td>
+                                <td>{{ packet.time }}</td>
+                                <td>{{ packet.src }}</td>
+                                <td>{{ packet.dst }}</td>
+                                <td>{{ packet.protocol }}</td>
+                                <td>{{ packet.info }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
