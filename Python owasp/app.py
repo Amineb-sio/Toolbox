@@ -3,55 +3,75 @@ import requests
 import time
 
 app = Flask(__name__)
-ZAP_API_KEY = "tonapikey"
-ZAP_URL = "http://127.0.0.1:8080"
+ZAP_API_URL = "http://127.0.0.1:8080"
+API_KEY = "monapikey"
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/start_scan', methods=['GET'])
+@app.route('/start_scan', methods=['POST'])
 def start_scan():
-    target_url = request.args.get('url')
-    scan_type = request.args.get('type')
-    
+    target_url = request.form.get('url')
+
     if not target_url:
         return jsonify({"error": "URL non spécifiée"})
-    
-    # Lancer le scan selon le type
-    if scan_type == "passif":
-        scan_url = f"{ZAP_URL}/JSON/spider/action/scan/?apikey={ZAP_API_KEY}&url={target_url}&recurse=True"
-    else:
-        scan_url = f"{ZAP_URL}/JSON/ascan/action/scan/?apikey={ZAP_API_KEY}&url={target_url}"
-    
-    response = requests.get(scan_url)
-    scan_id = response.json().get("scan")
-    
-    if not scan_id:
-        return jsonify({"error": "Impossible de lancer le scan"})
-    
-    # Vérifier l'avancement du scan
-    status_url = f"{ZAP_URL}/JSON/spider/view/status/?apikey={ZAP_API_KEY}&scanId={scan_id}"
+
+    print(f"DEBUG - Lancement du scan sur {target_url} via OWASP ZAP")
+
+    # Vérifier si l'URL est bien ajoutée
+    requests.get(f"{ZAP_API_URL}/JSON/core/action/accessUrl/?apikey={API_KEY}&url={target_url}")
+
+    # Lancer un Spider
+    spider_url = f"{ZAP_API_URL}/JSON/spider/action/scan/?apikey={API_KEY}&url={target_url}"
+    spider_response = requests.get(spider_url)
+
+    if spider_response.status_code != 200:
+        return jsonify({"error": "Échec du lancement du Spider", "details": spider_response.text})
+
+    spider_id = spider_response.json().get("scan")
+
+    # Attendre la fin du Spider
     while True:
-        status = requests.get(status_url).json().get("status")
+        status = requests.get(f"{ZAP_API_URL}/JSON/spider/view/status/?apikey={API_KEY}&scanId={spider_id}").json().get("status")
         if status == "100":
             break
-        time.sleep(5)
-    
+        time.sleep(2)
+
+    # Lancer le scan actif
+    scan_url = f"{ZAP_API_URL}/JSON/ascan/action/scan/?apikey={API_KEY}&url={target_url}&recurse=true"
+    scan_response = requests.get(scan_url)
+
+    if scan_response.status_code != 200:
+        return jsonify({"error": "Échec du lancement du scan actif", "details": scan_response.text})
+
+    scan_id = scan_response.json().get("scan")
+
+    # Attendre la fin du scan actif
+    while True:
+        status = requests.get(f"{ZAP_API_URL}/JSON/ascan/view/status/?apikey={API_KEY}&scanId={scan_id}").json().get("status")
+        if status == "100":
+            break
+        time.sleep(2)
+
     return jsonify({"message": "Scan terminé", "scan_id": scan_id})
 
 @app.route('/get_results', methods=['GET'])
 def get_results():
-    alerts_url = f"{ZAP_URL}/JSON/alert/view/alerts/?apikey={ZAP_API_KEY}"
-    alerts = requests.get(alerts_url).json().get("alerts", [])
-    return jsonify({"alerts": alerts})
+    alerts_url = f"{ZAP_API_URL}/JSON/alert/view/alerts/?apikey={API_KEY}"
+    response = requests.get(alerts_url)
 
-@app.route('/download_report', methods=['GET'])
-def download_report():
-    report_type = request.args.get('type')
-    report_url = f"{ZAP_URL}/OTHER/core/other/report/?apikey={ZAP_API_KEY}&format={report_type}"
-    response = requests.get(report_url)
-    return response.text
+    if response.status_code != 200:
+        return jsonify({"error": "Impossible de récupérer les résultats", "details": response.text})
+
+    alerts = response.json().get("alerts", [])
+
+    for alert in alerts:
+        vuln_name = alert.get("name", "Inconnue").replace(" ", "+")
+        alert["link"] = f"https://www.cvedetails.com/google-search-results.php?q={vuln_name}"
+        alert["location"] = alert.get("url", "Non spécifié")
+
+    return jsonify({"alerts": alerts})
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5004)

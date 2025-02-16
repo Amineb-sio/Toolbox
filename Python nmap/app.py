@@ -43,7 +43,7 @@ def run_nmap_scan(target_ip, ports):
 
     try:
         # Commande Nmap avec sudo pour obtenir les privilèges nécessaires
-        cmd = f"sudo nmap -sC -sV -p {ports} {target_ip}"
+        cmd = f"sudo nmap -sC -sV --script ssl-enum-ciphers,http-title -p {ports} {target_ip}"
         print(f"🔍 Exécution de Nmap : {cmd}")  # Debugging
 
         # Lancer le scan Nmap avec les privilèges sudo

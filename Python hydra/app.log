@@ -8,11 +8,5 @@
 [33mPress CTRL+C to quit[0m
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 574-271-398
-192.168.47.1 - - [03/Feb/2025 16:50:55] "GET / HTTP/1.1" 200 -
-192.168.47.1 - - [03/Feb/2025 16:52:26] "POST / HTTP/1.1" 200 -
-192.168.47.1 - - [03/Feb/2025 16:53:40] "GET / HTTP/1.1" 200 -
-192.168.47.1 - - [03/Feb/2025 16:53:41] "GET / HTTP/1.1" 200 -
-192.168.47.1 - - [03/Feb/2025 16:53:45] "GET / HTTP/1.1" 200 -
-192.168.47.1 - - [03/Feb/2025 16:54:02] "POST / HTTP/1.1" 200 -
-192.168.47.1 - - [03/Feb/2025 16:54:22] "POST / HTTP/1.1" 200 -
+ * Debugger PIN: 107-509-529
+🚀 Serveur lancé sur http://0.0.0.0:5011
