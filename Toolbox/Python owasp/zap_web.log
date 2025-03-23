@@ -1,0 +1,1361 @@
+2025-03-19 18:16:37,528 - werkzeug - WARNING -  * Debugger is active!
+2025-03-19 18:16:37,531 - werkzeug - INFO -  * Debugger PIN: 900-719-238
+2025-03-19 18:18:26,442 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.20:5000
+2025-03-19 18:18:26,442 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-19 18:18:26,444 - werkzeug - INFO -  * Restarting with stat
+2025-03-19 18:18:26,806 - werkzeug - WARNING -  * Debugger is active!
+2025-03-19 18:18:26,807 - werkzeug - INFO -  * Debugger PIN: 900-719-238
+2025-03-19 18:18:42,386 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.20:5000
+2025-03-19 18:18:42,386 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-19 18:18:42,387 - werkzeug - INFO -  * Restarting with stat
+2025-03-19 18:18:42,736 - werkzeug - WARNING -  * Debugger is active!
+2025-03-19 18:18:42,737 - werkzeug - INFO -  * Debugger PIN: 900-719-238
+2025-03-19 18:18:53,209 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:18:53] "GET / HTTP/1.1" 200 -
+2025-03-19 18:18:53,355 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-19 18:18:53,966 - zap_web - INFO - ZAP est accessible (version 2.16.0)
+2025-03-19 18:18:53,966 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:18:53] "GET /check_zap HTTP/1.1" 200 -
+2025-03-19 18:18:58,197 - zap_web - INFO - Lancement du scan sur http://testphp.vulnweb.com/ via OWASP ZAP
+2025-03-19 18:18:58,198 - zap_web - INFO - Ajout de l'URL au scope: http://testphp.vulnweb.com/
+2025-03-19 18:18:58,412 - zap_web - WARNING - Échec de l'ajout de l'URL au scope (méthode 1)
+2025-03-19 18:18:58,436 - zap_web - INFO - Création du contexte 'ZAPWebContext'
+2025-03-19 18:18:58,699 - zap_web - INFO - Ajout de l'URL au contexte: http://testphp.vulnweb.com/.*
+2025-03-19 18:18:58,771 - zap_web - INFO - URL ajoutée au contexte avec succès (méthode 2)
+2025-03-19 18:18:58,859 - zap_web - INFO - Options de scan configurées avec succès
+2025-03-19 18:18:58,859 - zap_web - INFO - Lancement du Spider sur http://testphp.vulnweb.com/
+2025-03-19 18:18:58,952 - zap_web - INFO - Spider lancé avec succès, ID: 0
+2025-03-19 18:19:00,954 - zap_web - INFO - Lancement du scan actif sur http://testphp.vulnweb.com/
+2025-03-19 18:19:01,109 - zap_web - INFO - Scan actif lancé avec succès, ID: 0
+2025-03-19 18:19:01,111 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:01] "POST /start_scan HTTP/1.1" 200 -
+2025-03-19 18:19:03,210 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:03,218 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:03,218 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:03,233 - zap_web - INFO - Statut du scan actif: 1%
+2025-03-19 18:19:03,233 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:03] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:05,297 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:05,305 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:05,305 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:05,310 - zap_web - INFO - Statut du scan actif: 4%
+2025-03-19 18:19:05,311 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:05] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:06,134 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:06,580 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:19:06,584 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:19:06,589 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:06] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:19:07,327 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:07,333 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:07,333 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:07,338 - zap_web - INFO - Statut du scan actif: 7%
+2025-03-19 18:19:07,338 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:07] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:09,346 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:09,354 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:09,354 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:09,362 - zap_web - INFO - Statut du scan actif: 11%
+2025-03-19 18:19:09,363 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:09] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:11,122 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:11,249 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:19:11,260 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:19:11,266 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:11] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:19:11,390 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:11,422 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:11,423 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:11,432 - zap_web - INFO - Statut du scan actif: 14%
+2025-03-19 18:19:11,434 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:11] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:13,410 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:13,417 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:13,417 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:13,429 - zap_web - INFO - Statut du scan actif: 19%
+2025-03-19 18:19:13,430 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:13] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:15,531 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:15,541 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:15,541 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:15,550 - zap_web - INFO - Statut du scan actif: 23%
+2025-03-19 18:19:15,550 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:15] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:16,152 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:16,288 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:19:16,295 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:19:16,297 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:16] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:19:17,561 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:17,566 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:17,567 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:17,577 - zap_web - INFO - Statut du scan actif: 27%
+2025-03-19 18:19:17,579 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:17] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:19,563 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:19,578 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:19,578 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:19,584 - zap_web - INFO - Statut du scan actif: 33%
+2025-03-19 18:19:19,585 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:19] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:21,141 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:21,284 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:19:21,320 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:19:21,331 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:21] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:19:21,582 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:21,600 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:21,600 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:21,606 - zap_web - INFO - Statut du scan actif: 38%
+2025-03-19 18:19:21,607 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:21] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:23,661 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:23,694 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:23,694 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:23,722 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:23,724 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:23] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:25,670 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:25,691 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:25,693 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:25,741 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:25,742 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:25] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:26,150 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:27,086 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:19:27,116 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:19:27,121 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:27] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:19:27,705 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:27,733 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:27,733 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:27,791 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:27,792 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:27] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:29,708 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:29,729 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:29,729 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:29,754 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:29,755 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:29] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:32,598 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:32,609 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:32,838 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:32,839 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:32,952 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:32,956 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:32] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:33,777 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:33,854 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:33,855 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:35,851 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:35,889 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:35,889 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:35,995 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:36,004 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:36] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:36,853 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:38,393 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:39,909 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:39,931 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:44,689 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:19:44,697 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:19:45,179 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:45] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:19:45,165 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:45] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:47,688 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:19:47,939 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:47] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:19:50,498 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:19:51,762 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:51] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:52,836 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:54,442 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:55,049 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:55,048 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:55,328 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:55,210 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:56,989 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:56,993 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:57,279 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:57,267 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:57,296 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:57,297 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:57,297 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:57,295 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:57,298 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:57,315 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:57] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:57,346 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:57,347 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:57] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:57,355 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:19:57,357 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:19:57] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:19:57,425 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:57,444 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:19:57,470 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:19:57,623 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:57,627 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:19:57,627 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:19:57,627 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:01,239 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:20:01,361 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:01] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:02,107 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:04,543 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:20:04,473 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:04,735 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:04,749 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:04] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:20:05,919 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:20:06,031 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:06] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:20:06,043 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:20:07,692 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:20:07,781 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:20:07,794 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:07,656 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:20:07,872 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:07] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:07,884 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:07] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:20:07,889 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:07] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:08,581 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:08,754 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:20:09,231 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:09,448 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:09,618 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:09,622 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:09,624 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:09,623 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:09,673 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:16,080 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:20:16,219 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:16] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:16,542 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:20:16,840 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:16] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:20:17,813 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:20:17,837 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:17,974 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:17] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:18,213 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:20:18,801 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:19,313 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:20:20,289 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:20:20,274 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:20:20,452 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:20] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:20:20,492 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:20] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:20,501 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:20,501 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:20,505 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:20] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:21,350 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:23,270 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:23,275 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:24,577 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:20:24,595 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:24] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:27,300 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:20:28,201 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:20:28,172 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:28,392 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:28,369 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:20:28,396 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:28] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:20:28,467 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:28] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:29,408 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:20:29,900 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:30,275 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:30] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:31,564 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:31,564 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:38,628 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:20:38,922 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:38] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:20:41,659 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:20:41,854 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:41] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:20:58,780 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:20:59,411 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:20:59,411 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:20:59,821 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:20:59,841 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:20:59] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:21:12,164 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:21:12,443 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:21:12,445 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:21:13,214 - zap_web - INFO - Statut du scan actif: 39%
+2025-03-19 18:21:13,279 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:21:13] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:22:31,136 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.20:5000
+2025-03-19 18:22:31,137 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-19 18:22:31,139 - werkzeug - INFO -  * Restarting with stat
+2025-03-19 18:22:31,576 - werkzeug - WARNING -  * Debugger is active!
+2025-03-19 18:22:31,576 - werkzeug - INFO -  * Debugger PIN: 140-140-096
+2025-03-19 18:22:38,245 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:38] "GET / HTTP/1.1" 200 -
+2025-03-19 18:22:39,260 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-19 18:22:39,354 - zap_web - INFO - ZAP est accessible (version 2.16.0)
+2025-03-19 18:22:39,355 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:39] "GET /check_zap HTTP/1.1" 200 -
+2025-03-19 18:22:41,689 - zap_web - INFO - Lancement du scan sur http://testphp.vulnweb.com/ via OWASP ZAP
+2025-03-19 18:22:41,689 - zap_web - INFO - Ajout de l'URL au scope: http://testphp.vulnweb.com/
+2025-03-19 18:22:41,791 - zap_web - WARNING - Échec de l'ajout de l'URL au scope (méthode 1)
+2025-03-19 18:22:41,835 - zap_web - INFO - Création du contexte 'ZAPWebContext'
+2025-03-19 18:22:42,026 - zap_web - INFO - Ajout de l'URL au contexte: http://testphp.vulnweb.com/.*
+2025-03-19 18:22:42,121 - zap_web - INFO - URL ajoutée au contexte avec succès (méthode 2)
+2025-03-19 18:22:42,192 - zap_web - INFO - Options de scan configurées avec succès
+2025-03-19 18:22:42,192 - zap_web - INFO - Lancement du Spider sur http://testphp.vulnweb.com/
+2025-03-19 18:22:42,242 - zap_web - INFO - Spider lancé avec succès, ID: 0
+2025-03-19 18:22:44,243 - zap_web - INFO - Lancement du scan actif sur http://testphp.vulnweb.com/
+2025-03-19 18:22:44,340 - zap_web - INFO - Scan actif lancé avec succès, ID: 0
+2025-03-19 18:22:44,341 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:44] "POST /start_scan HTTP/1.1" 200 -
+2025-03-19 18:22:46,377 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:22:46,387 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:22:46,388 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:22:46,395 - zap_web - INFO - Statut du scan actif: 0%
+2025-03-19 18:22:46,395 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:46] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:22:48,403 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:22:48,433 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:22:48,433 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:22:48,442 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:22:48,443 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:48] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:22:49,378 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:22:49,613 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:22:49,621 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:22:49,626 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:49] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:22:50,403 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:22:50,417 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:22:50,418 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:22:50,425 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:22:50,425 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:50] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:22:52,431 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:22:52,438 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:22:52,439 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:22:52,444 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:22:52,445 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:52] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:22:55,126 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:22:55,141 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:22:55,153 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:22:55,153 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:22:55,172 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:22:55,173 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:55] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:22:55,493 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:22:55,532 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:22:55,535 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:55] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:22:57,126 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:22:57,139 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:22:57,140 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:22:57,150 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:22:57,150 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:57] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:22:59,134 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:22:59,148 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:22:59,148 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:22:59,153 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:22:59,154 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:22:59] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:00,150 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:00,242 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:23:00,248 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:00,252 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:00] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:01,168 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:01,178 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:01,178 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:01,185 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:23:01,186 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:01] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:03,193 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:03,197 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:03,198 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:03,202 - zap_web - INFO - Statut du scan actif: 2%
+2025-03-19 18:23:03,203 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:03] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:05,127 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:05,205 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:23:05,218 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:05,223 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:05] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:06,130 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:06,138 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:06,138 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:06,143 - zap_web - INFO - Statut du scan actif: 4%
+2025-03-19 18:23:06,144 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:06] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:08,129 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:08,135 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:08,136 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:08,141 - zap_web - INFO - Statut du scan actif: 4%
+2025-03-19 18:23:08,141 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:08] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:10,344 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:10,347 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:10,354 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:10,354 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:10,360 - zap_web - INFO - Statut du scan actif: 4%
+2025-03-19 18:23:10,363 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:10] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:10,432 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:23:10,441 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:10,444 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:10] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:12,487 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:12,492 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:12,492 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:12,496 - zap_web - INFO - Statut du scan actif: 4%
+2025-03-19 18:23:12,497 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:12] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:14,478 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:14,483 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:14,483 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:14,487 - zap_web - INFO - Statut du scan actif: 4%
+2025-03-19 18:23:14,488 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:14] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:15,481 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:15,580 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:23:15,600 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:15,604 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:15] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:16,479 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:16,488 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:16,488 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:16,492 - zap_web - INFO - Statut du scan actif: 7%
+2025-03-19 18:23:16,494 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:16] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:18,483 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:18,488 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:18,488 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:18,493 - zap_web - INFO - Statut du scan actif: 11%
+2025-03-19 18:23:18,494 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:18] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:20,499 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:20,507 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:20,515 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:20,516 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:20,522 - zap_web - INFO - Statut du scan actif: 12%
+2025-03-19 18:23:20,524 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:20] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:20,583 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:23:20,588 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:20,590 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:20] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:22,609 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:22,616 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:22,616 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:22,621 - zap_web - INFO - Statut du scan actif: 14%
+2025-03-19 18:23:22,623 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:22] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:24,609 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:24,614 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:24,614 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:24,618 - zap_web - INFO - Statut du scan actif: 14%
+2025-03-19 18:23:24,619 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:24] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:25,612 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:25,703 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:23:25,714 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:25,717 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:25] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:26,681 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:26,690 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:26,690 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:26,696 - zap_web - INFO - Statut du scan actif: 14%
+2025-03-19 18:23:26,696 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:26] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:28,712 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:28,720 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:28,721 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:28,727 - zap_web - INFO - Statut du scan actif: 14%
+2025-03-19 18:23:28,728 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:28] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:30,708 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:30,711 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:30,716 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:30,716 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:30,720 - zap_web - INFO - Statut du scan actif: 15%
+2025-03-19 18:23:30,721 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:30] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:30,780 - zap_web - INFO - Nombre d'alertes récupérées: 163
+2025-03-19 18:23:30,784 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:30,786 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:30] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:32,839 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:32,845 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:32,845 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:32,849 - zap_web - INFO - Statut du scan actif: 16%
+2025-03-19 18:23:32,849 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:32] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:34,818 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:34,823 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:34,823 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:34,827 - zap_web - INFO - Statut du scan actif: 17%
+2025-03-19 18:23:34,828 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:34] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:35,825 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:35,929 - zap_web - INFO - Nombre d'alertes récupérées: 166
+2025-03-19 18:23:35,939 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:35,942 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:35] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:36,822 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:36,837 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:36,837 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:36,844 - zap_web - INFO - Statut du scan actif: 19%
+2025-03-19 18:23:36,845 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:36] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:38,825 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:38,832 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:38,832 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:38,837 - zap_web - INFO - Statut du scan actif: 20%
+2025-03-19 18:23:38,838 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:38] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:40,820 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:40,919 - zap_web - INFO - Nombre d'alertes récupérées: 167
+2025-03-19 18:23:40,930 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:40,936 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:40] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:41,824 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:41,834 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:41,834 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:41,844 - zap_web - INFO - Statut du scan actif: 23%
+2025-03-19 18:23:41,845 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:41] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:43,823 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:43,828 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:43,828 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:43,832 - zap_web - INFO - Statut du scan actif: 26%
+2025-03-19 18:23:43,833 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:43] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:45,823 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:45,831 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:45,837 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:45,837 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:45,843 - zap_web - INFO - Statut du scan actif: 27%
+2025-03-19 18:23:45,843 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:45] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:45,932 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:23:45,944 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:45,951 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:45] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:47,990 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:47,999 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:47,999 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:48,006 - zap_web - INFO - Statut du scan actif: 27%
+2025-03-19 18:23:48,007 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:48] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:49,975 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:49,980 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:49,980 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:49,984 - zap_web - INFO - Statut du scan actif: 27%
+2025-03-19 18:23:49,985 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:49] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:50,977 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:51,060 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:23:51,065 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:51,068 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:51] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:51,979 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:51,983 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:51,983 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:51,987 - zap_web - INFO - Statut du scan actif: 27%
+2025-03-19 18:23:51,988 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:51] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:53,980 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:53,984 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:53,984 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:53,988 - zap_web - INFO - Statut du scan actif: 28%
+2025-03-19 18:23:53,988 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:53] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:55,978 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:23:56,047 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:23:56,052 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:23:56,055 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:56] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:23:56,980 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:56,985 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:56,985 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:56,988 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:23:56,989 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:56] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:23:59,014 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:23:59,019 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:23:59,019 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:23:59,023 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:23:59,023 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:23:59] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:01,018 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:01,020 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:01,026 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:01,026 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:01,032 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:01,033 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:01] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:01,099 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:01,108 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:01,110 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:01] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:03,166 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:03,178 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:03,179 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:03,183 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:03,184 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:03] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:05,150 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:05,160 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:05,161 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:05,165 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:05,166 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:05] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:06,150 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:06,224 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:06,234 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:06,237 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:06] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:07,164 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:07,180 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:07,180 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:07,183 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:07,184 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:07] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:09,164 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:09,173 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:09,173 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:09,178 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:09,179 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:09] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:11,158 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:11,242 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:11,253 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:11,257 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:11] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:12,158 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:12,184 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:12,184 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:12,189 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:12,189 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:12] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:14,149 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:14,155 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:14,155 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:14,158 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:14,159 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:14] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:16,152 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:16,225 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:16,236 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:16,239 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:16] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:17,150 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:17,159 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:17,159 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:17,162 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:17,163 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:17] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:19,151 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:19,154 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:19,154 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:19,158 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:19,159 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:19] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:21,151 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:21,218 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:21,228 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:21,231 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:21] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:22,154 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:22,170 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:22,170 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:22,175 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:22,176 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:22] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:24,158 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:24,168 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:24,169 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:24,177 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:24,178 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:24] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:26,156 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:26,233 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:26,242 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:26,246 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:26] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:27,157 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:27,181 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:27,181 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:27,185 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:27,186 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:27] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:29,156 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:29,164 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:29,164 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:29,170 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:29,171 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:29] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:31,154 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:31,226 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:31,236 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:31,240 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:31] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:32,157 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:32,180 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:32,180 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:32,184 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:32,185 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:32] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:34,155 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:34,161 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:34,161 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:34,166 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:34,167 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:34] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:36,154 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:36,238 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:36,248 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:36,252 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:36] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:37,153 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:37,164 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:37,164 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:37,168 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:37,168 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:37] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:39,155 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:39,162 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:39,162 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:39,166 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:39,167 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:39] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:41,158 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:41,160 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:41,166 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:41,166 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:41,171 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:41,173 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:41] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:41,240 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:41,250 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:41,254 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:41] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:43,316 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:43,326 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:43,326 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:43,330 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:43,331 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:43] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:45,300 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:45,307 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:45,307 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:45,313 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:45,314 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:45] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:46,302 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:46,373 - zap_web - INFO - Nombre d'alertes récupérées: 171
+2025-03-19 18:24:46,385 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:46,387 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:46] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:47,295 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:47,313 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:47,314 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:47,318 - zap_web - INFO - Statut du scan actif: 29%
+2025-03-19 18:24:47,319 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:47] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:49,293 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:49,300 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:49,301 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:49,306 - zap_web - INFO - Statut du scan actif: 31%
+2025-03-19 18:24:49,308 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:49] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:51,306 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:51,313 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:51,319 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:51,319 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:51,323 - zap_web - INFO - Statut du scan actif: 31%
+2025-03-19 18:24:51,324 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:51] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:51,382 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:24:51,395 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:51,399 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:51] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:53,436 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:53,445 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:53,445 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:53,449 - zap_web - INFO - Statut du scan actif: 31%
+2025-03-19 18:24:53,449 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:53] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:55,425 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:55,433 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:55,433 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:55,439 - zap_web - INFO - Statut du scan actif: 31%
+2025-03-19 18:24:55,441 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:55] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:56,428 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:24:56,496 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:24:56,505 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:24:56,509 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:56] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:24:57,426 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:57,437 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:57,437 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:57,440 - zap_web - INFO - Statut du scan actif: 31%
+2025-03-19 18:24:57,441 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:57] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:24:59,441 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:24:59,450 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:24:59,450 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:24:59,454 - zap_web - INFO - Statut du scan actif: 33%
+2025-03-19 18:24:59,455 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:24:59] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:01,426 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:25:01,508 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:25:01,538 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:25:01,544 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:01] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:25:02,428 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:02,439 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:02,439 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:02,444 - zap_web - INFO - Statut du scan actif: 33%
+2025-03-19 18:25:02,445 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:02] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:04,614 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:04,619 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:04,619 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:04,625 - zap_web - INFO - Statut du scan actif: 35%
+2025-03-19 18:25:04,625 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:04] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:06,425 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:25:06,501 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:25:06,511 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:25:06,514 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:06] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:25:07,426 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:07,436 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:07,436 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:07,440 - zap_web - INFO - Statut du scan actif: 36%
+2025-03-19 18:25:07,441 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:07] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:09,427 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:09,431 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:09,431 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:09,435 - zap_web - INFO - Statut du scan actif: 37%
+2025-03-19 18:25:09,436 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:09] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:11,426 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:25:11,508 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:25:11,521 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:25:11,526 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:11] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:25:12,427 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:12,436 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:12,436 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:12,440 - zap_web - INFO - Statut du scan actif: 38%
+2025-03-19 18:25:12,440 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:12] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:14,427 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:14,431 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:14,431 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:14,435 - zap_web - INFO - Statut du scan actif: 38%
+2025-03-19 18:25:14,436 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:14] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:16,428 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:25:16,496 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:25:16,505 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:25:16,507 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:16] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:25:17,432 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:17,448 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:17,448 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:17,456 - zap_web - INFO - Statut du scan actif: 38%
+2025-03-19 18:25:17,458 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:17] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:19,431 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:19,444 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:19,444 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:19,453 - zap_web - INFO - Statut du scan actif: 38%
+2025-03-19 18:25:19,458 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:19] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:21,436 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:25:21,449 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:21,478 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:21,478 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:21,491 - zap_web - INFO - Statut du scan actif: 38%
+2025-03-19 18:25:21,492 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:21] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:21,826 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:25:21,887 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:25:21,890 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:21] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:25:23,509 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:23,568 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:23,568 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:25,894 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:26,413 - zap_web - INFO - Statut du Spider: 100%
+2025-03-19 18:25:26,431 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-19 18:25:28,750 - zap_web - INFO - Statut du scan actif: 38%
+2025-03-19 18:25:28,782 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:28] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:33,671 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:25:33,689 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:33] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:25:40,677 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:25:43,115 - zap_web - INFO - Nombre d'alertes récupérées: 172
+2025-03-19 18:25:43,255 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com
+2025-03-19 18:25:43,356 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:43] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:25:48,519 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:25:58,886 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:25:59,052 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:25:59] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-19 18:26:09,141 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-19 18:26:19,450 - zap_web - ERROR - Délai d'attente dépassé lors de la récupération des résultats
+2025-03-19 18:26:19,519 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:26:19] "GET /get_results HTTP/1.1" 200 -
+2025-03-19 18:26:22,299 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-19 18:26:33,328 - zap_web - ERROR - Délai d'attente dépassé lors de la vérification du statut
+2025-03-19 18:26:35,529 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2025 18:26:35] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-22 13:03:33,584 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-22 13:03:33,589 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-22 13:03:33,590 - werkzeug - INFO -  * Restarting with stat
+2025-03-22 13:03:33,855 - werkzeug - WARNING -  * Debugger is active!
+2025-03-22 13:03:33,855 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-03-22 13:13:58,759 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-22 13:13:58,762 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-22 13:13:58,763 - werkzeug - INFO -  * Restarting with stat
+2025-03-22 13:13:59,431 - werkzeug - WARNING -  * Debugger is active!
+2025-03-22 13:13:59,432 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-03-22 14:05:31,590 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-22 14:05:31,594 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-22 14:05:31,595 - werkzeug - INFO -  * Restarting with stat
+2025-03-22 14:05:32,036 - werkzeug - WARNING -  * Debugger is active!
+2025-03-22 14:05:32,036 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-03-23 09:54:51,649 - zap_web - INFO - Démarrage de ZAP en mode daemon...
+2025-03-23 09:54:51,665 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:54:53,667 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:54:55,667 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:54:57,668 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:54:59,669 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:01,669 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:03,670 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:05,671 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:07,672 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:09,672 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:11,673 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:13,674 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:15,674 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:17,675 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:19,676 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:21,676 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:23,677 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:25,677 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:27,678 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:29,679 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:31,679 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:33,680 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:35,681 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:37,682 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:39,684 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:41,684 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:43,685 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:45,686 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:47,687 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:49,688 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:51,689 - zap_web - ERROR - ZAP n'a pas démarré dans le délai imparti
+2025-03-23 09:55:51,699 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-23 09:55:51,699 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 09:55:51,700 - werkzeug - INFO -  * Restarting with stat
+2025-03-23 09:55:51,886 - zap_web - INFO - Démarrage de ZAP en mode daemon...
+2025-03-23 09:55:51,886 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:53,888 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:55,888 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:57,889 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:55:59,891 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:01,892 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:03,893 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:05,893 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:07,894 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:09,895 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:11,896 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:13,896 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:15,897 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:17,898 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:19,899 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:21,900 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:23,901 - zap_web - INFO - En attente du démarrage de ZAP...
+2025-03-23 09:56:38,771 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-23 09:56:38,780 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 09:56:38,781 - werkzeug - INFO -  * Restarting with stat
+2025-03-23 09:56:39,344 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 09:56:39,344 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-03-23 09:56:40,563 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:56:40] "GET / HTTP/1.1" 200 -
+2025-03-23 09:56:40,620 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 09:56:40,620 - zap_web - WARNING - ZAP n'est pas en cours d'exécution sur le port 8080
+2025-03-23 09:56:40,620 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:56:40] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 09:56:40,642 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:56:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-23 09:56:43,277 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 09:56:43,277 - zap_web - WARNING - ZAP n'est pas en cours d'exécution sur le port 8080
+2025-03-23 09:56:43,277 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:56:43] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 09:56:59,504 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 09:56:59,504 - zap_web - WARNING - ZAP n'est pas en cours d'exécution sur le port 8080
+2025-03-23 09:56:59,504 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:56:59] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 09:56:59,992 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 09:57:00,018 - zap_web - INFO - ZAP est accessible (version 2.9.0)
+2025-03-23 09:57:00,018 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:00] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 09:57:00,161 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 09:57:00,166 - zap_web - INFO - ZAP est accessible (version 2.9.0)
+2025-03-23 09:57:00,166 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:00] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 09:57:00,299 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 09:57:00,301 - zap_web - INFO - ZAP est accessible (version 2.9.0)
+2025-03-23 09:57:00,302 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:00] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 09:57:01,296 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:01] "GET / HTTP/1.1" 200 -
+2025-03-23 09:57:01,318 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 09:57:01,321 - zap_web - INFO - ZAP est accessible (version 2.9.0)
+2025-03-23 09:57:01,322 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:01] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 09:57:10,282 - zap_web - INFO - Lancement du scan sur http://testphp.vulnweb.com/ via OWASP ZAP
+2025-03-23 09:57:10,282 - zap_web - INFO - Ajout de l'URL au scope: http://testphp.vulnweb.com/
+2025-03-23 09:57:10,286 - zap_web - WARNING - Échec de l'ajout de l'URL au scope (méthode 1)
+2025-03-23 09:57:10,288 - zap_web - INFO - Création du contexte 'ZAPWebContext'
+2025-03-23 09:57:10,310 - zap_web - INFO - Ajout de l'URL au contexte: http://testphp.vulnweb.com/.*
+2025-03-23 09:57:10,329 - zap_web - INFO - URL ajoutée au contexte avec succès (méthode 2)
+2025-03-23 09:57:10,337 - zap_web - INFO - Options de scan configurées avec succès
+2025-03-23 09:57:10,338 - zap_web - INFO - Lancement du Spider sur http://testphp.vulnweb.com/
+2025-03-23 09:57:10,345 - zap_web - INFO - Spider lancé avec succès, ID: 0
+2025-03-23 09:57:12,346 - zap_web - INFO - Lancement du scan actif sur http://testphp.vulnweb.com/
+2025-03-23 09:57:12,359 - zap_web - INFO - Scan actif lancé avec succès, ID: 0
+2025-03-23 09:57:12,360 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:12] "POST /start_scan HTTP/1.1" 200 -
+2025-03-23 09:57:14,378 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:14,380 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:14,380 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:14,382 - zap_web - INFO - Statut du scan actif: 4%
+2025-03-23 09:57:14,382 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:14] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:16,382 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:16,383 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:16,384 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:16,385 - zap_web - INFO - Statut du scan actif: 5%
+2025-03-23 09:57:16,385 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:16] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:17,387 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:17,437 - zap_web - INFO - Nombre d'alertes récupérées: 138
+2025-03-23 09:57:17,438 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:17,439 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:17] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:18,388 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:18,389 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:18,389 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:18,390 - zap_web - INFO - Statut du scan actif: 5%
+2025-03-23 09:57:18,390 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:18] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:20,378 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:20,379 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:20,379 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:20,381 - zap_web - INFO - Statut du scan actif: 5%
+2025-03-23 09:57:20,381 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:20] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:22,385 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:22,386 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:22,387 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:22,387 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:22,388 - zap_web - INFO - Statut du scan actif: 10%
+2025-03-23 09:57:22,388 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:22] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:22,414 - zap_web - INFO - Nombre d'alertes récupérées: 138
+2025-03-23 09:57:22,416 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:22,417 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:22] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:24,383 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:24,385 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:24,385 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:24,386 - zap_web - INFO - Statut du scan actif: 10%
+2025-03-23 09:57:24,386 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:24] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:26,375 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:26,377 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:26,377 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:26,378 - zap_web - INFO - Statut du scan actif: 10%
+2025-03-23 09:57:26,378 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:26] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:27,378 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:27,401 - zap_web - INFO - Nombre d'alertes récupérées: 138
+2025-03-23 09:57:27,403 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:27,405 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:27] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:28,379 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:28,380 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:28,381 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:28,382 - zap_web - INFO - Statut du scan actif: 21%
+2025-03-23 09:57:28,382 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:28] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:30,380 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:30,382 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:30,382 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:30,384 - zap_web - INFO - Statut du scan actif: 23%
+2025-03-23 09:57:30,384 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:30] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:32,381 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:32,381 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:32,383 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:32,383 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:32,384 - zap_web - INFO - Statut du scan actif: 28%
+2025-03-23 09:57:32,384 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:32] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:32,401 - zap_web - INFO - Nombre d'alertes récupérées: 141
+2025-03-23 09:57:32,403 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:32,404 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:32] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:34,380 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:34,381 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:34,382 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:34,383 - zap_web - INFO - Statut du scan actif: 35%
+2025-03-23 09:57:34,383 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:34] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:36,382 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:36,383 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:36,383 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:36,385 - zap_web - INFO - Statut du scan actif: 40%
+2025-03-23 09:57:36,385 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:36] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:37,387 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:37,410 - zap_web - INFO - Nombre d'alertes récupérées: 141
+2025-03-23 09:57:37,412 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:37,413 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:37] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:38,388 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:38,390 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:38,390 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:38,391 - zap_web - INFO - Statut du scan actif: 48%
+2025-03-23 09:57:38,391 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:38] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:40,381 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:40,382 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:40,383 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:40,384 - zap_web - INFO - Statut du scan actif: 49%
+2025-03-23 09:57:40,384 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:40] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:42,378 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:42,378 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:42,380 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:42,380 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:42,381 - zap_web - INFO - Statut du scan actif: 49%
+2025-03-23 09:57:42,381 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:42] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:42,400 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:57:42,401 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:42,402 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:42] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:44,384 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:44,385 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:44,385 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:44,387 - zap_web - INFO - Statut du scan actif: 49%
+2025-03-23 09:57:44,387 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:44] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:46,386 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:46,387 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:46,387 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:46,388 - zap_web - INFO - Statut du scan actif: 49%
+2025-03-23 09:57:46,389 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:46] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:47,390 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:47,411 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:57:47,413 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:47,414 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:47] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:48,376 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:48,377 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:48,377 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:48,378 - zap_web - INFO - Statut du scan actif: 49%
+2025-03-23 09:57:48,379 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:48] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:50,382 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:50,383 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:50,383 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:50,385 - zap_web - INFO - Statut du scan actif: 49%
+2025-03-23 09:57:50,385 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:50] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:52,387 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:52,387 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:52,388 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:52,388 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:52,389 - zap_web - INFO - Statut du scan actif: 54%
+2025-03-23 09:57:52,390 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:52] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:52,407 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:57:52,408 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:52,409 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:52] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:54,389 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:54,390 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:54,390 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:54,391 - zap_web - INFO - Statut du scan actif: 55%
+2025-03-23 09:57:54,392 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:54] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:56,389 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:56,391 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:56,391 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:56,392 - zap_web - INFO - Statut du scan actif: 57%
+2025-03-23 09:57:56,392 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:56] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:57:57,389 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:57:57,408 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:57:57,410 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:57:57,411 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:57] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:57:58,386 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:57:58,388 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:57:58,388 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:57:58,389 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:57:58,389 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:57:58] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:00,379 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:00,381 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:00,381 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:00,382 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:58:00,383 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:00] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:02,379 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:02,380 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:02,381 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:02,381 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:02,382 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:58:02,382 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:02] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:02,402 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:02,403 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:02,404 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:02] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:04,380 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:04,382 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:04,382 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:04,383 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:58:04,383 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:04] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:06,382 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:06,384 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:06,384 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:06,385 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:58:06,385 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:06] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:07,385 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:07,406 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:07,408 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:07,409 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:07] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:08,386 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:08,387 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:08,387 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:08,388 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:58:08,389 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:08] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:10,384 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:10,386 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:10,386 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:10,387 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:58:10,387 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:10] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:12,389 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:12,390 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:12,391 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:12,391 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:12,392 - zap_web - INFO - Statut du scan actif: 60%
+2025-03-23 09:58:12,392 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:12] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:12,408 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:12,411 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:12,413 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:12] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:14,390 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:14,391 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:14,391 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:14,393 - zap_web - INFO - Statut du scan actif: 65%
+2025-03-23 09:58:14,393 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:14] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:16,385 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:16,387 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:16,387 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:16,388 - zap_web - INFO - Statut du scan actif: 71%
+2025-03-23 09:58:16,388 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:16] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:17,374 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:17,399 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:17,401 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:17,402 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:17] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:18,375 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:18,377 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:18,377 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:18,378 - zap_web - INFO - Statut du scan actif: 71%
+2025-03-23 09:58:18,378 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:18] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:20,381 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:20,383 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:20,383 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:20,384 - zap_web - INFO - Statut du scan actif: 71%
+2025-03-23 09:58:20,384 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:20] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:22,389 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:22,389 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:22,391 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:22,391 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:22,392 - zap_web - INFO - Statut du scan actif: 77%
+2025-03-23 09:58:22,392 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:22] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:22,408 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:22,409 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:22,410 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:22] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:24,375 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:24,376 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:24,377 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:24,378 - zap_web - INFO - Statut du scan actif: 83%
+2025-03-23 09:58:24,378 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:24] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:26,385 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:26,387 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:26,388 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:26,390 - zap_web - INFO - Statut du scan actif: 87%
+2025-03-23 09:58:26,390 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:26] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:27,388 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:27,407 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:27,408 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:27,409 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:27] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:28,388 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:28,389 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:28,389 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:28,391 - zap_web - INFO - Statut du scan actif: 88%
+2025-03-23 09:58:28,391 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:28] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:30,376 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:30,377 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:30,377 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:30,378 - zap_web - INFO - Statut du scan actif: 92%
+2025-03-23 09:58:30,379 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:30] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:32,381 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:32,381 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:32,383 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:32,383 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:32,384 - zap_web - INFO - Statut du scan actif: 94%
+2025-03-23 09:58:32,384 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:32] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:32,399 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:32,400 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:32,401 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:32] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:34,389 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:34,390 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:34,391 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:34,392 - zap_web - INFO - Statut du scan actif: 94%
+2025-03-23 09:58:34,392 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:34] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:36,378 - zap_web - INFO - Vérification du statut du Spider (ID: 0)
+2025-03-23 09:58:36,379 - zap_web - INFO - Statut du Spider: 100%
+2025-03-23 09:58:36,379 - zap_web - INFO - Vérification du statut du scan actif (ID: 0)
+2025-03-23 09:58:36,381 - zap_web - INFO - Statut du scan actif: 100%
+2025-03-23 09:58:36,381 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:36] "GET /scan_status?spider_id=0&scan_id=0 HTTP/1.1" 200 -
+2025-03-23 09:58:36,394 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:36,411 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:36,413 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:36,414 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:36] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:37,384 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:37,404 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:37,406 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:37,407 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:37] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:42,383 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:42,401 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:42,402 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:42,403 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:42] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:47,376 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:47,394 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:47,396 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:47,397 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:47] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:52,387 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:52,404 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:52,406 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:52,407 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:52] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:58:57,387 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:58:57,404 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:58:57,405 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:58:57,406 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:58:57] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:02,384 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:02,402 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:02,405 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:02,405 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:02] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:07,380 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:07,397 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:07,399 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:07,400 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:07] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:12,385 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:12,402 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:12,403 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:12,404 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:12] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:17,390 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:17,407 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:17,409 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:17,412 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:17] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:22,389 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:22,406 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:22,408 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:22,409 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:22] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:27,388 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:27,405 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:27,407 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:27,407 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:27] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:32,380 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:32,401 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:32,402 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:32,403 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:32] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:37,390 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:37,408 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:37,410 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:37,411 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:37] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:42,377 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:42,395 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:42,397 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:42,398 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:42] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:47,572 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:47,589 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:47,590 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:47,591 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:47] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:52,560 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:52,579 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:52,581 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:52,582 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:52] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 09:59:57,571 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 09:59:57,588 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 09:59:57,589 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 09:59:57,590 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 09:59:57] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:02,561 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:02,578 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:02,580 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:02,581 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:02] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:07,561 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:07,579 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:07,580 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:07,581 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:07] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:12,561 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:12,578 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:12,580 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:12,581 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:12] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:17,568 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:17,587 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:17,589 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:17,590 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:17] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:22,570 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:22,589 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:22,590 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:22,591 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:22] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:27,563 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:27,579 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:27,581 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:27,582 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:27] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:32,567 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:32,583 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:32,584 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:32,585 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:32] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:37,575 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:37,595 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:37,596 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:37,597 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:37] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:42,574 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:00:42,591 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:00:42,593 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:00:42,593 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:42] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:00:47,707 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:47] "GET / HTTP/1.1" 200 -
+2025-03-23 10:00:47,758 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 10:00:47,760 - zap_web - INFO - ZAP est accessible (version 2.9.0)
+2025-03-23 10:00:47,760 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:00:47] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 10:01:25,568 - zap_web - INFO - Récupération des alertes de sécurité
+2025-03-23 10:01:25,585 - zap_web - INFO - Nombre d'alertes récupérées: 143
+2025-03-23 10:01:25,586 - zap_web - INFO - Site cible identifié: http://testphp.vulnweb.com/
+2025-03-23 10:01:25,587 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:01:25] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:51:44,935 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-23 10:51:44,956 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 10:51:44,958 - werkzeug - INFO -  * Restarting with stat
+2025-03-23 10:51:45,298 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 10:51:45,299 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-03-23 10:52:25,637 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:52:25,637 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:52:25] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:53:25,653 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:53:25,654 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:53:25] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:54:25,654 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:54:25,654 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:54:25] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:13,489 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-23 10:55:13,490 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 10:55:13,490 - werkzeug - INFO -  * Restarting with stat
+2025-03-23 10:55:14,102 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 10:55:14,102 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-03-23 10:55:14,908 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:14,910 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:14] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:17,481 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:17,481 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:17] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:22,658 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:22,659 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:22] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:27,661 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:27,661 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:27] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:32,653 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:32,653 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:32] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:37,660 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:37,661 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:37] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:42,652 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:42,652 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:42] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:47,655 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:47,656 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:47] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:52,664 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:52,665 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:52] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:55:57,666 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:55:57,666 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:55:57] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:56:02,661 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:56:02,661 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:56:02] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:56:07,660 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:56:07,660 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:56:07] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:56:12,658 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:56:12,659 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:56:12] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:56:17,668 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:56:17,668 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:56:17] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:56:22,660 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:56:22,661 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:56:22] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:57:23,674 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:57:23,674 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:57:23] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:57:29,897 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:57:29,897 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:57:29] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 10:57:32,484 - zap_web - ERROR - ZAP n'est pas en cours d'exécution (récupération des résultats)
+2025-03-23 10:57:32,484 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 10:57:32] "GET /get_results HTTP/1.1" 200 -
+2025-03-23 12:22:06,428 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 12:22:06] "GET / HTTP/1.1" 200 -
+2025-03-23 12:22:06,457 - zap_web - INFO - Vérification de la connexion à ZAP
+2025-03-23 12:22:06,457 - zap_web - WARNING - ZAP n'est pas en cours d'exécution sur le port 8080
+2025-03-23 12:22:06,458 - werkzeug - INFO - 192.168.47.1 - - [23/Mar/2025 12:22:06] "GET /check_zap HTTP/1.1" 200 -
+2025-03-23 15:15:15,610 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-03-23 15:15:15,631 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 15:15:15,632 - werkzeug - INFO -  * Restarting with stat
+2025-03-23 15:15:16,110 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 15:15:16,111 - werkzeug - INFO -  * Debugger PIN: 134-977-019

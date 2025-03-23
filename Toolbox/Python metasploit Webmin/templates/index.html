@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webmin Exploitation Metasploit (CVE-2019-15107)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Style pour le terminal */
+        #terminal {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            overflow-y: auto;
+        }
+    </style>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+
+    <h1>Webmin Exploitation with Metasploit (CVE-2019-15107)</h1>
+
+    <div class="container">
+        <!-- Exploit Form -->
+        <h2>Exploit Webmin</h2>
+        <form action="/exploit" method="POST">
+            <div class="form-group">
+                <label for="LHOST">LHOST:</label>
+                <input type="text" id="LHOST" name="LHOST" placeholder="Enter LHOST">
+            </div>
+            <div class="form-group">
+                <label for="RHOST">RHOST:</label>
+                <input type="text" id="RHOST" name="RHOST" placeholder="Enter RHOST">
+            </div>
+            <button type="submit">Exploit Webmin</button>
+        </form>
+
+        <!-- Command input form -->
+        <h2>Command Input</h2>
+        <form id="commandForm">
+            <input type="text" id="command" placeholder="Enter command" required>
+            <button type="submit">Send Command</button>
+        </form>
+
+        <!-- Terminal -->
+        <div id="terminal"></div>
+    </div>
+
+    <script>
+        var socket = io.connect('http://{{ request.host }}');
+        var terminal = document.getElementById('terminal');
+        var commandForm = document.getElementById('commandForm');
+
+        // Écouter les sorties envoyées par le backend
+        socket.on('output', function(msg) {
+            terminal.innerHTML += msg + '<br>';
+            terminal.scrollTop = terminal.scrollHeight;  // Scroll vers le bas
+        });
+
+        // Gérer l'envoi de commandes
+        commandForm.onsubmit = function(event) {
+            event.preventDefault();
+            var command = document.getElementById('command').value;
+            
+            // Envoi de la commande au backend
+            fetch('/send_command', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'command': command
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            }).then(response => response.text())
+              .then(data => console.log(data));
+        };
+    </script>
+
+</body>
+</html>
