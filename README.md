@@ -20,7 +20,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 poetry --version
 ```
 
-## Installation des dépendances du projet
+## Installation des dépendances du projet 🔵
 
 ```bash
 # Installation des dépendances
@@ -30,7 +30,7 @@ poetry install
 poetry show
 ```
 
-## Configuration
+## Configuration 🌐
 
 Avant de lancer la toolbox, vous devez configurer votre adresse IP dans le fichier `main.py`.
 
@@ -42,13 +42,13 @@ ip a
 # Exemple: "http://192.168.1.10"
 ```
 
-## Lancement de la toolbox
+## Lancement de la toolbox 🛠️
 
 ```bash
 poetry run bash ./start_all.sh
 ```
 
-## Installation de Docker (pour les modules complémentaires)
+## Installation de Docker (pour les modules complémentaires) 🐳
 
 Si vous utilisez Kali Linux et que vous souhaitez tester les conteneurs avec certains outils :
 
@@ -66,7 +66,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
-## Utilisation des modules Docker
+## Utilisation des modules Docker 📦
 
 Pour les modules standard :
 
@@ -88,7 +88,7 @@ cd chemin/vers/module
 docker-compose up --build -d
 ```
 
-## Configuration du clavier français sur Kali Linux
+## Configuration du clavier français sur Kali Linux ⌨️
 
 ```bash
 # Méthode rapide
@@ -101,7 +101,7 @@ sudo dpkg-reconfigure keyboard-configuration
 # Valider les options suivantes avec Entrée
 ```
 
-## Tâches à réaliser
+## Tâches à réaliser ✅ 
 
 - Architecture
   - [ ] Concevoir l'architecture globale de la toolbox (Amine)
