@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPScan: WordPress Security Scanner</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding: 20px;
+            flex-direction: row;
+            overflow: hidden;
+        }
+        .main-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #005f73;
+            width: 700px;
+            max-width: 100%;
+            margin-right: 40px;
+            text-align: center;
+            overflow-y: auto;
+            height: calc(100vh - 40px);
+        }
+        h2 {
+            color: #005f73;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            font-weight: 500;
+            color: #333;
+            font-size: 16px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border: 2px solid #09B585;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #f8f9fa;
+        }
+        button {
+            background-color: #005f73;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+        }
+        button:hover {
+            background-color: #003f4d;
+        }
+        pre {
+            background: #f1f1f1;
+            color: #333;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+            overflow-x: auto;
+            margin-top: 30px;
+            border-left: 5px solid #09B585;
+            font-family: 'Courier New', Courier, monospace;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .export-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .export-buttons a {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .pdf-btn { background-color: #D9534F; }
+        .html-btn { background-color: #5BC0DE; }
+        .csv-btn { background-color: #5CB85C; }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <h2>WPScan: WordPress Security Scanner</h2>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="url">Entrez l'URL du site :</label>
+                <input type="text" id="url" name="url" placeholder="https://example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="enum_option">Sélectionnez une option d'analyse :</label>
+                <select name="enum_option" id="enum_option">
+                    <option value="ap">Plugins (Tous)</option>
+                    <option value="vp">Plugins (Vulnérables)</option>
+                    <option value="p">Plugins (Populaires)</option>
+                    <option value="at">Thèmes (Tous)</option>
+                    <option value="vt">Thèmes (Vulnérables)</option>
+                    <option value="t">Thèmes (Populaires)</option>
+                </select>
+            </div>
+
+            <button type="submit">Lancer WPScan</button>
+        </form>
+
+        {% if result %}
+            <pre>{{ result }}</pre>
+
+            <div class="export-buttons">
+                <a href="{{ url_for('export_report', format='pdf', filename=filename) }}" class="pdf-btn">Exporter en PDF</a>
+                <a href="{{ url_for('export_report', format='html', filename=filename) }}" class="html-btn">Exporter en HTML</a>
+                <a href="{{ url_for('export_report', format='csv', filename=filename) }}" class="csv-btn">Exporter en CSV</a>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

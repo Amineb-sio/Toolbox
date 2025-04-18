@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatisation du Pôle Sécurité</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 30px auto;
+            width: 200px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .tools-included {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .tools-included h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .tools-included ul {
+            padding-left: 20px;
+        }
+        .tools-included li {
+            margin-bottom: 8px;
+        }
+        .description {
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .alert {
+            background-color: #ffe6e6;
+            border-left: 4px solid #ff4d4d;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Automatisation du Pôle Sécurité</h1>
+        
+        <div class="description">
+            <p>
+                Cet outil permet d'automatiser les analyses de sécurité en combinant les fonctionnalités de Nmap, OWASP ZAP 
+                et Wireshark dans un flux de travail intégré. En quelques minutes, vous obtiendrez une analyse complète 
+                de la sécurité de votre cible.
+            </p>
+        </div>
+
+        <div class="tools-included">
+            <h3>Outils inclus dans l'automatisation :</h3>
+            <ul>
+                <li><strong>Nmap :</strong> Scan des ports et détection des services</li>
+                <li><strong>OWASP ZAP :</strong> Analyse des vulnérabilités d'applications web</li>
+                <li><strong>Wireshark/TCPDump :</strong> Analyse du trafic réseau</li>
+            </ul>
+        </div>
+
+        <div class="alert">
+            <p><strong>Note :</strong> Cette fonctionnalité nécessite que les outils Nmap, OWASP ZAP et TCPDump soient installés et correctement configurés sur le système.</p>
+        </div>
+
+        <h2>Configuration du scan</h2>
+        <form action="/run_security_scan" method="POST">
+            <div class="form-group">
+                <label for="target_ip">Adresse IP cible :</label>
+                <input type="text" id="target_ip" name="target_ip" placeholder="192.168.1.1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="target_url">URL cible pour analyse web :</label>
+                <input type="text" id="target_url" name="target_url" placeholder="https://exemple.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="ports">Ports à scanner (format Nmap) :</label>
+                <input type="text" id="ports" name="ports" placeholder="1-1000" value="1-1000">
+            </div>
+            
+            <div class="form-group">
+                <label for="interface">Interface réseau pour la capture :</label>
+                <input type="text" id="interface" name="interface" placeholder="eth0" value="eth0">
+            </div>
+            
+            <button type="submit" class="submit-btn">Lancer l'analyse automatisée</button>
+        </form>
+        
+        <a href="/" class="back-btn">← Retour à l'accueil</a>
+    </div>
+</body>
+</html>

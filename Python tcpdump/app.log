@@ -1,0 +1,8 @@
+2025-04-06 16:03:48,811 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
+2025-04-06 16:03:48,833 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'br-d629b6c8ba5a', 'br-d76048dc6c25', 'docker0', 'br-1d14353eaf70', 'br-a968b155674b', 'veth387592d@if20', 'veth8f7d17c@if24', 'veth53c7b65@if26']
+2025-04-06 16:03:48,840 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 16:03:49,414 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
+2025-04-06 16:03:49,418 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'br-d629b6c8ba5a', 'br-d76048dc6c25', 'docker0', 'br-1d14353eaf70', 'br-a968b155674b', 'veth387592d@if20', 'veth8f7d17c@if24', 'veth53c7b65@if26']
+2025-04-06 16:03:49,421 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 16:03:49,422 - werkzeug - INFO -  * Debugger PIN: 260-061-160
+(230192) wsgi starting up on http://0.0.0.0:5016

@@ -1,0 +1,3 @@
+installer subfinder :
+
+sudo apt install subfinder

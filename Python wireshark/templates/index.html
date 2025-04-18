@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyseur de Paquets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Analyseur de Paquets Réseau</h1>
+
+        <form method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="interface" class="form-label">Sélectionnez une interface réseau :</label>
+                <select name="interface" id="interface" class="form-select" required>
+                    {% for iface in interfaces %}
+                        <option value="{{ iface }}">{{ iface }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="duration" class="form-label">Durée de capture (en secondes) :</label>
+                <input type="number" name="duration" id="duration" class="form-control" min="1" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Démarrer la capture</button>
+        </form>
+
+        {% if packets %}
+            <hr>
+            <h2 class="text-center">Résultats de la Capture</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Temps (s)</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Protocole</th>
+                        <th>Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for packet in packets %}
+                        <tr>
+                            <td>{{ packet.no }}</td>
+                            <td>{{ packet.time }}</td>
+                            <td>{{ packet.src }}</td>
+                            <td>{{ packet.dst }}</td>
+                            <td>{{ packet.protocol }}</td>
+                            <td>{{ packet.info }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ url_for('export_pdf') }}" class="btn btn-danger">Exporter en PDF</a>
+            <a href="{{ url_for('export_csv') }}" class="btn btn-success">Exporter en CSV</a>
+            <a href="{{ url_for('export_html') }}" class="btn btn-warning">Exporter en HTML</a>
+        {% endif %}
+    </div>
+</body>
+</html>

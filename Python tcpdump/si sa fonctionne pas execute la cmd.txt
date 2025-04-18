@@ -1,0 +1,9 @@
+pkill -9 -f flask
+
+puis ensuite 
+
+pip install eventlet flask flask-socketio
+
+et 
+
+python app.py

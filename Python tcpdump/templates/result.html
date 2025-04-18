@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de Capture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #45b7d1;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --danger-color: #dc3545;
+            --success-color: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+        
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        
+        .card-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+        
+        .btn-danger:hover {
+            background-color: #bd2130;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
+        #packet-list {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-family: monospace;
+            background-color: #2b2b2b;
+            color: #f8f8f8;
+            border-radius: 4px;
+        }
+        
+        .packet {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #444;
+        }
+        
+        .packet:last-child {
+            border-bottom: none;
+        }
+        
+        .packet-timestamp {
+            color: #7a9cd3;
+            margin-right: 0.5rem;
+        }
+        
+        .packet-number {
+            color: #a5c261;
+            margin-right: 0.5rem;
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .meta-item i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .info-box {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-ethernet"></i> Capture de Paquets Réseau</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Résultats de la Capture</h2>
+            </div>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    <i class="fas fa-network-wired"></i>
+                    <span><strong>Interface:</strong> {{ interface }}</span>
+                </div>
+                
+                {% if filter %}
+                <div class="meta-item">
+                    <i class="fas fa-filter"></i>
+                    <span><strong>Filtre:</strong> {{ filter }}</span>
+                </div>
+                {% endif %}
+                
+                <div class="meta-item" id="status-indicator">
+                    <div class="loader"></div>
+                    <span>Capture en cours...</span>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="packet-count">0</div>
+                    <div class="stat-label">Paquets Capturés</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="duration">0s</div>
+                    <div class="stat-label">Durée</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="packets-per-second">0</div>
+                    <div class="stat-label">Paquets/Seconde</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p><i class="fas fa-info-circle"></i> Les paquets capturés apparaîtront ci-dessous en temps réel.</p>
+            </div>
+            
+            <div id="packet-list">
+                <!-- Les paquets seront ajoutés ici dynamiquement -->
+            </div>
+            
+            <div class="controls">
+                <button id="stop-btn" class="btn btn-danger">
+                    <i class="fas fa-stop"></i> Arrêter la Capture
+                </button>
+                
+                <button id="export-btn" class="btn btn-success" disabled>
+                    <i class="fas fa-file-export"></i> Exporter les Résultats
+                </button>
+                
+                <a href="/" class="btn">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const socket = io();
+            const packetList = document.getElementById('packet-list');
+            const packetCountElement = document.getElementById('packet-count');
+            const durationElement = document.getElementById('duration');
+            const packetsPerSecondElement = document.getElementById('packets-per-second');
+            const stopBtn = document.getElementById('stop-btn');
+            const exportBtn = document.getElementById('export-btn');
+            const statusIndicator = document.getElementById('status-indicator');
+            
+            let packetCount = 0;
+            let startTime = new Date();
+            let captureActive = true;
+            let captureId = '{{ capture_id }}';
+            
+            // Démarrer le compteur de durée
+            const durationInterval = setInterval(updateDuration, 1000);
+            
+            function updateDuration() {
+                if (!captureActive) return;
+                
+                const now = new Date();
+                const durationInSeconds = Math.round((now - startTime) / 1000);
+                durationElement.textContent = formatDuration(durationInSeconds);
+                
+                // Calculer les paquets par seconde
+                if (durationInSeconds > 0) {
+                    const pps = Math.round(packetCount / durationInSeconds);
+                    packetsPerSecondElement.textContent = pps;
+                }
+            }
+            
+            function formatDuration(seconds) {
+                if (seconds < 60) return seconds + 's';
+                
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = seconds % 60;
+                return `${minutes}m ${remainingSeconds}s`;
+            }
+            
+            // Recevoir les nouveaux paquets
+            socket.on('new_packet', function(data) {
+                if (data.capture_id !== captureId) return;
+                
+                packetCount++;
+                packetCountElement.textContent = packetCount;
+                
+                const packetDiv = document.createElement('div');
+                packetDiv.className = 'packet';
+                packetDiv.innerHTML = `
+                    <span class="packet-timestamp">[${data.timestamp}]</span>
+                    <span class="packet-number">#${data.count}</span>
+                    <span class="packet-data">${data.data}</span>
+                `;
+                
+                packetList.appendChild(packetDiv);
+                packetList.scrollTop = packetList.scrollHeight;
+            });
+            
+            // Capture terminée
+            socket.on('capture_finished', function(data) {
+                if (data.capture_id !== captureId) return;
+                
+                clearInterval(durationInterval);
+                captureActive = false;
+                
+                statusIndicator.innerHTML = `
+                    <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                    <span>Capture terminée (${data.total_packets} paquets)</span>
+                `;
+                
+                stopBtn.disabled = true;
+                exportBtn.disabled = false;
+            });
+            
+            // Erreur de capture
+            socket.on('capture_error', function(data) {
+                clearInterval(durationInterval);
+                captureActive = false;
+                
+                statusIndicator.innerHTML = `
+                    <i class="fas fa-exclamation-circle" style="color: var(--danger-color);"></i>
+                    <span>Erreur: ${data.error}</span>
+                `;
+                
+                stopBtn.disabled = true;
+            });
+            
+            // Arrêter la capture
+            stopBtn.addEventListener('click', function() {
+                if (!captureActive) return;
+                
+                fetch('/stop', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    clearInterval(durationInterval);
+                    captureActive = false;
+                    
+                    statusIndicator.innerHTML = `
+                        <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                        <span>Capture arrêtée (${data.packets_captured} paquets en ${data.duration}s)</span>
+                    `;
+                    
+                    stopBtn.disabled = true;
+                    exportBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                });
+            });
+            
+            // Exporter les résultats
+            exportBtn.addEventListener('click', function() {
+                window.location.href = `/export/${captureId}?interface={{ interface }}&filter={{ filter }}`;
+            });
+        });
+    </script>
+</body>
+</html>

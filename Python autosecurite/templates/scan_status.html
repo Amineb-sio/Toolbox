@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de l'analyse de sécurité</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .scan-status {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .scan-card {
+            flex: 1;
+            background-color: #f8f9fa;
+            margin: 0 10px;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .scan-card h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .loading {
+            font-style: italic;
+            color: #666;
+        }
+        .complete {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .results-section {
+            margin-top: 30px;
+        }
+        .port-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .port-table th, .port-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .port-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .port-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .vulnerability-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .vulnerability-table th, .vulnerability-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .vulnerability-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .vulnerability-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .high-risk {
+            background-color: #ffebee !important;
+        }
+        .medium-risk {
+            background-color: #fff8e1 !important;
+        }
+        .low-risk {
+            background-color: #e8f5e9 !important;
+        }
+        .export-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .export-btn:hover {
+            background-color: #0056b3;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+        .protocol-chart {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .refresh-btn {
+            background-color: #6c757d;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .refresh-btn:hover {
+            background-color: #5a6268;
+        }
+        .alert-summary {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .alert-box {
+            flex: 1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .alert-box.high {
+            background-color: #ffebee;
+            border: 1px solid #f44336;
+        }
+        .alert-box.medium {
+            background-color: #fff8e1;
+            border: 1px solid #ffc107;
+        }
+        .alert-box.low {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+        }
+        .alert-count {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .findings-summary {
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Résultats de l'analyse de sécurité automatisée</h1>
+        
+        <button id="refreshButton" class="refresh-btn">Rafraîchir les résultats</button>
+        
+        <div class="scan-status">
+            <div class="scan-card">
+                <h3>Nmap</h3>
+                <div id="nmap-status" class="loading">En cours d'analyse...</div>
+            </div>
+            
+            <div class="scan-card">
+                <h3>OWASP ZAP</h3>
+                <div id="zap-status" class="loading">En cours d'analyse...</div>
+            </div>
+            
+            <div class="scan-card">
+                <h3>Wireshark/TCPDump</h3>
+                <div id="wireshark-status" class="loading">En cours d'analyse...</div>
+            </div>
+        </div>
+        
+        <div id="findings-summary" class="findings-summary" style="display: none;">
+            <h2>Résumé des découvertes</h2>
+            <p id="summary-text"></p>
+        </div>
+        
+        <!-- Résultats Nmap -->
+        <div class="results-section" id="nmap-results" style="display: none;">
+            <h2>Résultats du scan Nmap</h2>
+            <p>Hôte: <span id="nmap-host"></span> | État: <span id="nmap-state"></span></p>
+            
+            <h3>Ports et services détectés</h3>
+            <table class="port-table">
+                <thead>
+                    <tr>
+                        <th>Port</th>
+                        <th>État</th>
+                        <th>Service</th>
+                        <th>Version</th>
+                        <th>Informations supplémentaires</th>
+                    </tr>
+                </thead>
+                <tbody id="nmap-ports">
+                    <!-- Les données seront injectées ici par JavaScript -->
+                </tbody>
+            </table>
+            
+            <button class="export-btn" onclick="exportNmapResults()">Exporter les résultats (CSV)</button>
+        </div>
+        
+        <!-- Résultats OWASP ZAP -->
+        <div class="results-section" id="zap-results" style="display: none;">
+            <h2>Résultats de l'analyse OWASP ZAP</h2>
+            
+            <div class="alert-summary">
+                <div class="alert-box high">
+                    <div id="high-count" class="alert-count">0</div>
+                    <div>Alertes critiques</div>
+                </div>
+                <div class="alert-box medium">
+                    <div id="medium-count" class="alert-count">0</div>
+                    <div>Alertes moyennes</div>
+                </div>
+                <div class="alert-box low">
+                    <div id="low-count" class="alert-count">0</div>
+                    <div>Alertes faibles</div>
+                </div>
+            </div>
+            
+            <h3>Vulnérabilités détectées</h3>
+            <table class="vulnerability-table">
+                <thead>
+                    <tr>
+                        <th>Sévérité</th>
+                        <th>Vulnérabilité</th>
+                        <th>Emplacement</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="zap-alerts">
+                    <!-- Les données seront injectées ici par JavaScript -->
+                </tbody>
+            </table>
+            
+            <button class="export-btn" onclick="exportZapResults()">Exporter les résultats (CSV)</button>
+        </div>
+        
+        <!-- Résultats Wireshark/TCPDump -->
+        <div class="results-section" id="wireshark-results" style="display: none;">
+            <h2>Résultats de l'analyse Wireshark/TCPDump</h2>
+            
+            <div id="protocol-summary">
+                <h3>Répartition des protocoles</h3>
+                <div class="protocol-chart" id="protocol-chart">
+                    <!-- Graphique généré par JavaScript -->
+                </div>
+            </div>
+            
+            <h3>Trafic suspect détecté</h3>
+            <table class="vulnerability-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Détails</th>
+                        <th>Informations supplémentaires</th>
+                    </tr>
+                </thead>
+                <tbody id="suspicious-traffic">
+                    <!-- Les données seront injectées ici par JavaScript -->
+                </tbody>
+            </table>
+            
+            <button class="export-btn" onclick="exportWiresharkResults()">Exporter les résultats (CSV)</button>
+        </div>
+        
+        <a href="/auto_security" class="back-btn">← Revenir à la configuration</a>
+    </div>
+    
+    <script>
+        // Fonction pour récupérer et afficher les résultats
+        function fetchResults() {
+            fetch('/get_results')
+                .then(response => response.json())
+                .then(data => {
+                    updateStatus(data);
+                    displayNmapResults(data.nmap);
+                    displayZapResults(data.zap);
+                    displayWiresharkResults(data.wireshark);
+                    
+                    // Générer un résumé des découvertes
+                    generateSummary(data);
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                });
+        }
+        
+        // Mettre à jour le statut des scans
+        function updateStatus(data) {
+            // Statut Nmap
+            if (data.nmap && Object.keys(data.nmap).length > 0) {
+                if (data.nmap.error) {
+                    document.getElementById('nmap-status').innerHTML = `<span class="error">Erreur: ${data.nmap.error}</span>`;
+                } else {
+                    document.getElementById('nmap-status').innerHTML = '<span class="complete">Scan terminé</span>';
+                    document.getElementById('nmap-results').style.display = 'block';
+                }
+            }
+            
+            // Statut ZAP
+            if (data.zap && Object.keys(data.zap).length > 0) {
+                if (data.zap.error) {
+                    document.getElementById('zap-status').innerHTML = `<span class="error">Erreur: ${data.zap.error}</span>`;
+                } else {
+                    document.getElementById('zap-status').innerHTML = '<span class="complete">Scan terminé</span>';
+                    document.getElementById('zap-results').style.display = 'block';
+                }
+            }
+            
+            // Statut Wireshark
+            if (data.wireshark && Object.keys(data.wireshark).length > 0) {
+                if (data.wireshark.error) {
+                    document.getElementById('wireshark-status').innerHTML = `<span class="error">Erreur: ${data.wireshark.error}</span>`;
+                } else {
+                    document.getElementById('wireshark-status').innerHTML = '<span class="complete">Analyse terminée</span>';
+                    document.getElementById('wireshark-results').style.display = 'block';
+                }
+            }
+        }
+        
+        // Afficher les résultats Nmap
+        function displayNmapResults(nmapData) {
+            if (!nmapData || Object.keys(nmapData).length === 0 || nmapData.error) {
+                return;
+            }
+            
+            document.getElementById('nmap-host').textContent = nmapData.host || 'N/A';
+            document.getElementById('nmap-state').textContent = nmapData.state || 'N/A';
+            
+            const portsTableBody = document.getElementById('nmap-ports');
+            portsTableBody.innerHTML = '';
+            
+            if (nmapData.ports && nmapData.ports.length > 0) {
+                nmapData.ports.forEach(port => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${port.port}</td>
+                        <td>${port.state}</td>
+                        <td>${port.service}</td>
+                        <td>${port.version}</td>
+                        <td>${port.extra_info}</td>
+                    `;
+                    portsTableBody.appendChild(row);
+                });
+            } else {
+                const row = document.createElement('tr');
+                row.innerHTML = '<td colspan="5">Aucun port ouvert détecté</td>';
+                portsTableBody.appendChild(row);
+            }
+        }
+        
+        // Afficher les résultats ZAP
+        function displayZapResults(zapData) {
+            if (!zapData || Object.keys(zapData).length === 0 || !zapData.alerts) {
+                return;
+            }
+            
+            const alertsTableBody = document.getElementById('zap-alerts');
+            alertsTableBody.innerHTML = '';
+            
+            let highCount = 0;
+            let mediumCount = 0;
+            let lowCount = 0;
+            
+            if (zapData.alerts && zapData.alerts.length > 0) {
+                zapData.alerts.forEach(alert => {
+                    // Compter par niveau de risque
+                    if (alert.risk === 'High') highCount++;
+                    else if (alert.risk === 'Medium') mediumCount++;
+                    else if (alert.risk === 'Low') lowCount++;
+                    
+                    const row = document.createElement('tr');
+                    row.className = alert.risk === 'High' ? 'high-risk' : 
+                                   alert.risk === 'Medium' ? 'medium-risk' : 
+                                   alert.risk === 'Low' ? 'low-risk' : '';
+                    
+                    row.innerHTML = `
+                        <td>${alert.risk}</td>
+                        <td>${alert.name}</td>
+                        <td>${alert.location}</td>
+                        <td>${alert.description}</td>
+                        <td><a href="${alert.link}" target="_blank">Plus d'infos</a></td>
+                    `;
+                    alertsTableBody.appendChild(row);
+                });
+            } else {
+                const row = document.createElement('tr');
+                row.innerHTML = '<td colspan="5">Aucune vulnérabilité détectée</td>';
+                alertsTableBody.appendChild(row);
+            }
+            
+            // Mettre à jour les compteurs
+            document.getElementById('high-count').textContent = highCount;
+            document.getElementById('medium-count').textContent = mediumCount;
+            document.getElementById('low-count').textContent = lowCount;
+        }
+        
+        // Afficher les résultats Wireshark
+        function displayWiresharkResults(wiresharkData) {
+            if (!wiresharkData || Object.keys(wiresharkData).length === 0 || wiresharkData.error) {
+                return;
+            }
+            
+            const suspiciousTrafficTable = document.getElementById('suspicious-traffic');
+            suspiciousTrafficTable.innerHTML = '';
+            
+            if (wiresharkData.suspicious_traffic && wiresharkData.suspicious_traffic.length > 0) {
+                wiresharkData.suspicious_traffic.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.type}</td>
+                        <td>${item.method || ''} ${item.uri || ''}</td>
+                        <td>${item.info || ''}</td>
+                    `;
+                    suspiciousTrafficTable.appendChild(row);
+                });
+            } else {
+                const row = document.createElement('tr');
+                row.innerHTML = '<td colspan="3">Aucun trafic suspect détecté</td>';
+                suspiciousTrafficTable.appendChild(row);
+            }
+            
+            // Afficher le graphique des protocoles
+            if (wiresharkData.protocols && Object.keys(wiresharkData.protocols).length > 0) {
+                // Création d'un graphique simple pour représenter les protocoles
+                const protocolChartDiv = document.getElementById('protocol-chart');
+                protocolChartDiv.innerHTML = '';
+                
+                const totalPackets = wiresharkData.total_packets || 0;
+                
+                for (const [protocol, count] of Object.entries(wiresharkData.protocols)) {
+                    const percentage = (count / totalPackets * 100).toFixed(1);
+                    
+                    const barContainer = document.createElement('div');
+                    barContainer.style.display = 'flex';
+                    barContainer.style.alignItems = 'center';
+                    barContainer.style.marginBottom = '10px';
+                    
+                    const protocolLabel = document.createElement('div');
+                    protocolLabel.style.width = '100px';
+                    protocolLabel.textContent = protocol;
+                    
+                    const barOuter = document.createElement('div');
+                    barOuter.style.flex = '1';
+                    barOuter.style.height = '25px';
+                    barOuter.style.backgroundColor = '#e9ecef';
+                    barOuter.style.borderRadius = '5px';
+                    barOuter.style.overflow = 'hidden';
+                    
+                    const barInner = document.createElement('div');
+                    barInner.style.width = `${percentage}%`;
+                    barInner.style.height = '100%';
+                    barInner.style.backgroundColor = '#007bff';
+                    
+                    const percentText = document.createElement('div');
+                    percentText.style.marginLeft = '10px';
+                    percentText.style.width = '80px';
+                    percentText.textContent = `${percentage}% (${count})`;
+                    
+                    barOuter.appendChild(barInner);
+                    barContainer.appendChild(protocolLabel);
+                    barContainer.appendChild(barOuter);
+                    barContainer.appendChild(percentText);
+                    protocolChartDiv.appendChild(barContainer);
+                }
+            }
+        }
+        
+        // Générer un résumé des découvertes
+        function generateSummary(data) {
+            let summaryText = '';
+            let hasSummary = false;
+            
+            // Résumé Nmap
+            if (data.nmap && data.nmap.ports && data.nmap.ports.length > 0) {
+                const openPorts = data.nmap.ports.filter(port => port.state === 'open').length;
+                summaryText += `<strong>Scan de ports:</strong> ${openPorts} port(s) ouvert(s) détecté(s). `;
+                hasSummary = true;
+            }
+            
+            // Résumé ZAP
+            if (data.zap && data.zap.alerts && data.zap.alerts.length > 0) {
+                const highVulns = data.zap.alerts.filter(alert => alert.risk === 'High').length;
+                const mediumVulns = data.zap.alerts.filter(alert => alert.risk === 'Medium').length;
+                summaryText += `<strong>Vulnérabilités web:</strong> ${highVulns} critique(s), ${mediumVulns} moyenne(s). `;
+                hasSummary = true;
+            }
+            
+            // Résumé Wireshark
+            if (data.wireshark && data.wireshark.suspicious_traffic && data.wireshark.suspicious_traffic.length > 0) {
+                summaryText += `<strong>Trafic réseau:</strong> ${data.wireshark.suspicious_traffic.length} activité(s) suspecte(s) détectée(s). `;
+                hasSummary = true;
+            }
+            
+            if (hasSummary) {
+                document.getElementById('summary-text').innerHTML = summaryText;
+                document.getElementById('findings-summary').style.display = 'block';
+            }
+        }
+        
+        // Fonctions d'exportation
+        function exportNmapResults() {
+            alert('Fonction d\'exportation à implémenter');
+        }
+        
+        function exportZapResults() {
+            alert('Fonction d\'exportation à implémenter');
+        }
+        
+        function exportWiresharkResults() {
+            alert('Fonction d\'exportation à implémenter');
+        }
+        
+        // Mettre en place l'actualisation
+        document.getElementById('refreshButton').addEventListener('click', fetchResults);
+        
+        // Charger les résultats au chargement de la page
+        document.addEventListener('DOMContentLoaded', fetchResults);
+        
+        // Actualiser les résultats toutes les 10 secondes pendant le scan
+        const refreshInterval = setInterval(() => {
+            // Vérifier si tous les scans sont terminés
+            const nmapStatus = document.getElementById('nmap-status');
+            const zapStatus = document.getElementById('zap-status');
+            const wiresharkStatus = document.getElementById('wireshark-status');
+            
+            if (nmapStatus.classList.contains('complete') && 
+                zapStatus.classList.contains('complete') && 
+                wiresharkStatus.classList.contains('complete')) {
+                clearInterval(refreshInterval);  // Arrêter l'actualisation automatique
+            } else {
+                fetchResults();  // Actualiser les résultats
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
