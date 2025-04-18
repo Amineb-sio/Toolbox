@@ -1,9 +1,0 @@
-Se rendre dans le dossier /usr/share et telecharger le depot git de zaproxy : https://github.com/ParrotSec/zaproxy
-
-cd /usr/share
-sudo git clone https://github.com/ParrotSec/zaproxy
-
-Dans un cmd :
-sudo /usr/share/zaproxy/zap.sh -daemon -port 8080 -config api.key=monapikey
-
-Puis tester la connexion depuis l'interface sur owasp (doit etre en vert)

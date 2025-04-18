@@ -1,3 +1,0 @@
-Installer Gobuster sur votre kali :
-
-sudo apt install gobuster

@@ -1,6 +1,0 @@
-lancer le conteneur avec :
-
-docker-compose up -d 
-
-puis mettre l'adresse ip, mettre admin en nom d'utilisateur et le 
-chemin du fichier rockyou.txt (installé le avec github et placé le dans votre module hydra)
