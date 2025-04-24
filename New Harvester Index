@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvester Pentesting Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f3e7;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .export-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .export-button {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .export-button:hover {
+            background-color: #0056b3;
+        }
+        .export-button.html {
+            background-color: #28a745;
+        }
+        .export-button.csv {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        .export-button.txt {
+            background-color: #6c757d;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Harvester Pentesting Tool</h1>
+        <form method="POST">
+            <label for="domain">Entrez le domaine à analyser :</label>
+            <input type="text" id="domain" name="domain" placeholder="exemple.com" value="{{ domain if domain else '' }}" required>
+            <input type="submit" value="Analyser">
+        </form>
+        
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+        
+        {% if domain and result %}
+            <div class="result">
+                <h3>Résultats pour {{ domain }} :</h3>
+                <pre>{{ result }}</pre>
+                
+                <div class="export-buttons">
+                    <h4>Exporter les résultats :</h4>
+                    <form method="POST" style="display: inline;">
+                        <input type="hidden" name="domain" value="{{ domain }}">
+                        <input type="hidden" name="output_format" value="html">
+                        <button type="submit" class="export-button html">Exporter en HTML</button>
+                    </form>
+                    
+                    <form method="POST" style="display: inline;">
+                        <input type="hidden" name="domain" value="{{ domain }}">
+                        <input type="hidden" name="output_format" value="csv">
+                        <button type="submit" class="export-button csv">Exporter en CSV</button>
+                    </form>
+                    
+                    <form method="POST" style="display: inline;">
+                        <input type="hidden" name="domain" value="{{ domain }}">
+                        <input type="hidden" name="output_format" value="txt">
+                        <button type="submit" class="export-button txt">Exporter en TXT</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>   
