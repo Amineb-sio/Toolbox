@@ -1,15 +1,15 @@
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of application context.
 
@@ -18,16 +18,16 @@ the current application. To solve this, set up an application context
 with app.app_context(). See the documentation for more information.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of request context.
 
@@ -36,16 +36,16 @@ an active HTTP request. Consult the documentation on testing for
 information about how to avoid this problem.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of application context.
 
@@ -54,16 +54,16 @@ the current application. To solve this, set up an application context
 with app.app_context(). See the documentation for more information.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of request context.
 
@@ -72,16 +72,16 @@ an active HTTP request. Consult the documentation on testing for
 information about how to avoid this problem.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of application context.
 
@@ -90,16 +90,16 @@ the current application. To solve this, set up an application context
 with app.app_context(). See the documentation for more information.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of request context.
 
@@ -109,16 +109,16 @@ information about how to avoid this problem.
  * Restarting with stat
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of application context.
 
@@ -127,16 +127,16 @@ the current application. To solve this, set up an application context
 with app.app_context(). See the documentation for more information.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of request context.
 
@@ -145,16 +145,16 @@ an active HTTP request. Consult the documentation on testing for
 information about how to avoid this problem.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of application context.
 
@@ -163,16 +163,16 @@ the current application. To solve this, set up an application context
 with app.app_context(). See the documentation for more information.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of request context.
 
@@ -181,16 +181,16 @@ an active HTTP request. Consult the documentation on testing for
 information about how to avoid this problem.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of application context.
 
@@ -199,16 +199,16 @@ the current application. To solve this, set up an application context
 with app.app_context(). See the documentation for more information.
 An exception was thrown while monkey_patching for eventlet. to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
 Traceback (most recent call last):
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 611, in _upgrade_instances
     new = upgrade_or_traverse(v)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 588, in upgrade_or_traverse
     _upgrade_instances(obj, klass, upgrade, visited, old_to_new)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/eventlet/patcher.py", line 602, in _upgrade_instances
     container_vars = vars(container)
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 318, in __get__
     obj = instance._get_current_object()
-  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-Vk-1GRbu-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
+  File "/home/kali/.cache/pypoetry/virtualenvs/toolbox_saj-C72PPRHs-py3.13/lib/python3.13/site-packages/werkzeug/local.py", line 519, in _get_current_object
     raise RuntimeError(unbound_message) from None
 RuntimeError: Working outside of request context.
 
@@ -216,5 +216,5 @@ This typically means that you attempted to use functionality that needed
 an active HTTP request. Consult the documentation on testing for
 information about how to avoid this problem.
  * Debugger is active!
- * Debugger PIN: 260-061-160
-(230194) wsgi starting up on http://0.0.0.0:5002
+ * Debugger PIN: 126-569-492
+(89983) wsgi starting up on http://0.0.0.0:5002

@@ -1,0 +1,138 @@
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --module-title-color: #000;
+}
+
+body.dark {
+    --bg-color: #1e1e2f;
+    --text-color: #eee;
+    --card-bg: #2c2c3c;
+    --card-shadow: rgba(255, 255, 255, 0.05);
+    --module-title-color: #fff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+    color: #28a745;
+    font-size: 45px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+.header-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Department-specific colors */
+.saas-department {
+    color: #28a745;
+}
+
+.department-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.department {
+    width: 600px; /* Augmenté pour un meilleur rendu */
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 0 20px var(--card-shadow);
+    padding: 40px 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+.department:hover {
+    transform: scale(1.05);
+}
+
+/* Ajoutez ceci à votre CSS existant */
+.module-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--card-shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    /* Ajout pour centrer le contenu */
+    text-align: center;
+}
+
+.module-card h3 {
+    color: var(--module-title-color);
+    /* Assurez-vous que le titre est également centré */
+    text-align: center;
+}
+
+/* Centrer les boutons */
+.module-card form {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Ajout pour centrer le texte à l'intérieur du bouton */
+    text-align: center;
+}
+
+button:hover {
+    background-color: #28a745;
+    transform: scale(1.03);
+}
+
+
+/* Hover effect for buttons in security department */
+.saas-department button:hover {
+    background-color: #28a745;
+    color: white;
+}

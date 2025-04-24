@@ -1,0 +1,331 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --card-border: #ddd;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --button-bg: #e0e0e0;
+    --button-hover: #45a049;
+    --header-bg: #2c3e50;
+    --header-text: #fff;
+    --module-title-color: #333;
+    
+    /* Couleurs spécifiques pour les départements */
+    --security-color: #007bff;
+    --development-color: #ff9800;  /* Orange pour le développement */
+    --infrastructure-color: #ffc107;
+    --support-color: #dc3545;
+    --hr-color: #6f42c1; /* Violet pour OSINT */
+    
+    /* Couleurs pour les badges de rôle */
+    --role-bg: #555;
+    --role-admin-bg: #000000; /* Noir pour Admin */
+    --role-securite-bg: #2196F3; /* Bleu pour Sécurité */
+    --role-infrastructure-bg: #ffc107; /* Jaune pour Infrastructure */
+    --role-support-bg: #f44336; /* Rouge pour Support */
+    --role-developpement-bg: #ff9800; /* Orange pour Développement */
+    --role-osint-bg: #9c27b0; /* Violet pour OSINT */
+    
+    /* Couleur spécifique pour le bouton déconnexion */
+    --logout-button-bg: #f44336; /* Rouge pour le bouton déconnexion */
+    --logout-button-hover: #d32f2f; /* Rouge foncé pour le hover */
+}
+
+body.dark {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --card-bg: #2d2d2d;
+    --card-border: #444;
+    --card-shadow: rgba(255, 255, 255, 0.05);
+    --button-bg: #ffffff; /* Blanc pour les boutons en mode sombre */
+    --button-hover: #e0e0e0; /* Gris clair pour le hover des boutons en mode sombre */
+    --header-bg: #111;
+    --module-title-color: #fff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    position: relative;
+}
+
+.header-left {
+    font-weight: bold;
+    font-size: 18px; /* Légèrement plus grand pour équilibrer la hauteur */
+    margin-left: 135px; /* Ajout de marge à gauche pour décaler le texte vers la droite */
+    padding-left: 20px; /* Petit padding supplémentaire */
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    color: var(--primary-color);
+}
+
+.department-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.department {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--card-shadow);
+    padding: 30px;
+    border: 1px solid var(--card-border);
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.department:hover {
+    transform: scale(1.02);
+}
+
+.department h2 {
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary-color);
+    text-shadow: 1px 1px 2px var(--card-shadow);
+    margin-top: 0;
+}
+
+.security-department h2 {
+    color: var(--security-color);
+}
+
+.development-department h2 {
+    color: var(--development-color);
+}
+
+.infrastructure-department h2 {
+    color: var(--infrastructure-color);
+}
+
+.support-department h2 {
+    color: var(--support-color);
+}
+
+.hr-department h2 {
+    color: var(--hr-color);
+}
+
+.module-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--card-border);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px var(--card-shadow);
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--card-shadow);
+}
+
+.module-card h3 {
+    margin-top: 0;
+    color: var(--module-title-color);
+}
+
+.module-card p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: var(--button-bg);
+    color: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Style spécifique pour les boutons en mode sombre */
+body.dark button {
+    color: #333; /* Texte foncé pour contraster avec le fond blanc */
+}
+
+/* Hover effect for buttons based on department */
+.security-department button:hover {
+    background-color: var(--security-color);
+    color: white;
+}
+
+.development-department button:hover {
+    background-color: var(--development-color);
+    color: white;
+}
+
+.infrastructure-department button:hover {
+    background-color: var(--infrastructure-color);
+    color: black; /* Pour la lisibilité avec un fond jaune */
+}
+
+.support-department button:hover {
+    background-color: var(--support-color);
+    color: white;
+}
+
+.hr-department button:hover {
+    background-color: var(--hr-color);
+    color: white;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    padding: 8px 12px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.user-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.user-info {
+    margin-right: 20px;
+    text-align: right;
+    font-weight: bold;
+    color: var(--header-text);
+}
+
+.user-actions button, .user-actions a {
+    padding: 8px 15px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+/* Ajustement de la couleur du texte pour les boutons d'action en mode sombre */
+body.dark .user-actions button,
+body.dark .user-actions a {
+    color: #333;
+}
+
+.user-actions button:hover, .user-actions a:hover {
+    background-color: var(--button-hover);
+}
+
+.logout-btn {
+    background-color: var(--logout-button-bg) !important;
+    color: white !important; /* Toujours blanc, même en mode sombre */
+}
+
+.logout-btn:hover {
+    background-color: var(--logout-button-hover) !important;
+}
+
+.profile-btn {
+    background-color: var(--primary-color) !important;
+    color: white !important; /* Toujours blanc, même en mode sombre */
+}
+
+.profile-btn:hover {
+    background-color: #0b7dda !important;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 2px;
+    margin-top: 4px; /* Ajoute de l'espace vers le haut */
+    vertical-align: middle; /* Aide à bien aligner avec le texte */
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+    background-color: var(--role-bg);
+    font-weight: bold; /* Rend tous les badges en gras */
+}
+
+/* Style pour les badges */
+.role-admin {
+    background-color: var(--role-admin-bg);
+    font-weight: 900; /* Extra-bold pour Admin */
+}
+
+.role-securite {
+    background-color: var(--role-securite-bg);
+}
+
+.role-support {
+    background-color: var(--role-support-bg);
+    font-weight: 900; /* Extra-bold pour Support */
+}
+
+.role-infrastructure {
+    background-color: var(--role-infrastructure-bg);
+    font-weight: 900; /* Extra-bold pour Infrastructure */
+    color: black; /* Texte noir pour meilleure lisibilité sur fond jaune */
+}
+
+.role-developpement {
+    background-color: var(--role-developpement-bg);
+}
+
+.role-osint {
+    background-color: var(--role-osint-bg);
+}
+
+/* Admin department style */
+.admin-department {
+    background-color: #ffebee;
+    border-color: #ffcdd2;
+}
+
+.admin-department h2 {
+    color: #c62828;
+}
+
+/* Adapter la couleur du texte dans l'admin department en mode sombre */
+body.dark .admin-department {
+    background-color: #3c2a2d;
+    border-color: #4d2c2e;
+}
+
+body.dark .admin-department h2 {
+    color: #ff6659;
+}

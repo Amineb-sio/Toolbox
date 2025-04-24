@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Rapport - Toolbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --info: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .header-container {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+    margin-bottom: 20px;
+    min-height: 80px; /* Définir une hauteur minimale */
+    display: flex;
+    align-items: center;
+}
+        
+        .user-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .profile-btn, .logout-btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .profile-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .logout-btn {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .profile-btn:hover, .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .role-admin { background-color: #e74c3c; }
+        .role-securite { background-color: #3498db; }
+        .role-support { background-color: #9b59b6; }
+        .role-developpement { background-color: #2ecc71; }
+        .role-infrastructure { background-color: #f39c12; }
+        .role-osint { background-color: #1abc9c; }
+        
+        .report-container {
+            max-width: 1200px;
+            margin: 40px auto 30px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            position: relative;
+            z-index: 900;
+        }
+        
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 25px;
+        }
+        
+        .report-title {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+        
+        .module-badge, .format-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-left: 8px;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .module-badge {
+            background-color: var(--primary);
+        }
+        
+        .format-badge {
+            background-color: var(--info);
+        }
+        
+        .format-pdf { background-color: #e74c3c; }
+        .format-csv { background-color: #2ecc71; }
+        .format-html { background-color: #3498db; }
+        .format-txt { background-color: #95a5a6; }
+        .format-json { background-color: #f39c12; }
+        .format-xml { background-color: #9b59b6; }
+        
+        .report-info {
+            margin-bottom: 30px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .report-info h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .info-item {
+            background-color: white;
+            border-radius: 6px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .info-value {
+            font-size: 1rem;
+            word-break: break-word;
+        }
+        
+        .report-content {
+            margin-bottom: 30px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .report-content h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        
+        .alert {
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        .csv-preview, .txt-preview {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            background-color: white;
+        }
+        
+        .csv-preview table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .csv-preview th, .csv-preview td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .csv-preview th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .csv-preview tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .txt-preview pre {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            margin: 0;
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .html-preview {
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 1px;
+            margin-bottom: 15px;
+            background-color: white;
+            height: 600px;
+            overflow: auto;
+        }
+        
+        .html-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .my-4 {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .action-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .download-btn {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .back-btn {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .report-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        /* Style pour les protocoles et ports */
+        .protocol-badge, .port-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin: 3px;
+            color: white;
+            font-weight: 500;
+        }
+        
+        /* Couleurs spécifiques pour les protocoles courants */
+        .protocol-tcp { background-color: #3498db; }
+        .protocol-udp { background-color: #2ecc71; }
+        .protocol-http { background-color: #e74c3c; }
+        .protocol-https { background-color: #9b59b6; }
+        .protocol-dns { background-color: #f39c12; }
+        .protocol-icmp { background-color: #1abc9c; }
+        
+        /* Style pour les ports */
+        .port-badge {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="user-controls">
+            <div class="user-info">
+                <div>Bonjour, {{ user_info.preferred_username }}</div>
+                <div>
+                    {% for role in user_info.get('realm_access', {}).get('roles', []) %}
+                        {% if role == 'admin' %}
+                            <span class="role-badge role-admin">Admin</span>
+                        {% elif role == 'securite' %}
+                            <span class="role-badge role-securite">Sécurité</span>
+                        {% elif role == 'support' %}
+                            <span class="role-badge role-support">Support</span>
+                        {% elif role == 'developpement' %}
+                            <span class="role-badge role-developpement">Développement</span>
+                        {% elif role == 'infrastructure' %}
+                            <span class="role-badge role-infrastructure">Infrastructure</span>
+                        {% elif role == 'osint' %}
+                            <span class="role-badge role-osint">OSINT</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="{{ url_for('profile') }}" class="profile-btn">Profil</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Déconnexion</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="report-container">
+        <div class="report-header">
+            <h1 class="report-title">Détails du Rapport #{{ report.id }}</h1>
+            <div>
+                <span class="module-badge">{{ report.module }}</span>
+                <span class="format-badge format-{{ report.format.lower() }}">{{ report.format }}</span>
+            </div>
+        </div>
+
+        <div class="report-info">
+            <h2>Informations générales</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Module</div>
+                    <div class="info-value">{{ report.module }}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Format</div>
+                    <div class="info-value">{{ report.format }}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Date de création</div>
+                    <div class="info-value">{{ report.date_creation.strftime('%d/%m/%Y %H:%M') }}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Taille</div>
+                    <div class="info-value">
+                        {% if report.taille_fichier < 1024 %}
+                            {{ report.taille_fichier }} octets
+                        {% elif report.taille_fichier < 1048576 %}
+                            {{ (report.taille_fichier / 1024)|round(1) }} Ko
+                        {% else %}
+                            {{ (report.taille_fichier / 1048576)|round(1) }} Mo
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Chemin du fichier</div>
+                    <div class="info-value">{{ report.chemin_fichier }}</div>
+                </div>
+            </div>
+        </div>
+
+        {% if details %}
+        <div class="report-info">
+            <h2>Détails spécifiques</h2>
+            <div class="info-grid">
+                {% if module == 'wireshark' %}
+                    <div class="info-item">
+                        <div class="info-label">Nombre de paquets</div>
+                        <div class="info-value">{{ details.nombre_paquets }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Protocoles</div>
+                        <div class="info-value">
+                            {% for protocole in details.protocoles %}
+                                <span class="protocol-badge protocol-{{ protocole.lower() }}">{{ protocole }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Interface de capture</div>
+                        <div class="info-value">{{ details.interface_capture }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Durée de capture</div>
+                        <div class="info-value">{{ details.duree_capture }}</div>
+                    </div>
+                {% elif module == 'nmap' %}
+                    <div class="info-item">
+                        <div class="info-label">Nombre d'hôtes</div>
+                        <div class="info-value">{{ details.nombre_hotes }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ports ouverts</div>
+                        <div class="info-value">
+                            {% for port in details.ports_ouverts %}
+                                <span class="port-badge">{{ port }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Version Nmap</div>
+                        <div class="info-value">{{ details.version_nmap }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Arguments de scan</div>
+                        <div class="info-value">{{ details.arguments_scan }}</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="report-content">
+            <h2>Contenu du rapport</h2>
+
+            {% if report.format == 'PDF' %}
+                <div class="alert alert-info">
+                    <p><strong>Fichier PDF</strong> : Le contenu du fichier ne peut pas être affiché directement dans le navigateur.</p>
+                    <p>Veuillez utiliser le bouton ci-dessous pour télécharger et consulter le rapport.</p>
+                </div>
+            {% elif report.format == 'HTML' %}
+                {% if file_content is defined and file_content %}
+                    <div class="html-preview">
+                        <iframe src="{{ url_for('download_report', report_id=report.id, preview='true') }}" title="Aperçu HTML"></iframe>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        <p>La prévisualisation du HTML n'est pas disponible pour ce fichier.</p>
+                        <p>Veuillez télécharger le fichier pour le consulter.</p>
+                    </div>
+                {% endif %}
+            {% elif report.format == 'TXT' %}
+                {% if file_content is defined and file_content %}
+                    <div class="txt-preview">
+                        <pre>{{ file_content }}</pre>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        <p>La prévisualisation du fichier texte n'est pas disponible.</p>
+                        <p>Veuillez télécharger le fichier pour le consulter.</p>
+                    </div>
+                {% endif %}
+            {% elif report.format == 'CSV' %}
+                {% if csv_data is defined and csv_data %}
+                    <div class="csv-preview">
+                        <table>
+                            <thead>
+                                <tr>
+                                    {% for header in csv_data.headers %}
+                                        <th>{{ header }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in csv_data.rows %}
+                                    <tr>
+                                        {% for cell in row %}
+                                            <td>{{ cell }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><small>Affichage limité à {{ csv_data.rows|length }} lignes sur {{ csv_data.total_rows }} lignes au total.</small></p>
+                {% else %}
+                    <div class="alert alert-info">
+                        <p>La prévisualisation CSV n'est pas disponible pour ce fichier.</p>
+                        <p>Veuillez télécharger le fichier pour le consulter.</p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="alert alert-info">
+                    <p>L'aperçu n'est pas disponible pour ce format de fichier ({{ report.format }}).</p>
+                    <p>Veuillez télécharger le fichier pour le consulter.</p>
+                </div>
+            {% endif %}
+
+            <div class="text-center my-4">
+                <a href="{{ url_for('download_report', report_id=report.id) }}" class="action-btn download-btn">
+                    Télécharger le rapport
+                </a>
+            </div>
+        </div>
+
+        <div class="report-actions">
+            <a href="{{ url_for('reports') }}" class="action-btn back-btn">Retour à la liste</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

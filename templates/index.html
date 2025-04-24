@@ -1,130 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toolbox Automatisée pour Tests d'Intrusion - Le partenaire</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h1 {
-            color: #333;
-            margin-top: 30px;
-        }
-        .header-left {
-            text-align: left;
-            width: 80%;
-            max-width: 800px;
-            margin-top: 20px;
-        }
-        .header-right {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 16px;
-            color: #555;
-        }
-        h2 {
-            font-size: 22px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Added text shadow */
-            margin-top: 20px;
-        }
-        /* Color for each department */
-        .security-department {
-            color: #007bff; /* Blue for Security */
-        }
-        .development-department {
-            color: #28a745; /* Green for Development */
-        }
-        .infrastructure-department {
-            color: #ffc107; /* Yellow for Infrastructure */
-        }
-        .support-department {
-            color: #dc3545; /* Red for Support */
-        }
-        .hr-department {
-            color: #6f42c1; /* Purple for HR */
-        }
-        .department-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Larger minimum column width */
-            gap: 40px; /* Increased gap between departments */
-            width: 80%;
-            max-width: 1200px;
-            margin-top: 20px;
-        }
-        .department {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Increased shadow for a more prominent effect */
-            padding: 30px; /* Increased padding for larger cards */
-            margin-bottom: 40px; /* More space between departments */
-            transition: transform 0.3s ease; /* Smooth hover effect */
-        }
-        .department:hover {
-            transform: scale(1.05); /* Slight zoom effect on hover */
-        }
-        .module-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: flex-start;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        /* Hover effect for buttons */
-        .security-department button:hover {
-            background-color: #007bff;
-            color: white;
-        }
-        .development-department button:hover {
-            background-color: #28a745;
-            color: white;
-        }
-        .infrastructure-department button:hover {
-            background-color: #ffc107;
-            color: white;
-        }
-        .support-department button:hover {
-            background-color: #dc3545;
-            color: white;
-        }
-        .hr-department button:hover {
-            background-color: #6f42c1;
-            color: white;
-        }
-
-        /* Make sure module titles are black */
-        .module-card h3 {
-            color: #000; /* Black color for module titles */
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <!-- Author Information in the top right corner -->
-    <div class="header-right">
-        Equipe : Jérémy, Amine, Stéphane
+    <button id="theme-toggle">🌙 Mode Sombre</button>
+    
+    <div class="header-container">
+        <!-- Author Information -->
+        <div class="header-left">
+            Equipe : Jérémy, Amine, Stéphane
+        </div>
+        
+        <!-- User info and controls -->
+        <div class="user-controls">
+            <div class="user-info">
+                <div>Bonjour, {{ user_info.preferred_username }}</div>
+                <div>
+                    {% for role in user_info.get('realm_access', {}).get('roles', []) %}
+                        {% if role == 'admin' %}
+                            <span class="role-badge role-admin">Admin</span>
+                        {% elif role == 'securite' %}
+                            <span class="role-badge role-securite">Sécurité</span>
+                        {% elif role == 'support' %}
+                            <span class="role-badge role-support">Support</span>
+                        {% elif role == 'developpement' %}
+                            <span class="role-badge role-developpement">Développement</span>
+                        {% elif role == 'infrastructure' %}
+                            <span class="role-badge role-infrastructure">Infrastructure</span>
+                        {% elif role == 'osint' %}
+                            <span class="role-badge role-osint">OSINT</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="{{ url_for('profile') }}" class="profile-btn">Profil</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Déconnexion</a>
+            </div>
+        </div>
     </div>
 
     <h1>Toolbox Automatisée pour Tests d'Intrusion - «Le partenaire»</h1>
@@ -132,155 +49,223 @@
     <!-- Department Container with Grid Layout -->
     <div class="department-container">
         <!-- Security Department (SOC, EDR, XDR) -->
+        {% if 'securite' in user_info.realm_access.roles or 'admin' in user_info.realm_access.roles %}
         <div class="department security-department">
             <h2>Pôle Sécurité (SOC, EDR, XDR)</h2>
             <div class="module-card">
-                <h3>Nmap</h3>
+                <h3>🔍 Nmap</h3>
                 <form action="/nmap" method="get">
-                    <button type="submit">Launch Nmap</button>
+                    <button type="submit">Lancer Nmap</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Metasploit Framework</h3>
+                <h3>🛡️ Metasploit Framework</h3>
                 <form action="/webmin" method="get">
-                    <button type="submit">Launch Metasploit Framework</button>
+                    <button type="submit">Lancer Metasploit Framework</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Wireshark</h3>
+                <h3>📊 Wireshark</h3>
                 <form action="/wireshark" method="get">
-                    <button type="submit">Launch Wireshark</button>
+                    <button type="submit">Lancer Wireshark</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>OWASP ZAP</h3>
+                <h3>🕸️ OWASP ZAP</h3>
                 <form action="/owasp" method="get">
-                    <button type="submit">Launch OWASP ZAP</button>
+                    <button type="submit">Lancer OWASP ZAP</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Lancer l'automatisation du pôle</h3>
+                <h3>⚡ Lancer l'automatisation du pôle</h3>
                 <form action="/autosecurite" method="get">
                     <button type="submit">Lancer l'automatisation</button>
                 </form>
+            </div>
         </div>
-
-        </div>
+        {% endif %}
 
         <!-- Development SaaS Department -->
+        {% if 'developpement' in user_info.realm_access.roles or 'admin' in user_info.realm_access.roles %}
         <div class="department development-department">
             <h2>Pôle Développement SaaS</h2>
             <div class="module-card">
-                <h3>Gobuster</h3>
+                <h3>🔎 Gobuster</h3>
                 <form action="/gobuster" method="get">
-                    <button type="submit">Launch Gobuster</button>
+                    <button type="submit">Lancer Gobuster</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>WPScan</h3>
+                <h3>🔌 WPScan</h3>
                 <form action="/wpscan" method="get">
-                    <button type="submit">Launch WPScan</button>
+                    <button type="submit">Lancer WPScan</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>SQLmap</h3>
+                <h3>💉 SQLmap</h3>
                 <form action="/sqlmap" method="get">
-                    <button type="submit">Launch SQLmap</button>
+                    <button type="submit">Lancer SQLmap</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>OWASP Dependency-Check</h3>
+                <h3>📦 OWASP Dependency-Check</h3>
                 <form action="/owaspdependencycheck" method="get">
-                    <button type="submit">Launch OWASP Dependency-Check</button>
+                    <button type="submit">Lancer OWASP Dependency-Check</button>
                 </form>
             </div>
         </div>
+        {% endif %}
 
         <!-- Infrastructure Department -->
+        {% if 'infrastructure' in user_info.realm_access.roles or 'admin' in user_info.realm_access.roles %}
         <div class="department infrastructure-department">
             <h2>Pôle Infrastructure</h2>
             <div class="module-card">
-                <h3>OpenVAS</h3>
+                <h3>🔒 OpenVAS</h3>
                 <form action="/openvas" method="get">
-                    <button type="submit">Launch OpenVAS</button>
+                    <button type="submit">Lancer OpenVAS</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Hydra</h3>
+                <h3>🔑 Hydra</h3>
                 <form action="/hydra" method="get">
-                    <button type="submit">Launch Hydra</button>
+                    <button type="submit">Lancer Hydra</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Airodump-ng</h3>
-                <form action="/airodump" method="get">    
-                    <button type="submit">Launch Airodump-ng</button>
+                <h3>📡 Airodump-ng</h3>
+                <form action="/airodump-ng" method="get">    
+                    <button type="submit">Lancer Airodump-ng</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Aircrack-ng</h3>
-                <form action="/aircrack" method="get">
-                    <button type="submit">Launch Aircrack-ng</button>
+                <h3>📶 Aircrack-ng</h3>
+                <form action="/aircrack-ng" method="get">
+                    <button type="submit">Lancer Aircrack-ng</button>
                 </form>
             </div>
         </div>
+        {% endif %}
 
-        <!-- Support Client and Assistance Department -->
+        <!-- Support Client Department -->
+        {% if 'support' in user_info.realm_access.roles or 'admin' in user_info.realm_access.roles %}
         <div class="department support-department">
             <h2>Pôle Support Client et Assistance</h2>
             <div class="module-card">
-                <h3>Nikto</h3>
+                <h3>🔍 Nikto</h3>
                 <form action="/nikto" method="get">
-                    <button type="submit">Launch Nikto</button>
+                    <button type="submit">Lancer Nikto</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>SSLyze</h3>
+                <h3>🔐 SSLyze</h3>
                 <form action="/sslyze" method="get">
-                    <button type="submit">Launch SSLyze</button>
+                    <button type="submit">Lancer SSLyze</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>John the Ripper</h3>
+                <h3>🔓 John the Ripper</h3>
                 <form action="/johntheripper" method="get">
-                    <button type="submit">Launch John the Ripper</button>
+                    <button type="submit">Lancer John the Ripper</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>TCPDump</h3>
+                <h3>📊 TCPDump</h3>
                 <form action="/tcpdump" method="get">
-                    <button type="submit">Launch TCPDump</button>
+                    <button type="submit">Lancer TCPDump</button>
                 </form>
             </div>
         </div>
+        {% endif %}
 
-        <!-- Human Resources and Administration Department -->
+        <!-- OSINT Department -->
+        {% if 'osint' in user_info.realm_access.roles or 'admin' in user_info.realm_access.roles %}
         <div class="department hr-department">
             <h2>Pôle Ressources Humaines et Administration (OSINT)</h2>
             <div class="module-card">
-                <h3>Sherlock</h3>
+                <h3>🕵️ Sherlock</h3>
                 <form action="/sherlock" method="get">
-                    <button type="submit">Launch Sherlock</button>
+                    <button type="submit">Lancer Sherlock</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Harvester</h3>
+                <h3>📧 Harvester</h3>
                 <form action="/harvester" method="get">
-                    <button type="submit">Launch Harvester</button>
+                    <button type="submit">Lancer Harvester</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Metagoofil</h3>
+                <h3>📄 Metagoofil</h3>
                 <form action="/metagoofil" method="get">
-                    <button type="submit">Launch Metagoofil</button>
+                    <button type="submit">Lancer Metagoofil</button>
                 </form>
             </div>
             <div class="module-card">
-                <h3>Subfinder</h3>
+                <h3>🔍 Subfinder</h3>
                 <form action="/subfinder" method="get">
-                    <button type="submit">Launch Subfinder</button>
+                    <button type="submit">Lancer Subfinder</button>
                 </form>
             </div>
-
-
+        </div>
+        {% endif %}
         
+     <!-- Admin only section -->
+{% if 'admin' in user_info.realm_access.roles %}
+<div class="department admin-department">
+    <h2>Administration</h2>
+    <div class="module-card">
+        <h3>🐳 Portainer</h3>
+        <p>Interface d'administration des conteneurs</p>
+        <a href="http://127.0.0.1:9000" target="_blank">
+            <button type="button">Accéder à Portainer</button>
+        </a>
+    </div>
+    <div class="module-card">
+        <h3>👥 Gestion des utilisateurs</h3>
+        <p>Configuration des utilisateurs et des rôles</p>
+        <a href="http://127.0.0.1:8080/admin/master/console/#/Toolbox/" target="_blank">
+            <button type="button">Console Keycloak</button>
+        </a>
+    </div>
+    <div class="module-card">
+        <h3>🗄️ Base de Données</h3>
+        <p>Gestion de la base de données PostgreSQL</p>
+        <a href="http://127.0.0.1:5050" target="_blank">
+            <button type="button">Accéder à pgAdmin</button>
+        </a>
+    </div>
+    <div class="module-card">
+    <h3>📤 Importer des Rapports</h3>
+    <p>Importez les rapports dans la base de données</p>
+    <a href="{{ url_for('import_reports_page') }}">
+        <button type="button">Importer les rapports</button>
+    </a>
+</div>
+{% endif %}
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            toggleButton.textContent = document.body.classList.contains('dark') ? '☀️ Mode Clair' : '🌙 Mode Sombre';
+            
+            // Save preference to localStorage
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                toggleButton.textContent = '☀️ Mode Clair';
+            }
+        });
+    </script>
+</body>
+</html>

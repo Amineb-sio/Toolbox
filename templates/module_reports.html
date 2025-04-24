@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapports {{ module }} - Toolbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .reports-container {
+            margin: 20px;
+        }
+        .reports-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .reports-table th, .reports-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .reports-table th {
+            background-color: #f2f2f2;
+        }
+        .reports-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .view-btn {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        .navigation-links {
+            margin: 20px 0;
+        }
+        .navigation-links a {
+            margin-right: 15px;
+            color: #2196F3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="user-controls">
+            <div class="user-info">
+                <div>Bonjour, {{ user_info.preferred_username }}</div>
+                <div>
+                    {% for role in user_info.get('realm_access', {}).get('roles', []) %}
+                        {% if role == 'admin' %}
+                            <span class="role-badge role-admin">Admin</span>
+                        {% elif role == 'securite' %}
+                            <span class="role-badge role-securite">Sécurité</span>
+                        {% elif role == 'support' %}
+                            <span class="role-badge role-support">Support</span>
+                        {% elif role == 'developpement' %}
+                            <span class="role-badge role-developpement">Développement</span>
+                        {% elif role == 'infrastructure' %}
+                            <span class="role-badge role-infrastructure">Infrastructure</span>
+                        {% elif role == 'osint' %}
+                            <span class="role-badge role-osint">OSINT</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="{{ url_for('profile') }}" class="profile-btn">Profil</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Déconnexion</a>
+            </div>
+        </div>
+    </div>
+
+    <h1>Rapports du module {{ module }}</h1>
+
+    <div class="navigation-links">
+        <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+        <a href="{{ url_for('reports') }}">Tous les rapports</a>
+        {% if 'admin' in user_info.realm_access.roles %}
+        <a href="{{ url_for('import_reports_page') }}">Importer des rapports</a>
+        {% endif %}
+    </div>
+
+    <div class="reports-container">
+        {% if reports %}
+            <table class="reports-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Format</th>
+                        <th>Date de création</th>
+                        <th>Taille (octets)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in reports %}
+                    <tr>
+                        <td>{{ report.id }}</td>
+                        <td>{{ report.format }}</td>
+                        <td>{{ report.date_creation.strftime('%d/%m/%Y %H:%M') }}</td>
+                        <td>{{ report.taille_fichier }}</td>
+                        <td>
+                            <a href="{{ url_for('report_details', report_id=report.id) }}" class="view-btn">Voir</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="no-reports">
+                <p>Aucun rapport trouvé pour le module {{ module }}.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

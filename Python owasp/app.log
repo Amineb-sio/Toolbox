@@ -1,7 +1,4 @@
-AVERTISSEMENT: ZAP ne semble pas être en cours d'exécution sur le port 8080.
-Assurez-vous que le service ZAP est démarré avant d'utiliser cette application.
-Vous pouvez le démarrer avec: sudo systemctl start zap.service
-Ou utilisez le script launch_zap_web.sh fourni.
+ZAP est déjà en cours d'exécution sur le port 8080
 Démarrage de l'application web sur http://0.0.0.0:5004
  * Serving Flask app 'app'
  * Debug mode: on

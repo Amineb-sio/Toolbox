@@ -1,3 +1,4 @@
+INFO:__main__:Interfaces disponibles au démarrage: ['eth0', 'br-04e58598c43e', 'br-1e45ba0275e0', 'veth048b5fa', 'veth9cd5768', 'br-80d559c3dc4b', 'veth79b73dc', 'veth775b5fb', 'any', 'lo (Loopback)', 'docker0', 'br-aac6c1663669', 'bluetooth-monitor', 'nflog', 'nfqueue', 'dbus-system', 'dbus-session', 'ciscodump (Cisco remote capture)', 'dpauxmon (DisplayPort AUX channel monitor capture)', 'randpkt (Random packet generator)', 'sdjournal (systemd Journal Export)', 'sshdump (SSH remote capture)', 'udpdump (UDP Listener remote capture)', 'wifidump (Wi-Fi remote capture)']
  * Serving Flask app 'app'
  * Debug mode: on
 Address already in use

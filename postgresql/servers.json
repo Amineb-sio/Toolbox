@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Toolbox PostgreSQL",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "toolbox_db",
+      "Username": "toolbox_user",
+      "SSLMode": "prefer",
+      "PassFile": "/pgpass"
+    }
+  }
+}

@@ -1,0 +1,139 @@
+Domain,Date,Results
+supdevinci.fr,2025-04-24 06:15:55,"*******************************************************************
+*  _   _                                            _             *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __|  _ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* theHarvester 4.7.0                                              *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*                                                                 *
+*******************************************************************
+
+[*] Target: supdevinci.fr 
+
+
+[93m[!] Missing API key for bevigil. [0m
+
+[93m[!] Missing API key for binaryedge. [0m
+
+[93m[!] Missing API key for bufferoverun. [0m
+
+[93m[!] Missing API key for Censys ID and/or Secret. [0m
+
+[93m[!] Missing API key for criminalip. [0m
+
+[93m[!] Missing API key for fullhunt. [0m
+Error initializing SearchGithubCode: 
+[93m[!] Missing API key for Github. [0m
+
+[93m[!] Missing API key for Github. [0m
+
+[93m[!] Missing API key for Hunter. [0m
+
+[93m[!] Missing API key for hunterhow. [0m
+
+[93m[!] Missing API key for Intelx. [0m
+
+[93m[!] Missing API key for netlas. [0m
+
+[93m[!] Missing API key for onyphe. [0m
+
+[93m[!] Missing API key for PentestTools. [0m
+
+[93m[!] Missing API key for ProjectDiscovery. [0m
+
+[93m[!] Missing API key for RocketReach. [0m
+
+[93m[!] Missing API key for Securitytrail. [0m
+
+[93m[!] Missing API key for Tomba Key and/or Secret. [0m
+
+[93m[!] Missing API key for virustotal. [0m
+
+[93m[!] Missing API key for zoomeye. [0m
+	Searching 0 results.
+[94m[*] Searching Bing. 
+An exception has occurred: 502, message='Attempt to decode JSON with unexpected mimetype: text/html', url='https://jldc.me/anubis/subdomains/supdevinci.fr'
+[94m[*] Searching Anubis. 
+[94m[*] Searching Baidu. 
+	Searching results.
+[94m[*] Searching Certspotter. 
+[94m[*] Searching CRTsh. 
+[94m[*] Searching Brave. 
+[94m[*] Searching Duckduckgo. 
+[94m[*] Searching Hackertarget. 
+[94m[*] Searching Rapiddns. 
+[94m[*] Searching Otx. 
+Sitedossier module has triggered a captcha on first iteration, no results can be found.
+Change IPs, manually solve the captcha, or wait before rerunning Sitedossier module
+[94m[*] Searching Sitedossier. 
+[94m[*] Searching Subdomaincenter. 
+An exception has occurred: 500, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://api.threatminer.org/v2/domain.php?q=supdevinci.fr&rt=5'
+[94m[*] Searching Yahoo. 
+[94m[*] Searching Urlscan. 
+
+[*] ASNS found: 2
+--------------------
+AS16276
+AS62000
+
+[*] Interesting Urls found: 1
+--------------------
+https://www.supdevinci.fr/
+
+[*] LinkedIn Links found: 0
+---------------------
+
+[*] IPs found: 7
+-------------------
+37.187.87.197
+45.155.171.156
+51.178.79.179
+51.255.44.10
+51.75.130.27
+51.91.218.175
+
+[*] Emails found: 18
+----------------------
+alternance@supdevinci.fr
+anne.desbonnets@supdevinci.fr
+anne.rideau@supdevinci.fr
+antoine.marechal@supdevinci.fr
+bryan.delime@supdevinci.fr
+celia.christoux@supdevinci.fr
+contact@supdevinci.fr
+heloise.lerendu@supdevinci.fr
+jane.doe@supdevinci.fr
+maele.evano@supdevinci.fr
+marc.nunes@supdevinci.fr
+nantes@supdevinci.fr
+thierry.quatre@supdevinci.fr
+xavier.imbert@supdevinci.fr
+
+[*] Hosts found: 20
+---------------------
+alumni.supdevinci.fr
+alumni.supdevinci.fr:51.255.44.10
+application.supdevinci.fr
+candidature.cesacom.supdevinci.fr
+candidature.cesacom.supdevinci.fr:51.75.130.27
+candidature.supdevinci.fr
+candidature.supdevinci.fr:51.75.130.27
+lp.supdevinci.fr
+lp.supdevinci.fr:51.75.130.27
+mailing.supdevinci.fr:77.32.217.11
+marius.cesacom.supdevinci.fr
+marius.cesacom.supdevinci.fr:51.75.130.27
+marius.supdevinci.fr
+marius.supdevinci.fr:51.75.130.27
+r.mailing.supdevinci.fr
+test.supdevinci.fr
+test.supdevinci.fr:51.75.130.27
+v2.recette.pepalcore.supdevinci.fr
+v2.recette.pepalcore.supdevinci.fr:51.178.79.179
+v2.test.pepalcore.supdevinci.fr
+"
