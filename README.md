@@ -104,20 +104,20 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Tâches à réaliser ✅ 
 
 - Architecture
-  - [ ] Concevoir l'architecture globale de la toolbox (Amine)
+  - [x] Concevoir l'architecture globale de la toolbox (Amine)
   - [ ] Définir les interfaces entre les différents modules (Amine, Jeremy, Stephane)
-  - [ ] Concevoir le système de stockage des résultats (Amine)
+  - [x] Concevoir le système de stockage des résultats (Amine)
 - Développement
   - [x] Développer l'interface utilisateur (Amine)
   - [ ] Créer le module de gestion des plugins (Amine)
-  - [ ] Implémenter le système de logging (Amine)
+  - [x] Implémenter le système de logging (Amine)
 - Intégration
   - [x] Intégrer Metasploit pour l'exploitation (Amine)
   - [x] Intégrer Wireshark pour l'analyse de trafic (Amine)
   - [x] Intégrer SQLmap pour la détection et l'exploitation des injections SQL (Amine)
 - Sécurité
-  - [ ] Configurer l'authentification et l'autorisation des utilisateurs (Amine)
-  - [ ] Mettre en place un système de gestion des clés (Amine)
+  - [x] Configurer l'authentification et l'autorisation des utilisateurs (Amine)
+  - [x] Mettre en place un système de gestion des clés (Amine)
   - [x] Ajouter une vérification de mot de passe renforcée (ex: contraintes de complexité et expiration) (Amine)
 - Tests
   - [ ] Créer des scénarios de tests d'intégration (Amine)
@@ -127,8 +127,8 @@ sudo dpkg-reconfigure keyboard-configuration
 - Déploiement
   - [ ] Configurer l'environnement de production (Amine)
   - [ ] Créer des scripts de déploiement automatisé (Amine)
-  - [ ] Mettre en place un système de sauvegarde et restauration (Amine)
+  - [x] Mettre en place un système de sauvegarde et restauration (Amine)
 - Forensique
   - [ ] Intégrer des capacités d'analyse de trafic réseau (Amine)
 - Optimisation
-  - [ ] Réduire la taille des fichiers journaux (Amine)
+  - [x] Réduire la taille des fichiers journaux (Amine)
