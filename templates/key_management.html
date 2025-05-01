@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Clés - Toolbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .key-management-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .action-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .dark .action-card {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+        
+        .key-list {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .key-header {
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+            gap: 10px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .dark .key-header {
+            background-color: #333;
+            border-bottom: 1px solid #444;
+        }
+        
+        .key-item {
+            padding: 12px 15px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+            gap: 10px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        
+        .dark .key-item {
+            border-bottom: 1px solid #444;
+        }
+        
+        .key-item:last-child {
+            border-bottom: none;
+        }
+        
+        .key-id {
+            font-family: monospace;
+            color: #666;
+            font-size: 0.8em;
+        }
+        
+        .dark .key-id {
+            color: #aaa;
+        }
+        
+        .key-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .key-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            text-align: center;
+        }
+        
+        .status-active {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .status-revoked {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .status-expired {
+            background-color: #fff8e1;
+            color: #ff8f00;
+        }
+        
+        .dark .status-active {
+            background-color: #1b5e20;
+            color: #e8f5e9;
+        }
+        
+        .dark .status-revoked {
+            background-color: #b71c1c;
+            color: #ffebee;
+        }
+        
+        .dark .status-expired {
+            background-color: #ff6f00;
+            color: #fff8e1;
+        }
+        
+        .action-button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .rotate-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .rotate-button:hover {
+            background-color: #45a049;
+        }
+        
+        .revoke-button {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .revoke-button:hover {
+            background-color: #d32f2f;
+        }
+        
+        .create-key-button {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        
+        .create-key-button:hover {
+            background-color: #0b7dda;
+        }
+        
+        .key-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .key-form label {
+            font-weight: bold;
+        }
+        
+        .key-form input, .key-form textarea, .key-form select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        
+        .key-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .key-form button {
+            padding: 10px 16px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+        
+        .key-form button:hover {
+            background-color: #0b7dda;
+        }
+        
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <button id="theme-toggle">🌙 Mode Sombre</button>
+    
+    <div class="header-container">
+        <!-- Author Information -->
+        <div class="header-left">
+            Equipe : Jérémy, Amine, Stéphane
+        </div>
+        
+        <!-- User info and controls -->
+        <div class="user-controls">
+            <div class="user-info">
+                <div>Bonjour, {{ user_info.preferred_username }}</div>
+                <div>
+                    {% for role in user_info.get('realm_access', {}).get('roles', []) %}
+                        {% if role == 'admin' %}
+                            <span class="role-badge role-admin">Admin</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="{{ url_for('index') }}" class="profile-btn">Retour au Dashboard</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Déconnexion</a>
+            </div>
+        </div>
+    </div>
+
+    <h1>Gestion des Clés Cryptographiques</h1>
+    
+    <div class="key-management-container">
+        <div class="action-card">
+            <h2>Créer une nouvelle clé</h2>
+            <button id="toggle-create-form" class="create-key-button">Nouvelle clé</button>
+            
+            <form id="create-key-form" class="key-form" style="display: none;">
+                <div>
+                    <label for="key-name">Nom de la clé *</label>
+                    <input type="text" id="key-name" name="name" required placeholder="ex: API_ACCESS_KEY">
+                </div>
+                
+                <div>
+                    <label for="key-description">Description</label>
+                    <textarea id="key-description" name="description" placeholder="Décrivez l'usage de cette clé..."></textarea>
+                </div>
+                
+                <div>
+                    <label for="key-expiry">Expiration</label>
+                    <select id="key-expiry" name="expiry_days">
+                        <option value="30">30 jours</option>
+                        <option value="90">90 jours</option>
+                        <option value="180">180 jours</option>
+                        <option value="365" selected>1 an</option>
+                        <option value="730">2 ans</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Créer</button>
+            </form>
+            
+            <div id="create-result" style="margin-top: 15px;"></div>
+        </div>
+        
+        <div class="action-card">
+            <h2>Clés disponibles</h2>
+            <div class="key-list">
+                <div class="key-header">
+                    <div>Statut</div>
+                    <div>Nom</div>
+                    <div>Créée le</div>
+                    <div>Expire le</div>
+                    <div>Actions</div>
+                </div>
+                
+                {% if keys %}
+                    {% for key in keys %}
+                        <div class="key-item">
+                            <div>
+                                {% if key.revoked %}
+                                    <span class="key-status status-revoked">Révoquée</span>
+                                {% else %}
+                                    {% set current_time = now|default(datetime_class.now()) %}
+                                    {% set expiry_date = datetime_class.fromisoformat(key.expires_at) %}
+                                    {% if current_time > expiry_date %}
+                                        <span class="key-status status-expired">Expirée</span>
+                                    {% else %}
+                                        <span class="key-status status-active">Active</span>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            <div>
+                                <strong>{{ key.name }}</strong>
+                                <div class="key-id">{{ key.id }}</div>
+                                {% if key.description %}
+                                    <div>{{ key.description }}</div>
+                                {% endif %}
+                            </div>
+                            <div>{{ key.created_at|datetime }}</div>
+                            <div>{{ key.expires_at|datetime }}</div>
+                            <div class="key-actions">
+                                {% if not key.revoked %}
+                                    <button class="action-button rotate-button" data-key-id="{{ key.id }}">Pivoter</button>
+                                    <button class="action-button revoke-button" data-key-id="{{ key.id }}">Révoquer</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="key-item">
+                        <div colspan="5" style="text-align: center; grid-column: 1 / span 5;">Aucune clé disponible.</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Theme toggle functionality
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            toggleButton.textContent = document.body.classList.contains('dark') ? '☀️ Mode Clair' : '🌙 Mode Sombre';
+            
+            // Save preference to localStorage
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                toggleButton.textContent = '☀️ Mode Clair';
+            }
+            
+            // Set up event listeners
+            setupKeyManagementListeners();
+        });
+        
+        function setupKeyManagementListeners() {
+            // Toggle create form
+            document.getElementById('toggle-create-form').addEventListener('click', function() {
+                const form = document.getElementById('create-key-form');
+                form.style.display = form.style.display === 'none' ? 'flex' : 'none';
+                this.textContent = form.style.display === 'none' ? 'Nouvelle clé' : 'Annuler';
+            });
+            
+            // Create key form submission
+            document.getElementById('create-key-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                createKey();
+            });
+            
+            // Rotate buttons
+            document.querySelectorAll('.rotate-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const keyId = this.getAttribute('data-key-id');
+                    if (confirm('Êtes-vous sûr de vouloir pivoter cette clé ? Une nouvelle clé sera créée et l\'ancienne sera révoquée.')) {
+                        rotateKey(keyId);
+                    }
+                });
+            });
+            
+            // Revoke buttons
+            document.querySelectorAll('.revoke-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const keyId = this.getAttribute('data-key-id');
+                    if (confirm('Êtes-vous sûr de vouloir révoquer cette clé ? Cette action est irréversible.')) {
+                        revokeKey(keyId);
+                    }
+                });
+            });
+        }
+        
+        function showLoading() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+        
+        function createKey() {
+            showLoading();
+            
+            const formData = {
+                name: document.getElementById('key-name').value,
+                description: document.getElementById('key-description').value,
+                expiry_days: parseInt(document.getElementById('key-expiry').value)
+            };
+            
+            fetch('/api/keys', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                
+                if (data.success) {
+                    document.getElementById('create-result').innerHTML = 
+                        `<div style="color: green; padding: 10px; background-color: #e8f5e9; border-radius: 4px;">
+                            Clé créée avec succès. ID: ${data.key_id}
+                        </div>`;
+                    
+                    // Reset form
+                    document.getElementById('create-key-form').reset();
+                    
+                    // Reload the page to refresh the key list
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    document.getElementById('create-result').innerHTML = 
+                        `<div style="color: red; padding: 10px; background-color: #ffebee; border-radius: 4px;">
+                            Erreur: ${data.error}
+                        </div>`;
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                document.getElementById('create-result').innerHTML = 
+                    `<div style="color: red; padding: 10px; background-color: #ffebee; border-radius: 4px;">
+                        Erreur: ${error.message}
+                    </div>`;
+            });
+        }
+        
+        function rotateKey(keyId) {
+            showLoading();
+            
+            fetch(`/api/keys/${keyId}/rotate`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    expiry_days: 365  // Default to 1 year
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                
+                if (data.success) {
+                    alert(`Clé pivotée avec succès. Nouvelle clé ID: ${data.new_key_id}`);
+                    // Reload the page to refresh the key list
+                    window.location.reload();
+                } else {
+                    alert(`Erreur lors de la rotation de la clé: ${data.error}`);
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                alert(`Erreur: ${error.message}`);
+            });
+        }
+        
+        function revokeKey(keyId) {
+            showLoading();
+            
+            fetch(`/api/keys/${keyId}/revoke`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                
+                if (data.success) {
+                    alert('Clé révoquée avec succès');
+                    // Reload the page to refresh the key list
+                    window.location.reload();
+                } else {
+                    alert(`Erreur lors de la révocation de la clé: ${data.error}`);
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                alert(`Erreur: ${error.message}`);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -240,6 +240,21 @@
     <a href="{{ url_for('import_reports_page') }}">
         <button type="button">Importer les rapports</button>
     </a>
+    </div>
+    <div class="module-card">
+        <h3>💾 Sauvegarde & Restauration</h3>
+        <p>Gérez les sauvegardes des rapports</p>
+        <a href="{{ url_for('backup_restore_page') }}">
+            <button type="button">Gérer les sauvegardes</button>
+        </a>
+    </div>
+    <div class="module-card">
+        <h3>🔑 Gestion des Clés</h3>
+        <p>Gérer les clés cryptographiques du système</p>
+        <a href="{{ url_for('key_management_page') }}">
+            <button type="button">Gérer les clés</button>
+        </a>
+    </div>
 </div>
 {% endif %}
     </div>

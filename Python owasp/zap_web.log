@@ -2032,3 +2032,35 @@
 2025-04-24 06:31:19,680 - werkzeug - INFO -  * Restarting with stat
 2025-04-24 06:31:20,186 - werkzeug - WARNING -  * Debugger is active!
 2025-04-24 06:31:20,186 - werkzeug - INFO -  * Debugger PIN: 519-985-281
+2025-04-26 11:59:47,562 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-04-26 11:59:47,565 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-26 11:59:47,565 - werkzeug - INFO -  * Restarting with stat
+2025-04-26 11:59:47,996 - werkzeug - WARNING -  * Debugger is active!
+2025-04-26 11:59:47,996 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-05-01 13:01:50,312 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-05-01 13:01:50,322 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 13:01:50,323 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 13:01:51,065 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 13:01:51,065 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-05-01 14:25:14,845 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-05-01 14:25:14,845 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 14:25:14,854 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 14:25:15,699 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 14:25:15,700 - werkzeug - INFO -  * Debugger PIN: 134-977-019
+2025-05-01 14:30:39,888 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.47.139:5004
+2025-05-01 14:30:39,888 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-01 14:30:39,889 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 14:30:40,206 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 14:30:40,207 - werkzeug - INFO -  * Debugger PIN: 134-977-019

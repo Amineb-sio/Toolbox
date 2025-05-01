@@ -1,8 +1,8 @@
-2025-04-24 08:21:55,541 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
-2025-04-24 08:21:55,544 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'br-04e58598c43e', 'br-1e45ba0275e0', 'docker0', 'br-aac6c1663669', 'veth048b5fa@if10', 'veth9cd5768@if14', 'br-80d559c3dc4b', 'veth79b73dc@if19', 'veth775b5fb@if21']
-2025-04-24 08:21:55,547 - werkzeug - INFO -  * Restarting with stat
-2025-04-24 08:21:56,054 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
-2025-04-24 08:21:56,057 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'br-04e58598c43e', 'br-1e45ba0275e0', 'docker0', 'br-aac6c1663669', 'veth048b5fa@if10', 'veth9cd5768@if14', 'br-80d559c3dc4b', 'veth79b73dc@if19', 'veth775b5fb@if21']
-2025-04-24 08:21:56,062 - werkzeug - WARNING -  * Debugger is active!
-2025-04-24 08:21:56,062 - werkzeug - INFO -  * Debugger PIN: 126-569-492
-(89982) wsgi starting up on http://0.0.0.0:5016
+2025-05-01 16:30:52,605 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
+2025-05-01 16:30:52,610 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'docker0', 'br-78faa007a24f', 'br-a8c270911c64', 'veth23869c4@if6', 'vethbbb409e@if8', 'vethe3e2aef@if10']
+2025-05-01 16:30:52,613 - werkzeug - INFO -  * Restarting with stat
+2025-05-01 16:30:53,120 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
+2025-05-01 16:30:53,124 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'docker0', 'br-78faa007a24f', 'br-a8c270911c64', 'veth23869c4@if6', 'vethbbb409e@if8', 'vethe3e2aef@if10']
+2025-05-01 16:30:53,129 - werkzeug - WARNING -  * Debugger is active!
+2025-05-01 16:30:53,129 - werkzeug - INFO -  * Debugger PIN: 230-710-678
+(136588) wsgi starting up on http://0.0.0.0:5016

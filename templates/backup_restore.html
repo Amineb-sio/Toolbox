@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Sauvegardes - Toolbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .backup-restore-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .action-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .dark .action-card {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+        
+        .backup-list {
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .backup-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .dark .backup-item {
+            border-bottom: 1px solid #444;
+        }
+        
+        .backup-item:last-child {
+            border-bottom: none;
+        }
+        
+        .backup-info {
+            flex-grow: 1;
+        }
+        
+        .backup-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .restore-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .restore-button:hover {
+            background-color: #45a049;
+        }
+        
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .delete-button:hover {
+            background-color: #d32f2f;
+        }
+        
+        .create-backup-button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .create-backup-button:hover {
+            background-color: #0b7dda;
+        }
+        
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <button id="theme-toggle">🌙 Mode Sombre</button>
+    
+    <div class="header-container">
+        <!-- Author Information -->
+        <div class="header-left">
+            Equipe : Jérémy, Amine, Stéphane
+        </div>
+        
+        <!-- User info and controls -->
+        <div class="user-controls">
+            <div class="user-info">
+                <div>Bonjour, {{ user_info.preferred_username }}</div>
+                <div>
+                    {% for role in user_info.get('realm_access', {}).get('roles', []) %}
+                        {% if role == 'admin' %}
+                            <span class="role-badge role-admin">Admin</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="{{ url_for('index') }}" class="profile-btn">Retour au Dashboard</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Déconnexion</a>
+            </div>
+        </div>
+    </div>
+
+    <h1>Gestion des Sauvegardes des Rapports</h1>
+    
+    <div class="backup-restore-container">
+        <div class="action-card">
+            <h2>Créer une nouvelle sauvegarde</h2>
+            <p>Cette action sauvegardera tous les rapports actuellement disponibles dans les différents modules de la Toolbox.</p>
+            <button id="create-backup-btn" class="create-backup-button">Créer une sauvegarde</button>
+            <div id="backup-result" style="margin-top: 15px;"></div>
+        </div>
+        
+        <div class="action-card">
+            <h2>Sauvegardes disponibles</h2>
+            <p>Liste des sauvegardes précédemment créées. Vous pouvez restaurer ou supprimer ces sauvegardes.</p>
+            
+            <div class="backup-list" id="backup-list">
+                {% if backups %}
+                    {% for backup in backups %}
+                        <div class="backup-item">
+                            <div class="backup-info">
+                                <strong>{{ backup.date }}</strong>
+                                <p>{{ backup.files_count }} fichiers - {{ backup.size }}</p>
+                            </div>
+                            <div class="backup-actions">
+                                <button class="restore-button" data-backup-id="{{ backup.id }}">Restaurer</button>
+                                <button class="delete-button" data-backup-id="{{ backup.id }}">Supprimer</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucune sauvegarde disponible.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Theme toggle functionality
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            toggleButton.textContent = document.body.classList.contains('dark') ? '☀️ Mode Clair' : '🌙 Mode Sombre';
+            
+            // Save preference to localStorage
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                toggleButton.textContent = '☀️ Mode Clair';
+            }
+            
+            // Set up event listeners for backup operations
+            setupBackupListeners();
+        });
+        
+        function setupBackupListeners() {
+            // Create backup button
+            document.getElementById('create-backup-btn').addEventListener('click', createBackup);
+            
+            // Restore buttons
+            document.querySelectorAll('.restore-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const backupId = this.getAttribute('data-backup-id');
+                    if (confirm('Êtes-vous sûr de vouloir restaurer cette sauvegarde ? Les rapports actuels seront remplacés.')) {
+                        restoreBackup(backupId);
+                    }
+                });
+            });
+            
+            // Delete buttons
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const backupId = this.getAttribute('data-backup-id');
+                    if (confirm('Êtes-vous sûr de vouloir supprimer cette sauvegarde ? Cette action est irréversible.')) {
+                        deleteBackup(backupId);
+                    }
+                });
+            });
+        }
+        
+        function showLoading() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+        
+        function createBackup() {
+            showLoading();
+            
+            fetch('/api/create-backup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                
+                if (data.success) {
+                    document.getElementById('backup-result').innerHTML = 
+                        `<div style="color: green; padding: 10px; background-color: #e8f5e9; border-radius: 4px;">
+                            ${data.message}
+                        </div>`;
+                    
+                    // Reload the page to refresh the backup list
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    document.getElementById('backup-result').innerHTML = 
+                        `<div style="color: red; padding: 10px; background-color: #ffebee; border-radius: 4px;">
+                            Erreur: ${data.error}
+                        </div>`;
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                document.getElementById('backup-result').innerHTML = 
+                    `<div style="color: red; padding: 10px; background-color: #ffebee; border-radius: 4px;">
+                        Erreur: ${error.message}
+                    </div>`;
+            });
+        }
+        
+        function restoreBackup(backupId) {
+            showLoading();
+            
+            fetch('/api/restore-backup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    backup_id: backupId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                
+                if (data.success) {
+                    alert(`Sauvegarde restaurée avec succès: ${data.message}`);
+                    // Reload the page
+                    window.location.reload();
+                } else {
+                    alert(`Erreur lors de la restauration: ${data.error}`);
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                alert(`Erreur: ${error.message}`);
+            });
+        }
+        
+        function deleteBackup(backupId) {
+            showLoading();
+            
+            fetch('/api/delete-backup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    backup_id: backupId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                
+                if (data.success) {
+                    alert('Sauvegarde supprimée avec succès');
+                    // Reload the page
+                    window.location.reload();
+                } else {
+                    alert(`Erreur lors de la suppression: ${data.error}`);
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                alert(`Erreur: ${error.message}`);
+            });
+        }
+    </script>
+</body>
+</html>
