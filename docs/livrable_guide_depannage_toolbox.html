@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de dépannage - Toolbox de Cybersécurité</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --warning-color: #e67e22;
+            --danger-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --code-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        .toc {
+            background-color: var(--light-bg);
+            padding: 20px 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+        
+        .toc ol {
+            margin-bottom: 0;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        code, pre {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--code-bg);
+            border-radius: 3px;
+        }
+        
+        code {
+            padding: 2px 4px;
+            color: var(--danger-color);
+        }
+        
+        pre {
+            padding: 15px;
+            border-left: 4px solid var(--secondary-color);
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .command {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 12px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .command .prompt {
+            color: #ccc;
+        }
+        
+        .warning {
+            background-color: #fff3e0;
+            border-left: 5px solid var(--warning-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning::before {
+            content: "⚠️ ";
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid var(--light-bg);
+            color: #7f8c8d;
+        }
+        
+        /* Print styles */
+        @media print {
+            header, .toc, .footer {
+                page-break-after: avoid;
+            }
+            h2, h3 {
+                page-break-after: avoid;
+            }
+            pre, code, .command {
+                white-space: pre-wrap;
+            }
+            @page {
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Guide de dépannage pour la Toolbox</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="introduction">
+            <p>Ce guide de dépannage présente les problèmes courants que vous pourriez rencontrer lors de l'utilisation de la Toolbox et leurs solutions. Il couvre l'installation, la configuration, le démarrage/arrêt des conteneurs, et la gestion des données persistantes.</p>
+        </section>
+        
+        <section class="toc">
+            <h2>Table des matières</h2>
+            <ol>
+                <li><a href="#demarrage-arret">Démarrage et arrêt des conteneurs</a></li>
+                <li><a href="#donnees-persistantes">Gestion des données persistantes</a></li>
+                <li><a href="#keycloak">Problèmes courants avec Keycloak</a></li>
+                <li><a href="#postgresql">Problèmes courants avec PostgreSQL et pgAdmin</a></li>
+                <li><a href="#portainer">Problèmes courants avec Portainer</a></li>
+                <li><a href="#permissions">Erreurs de permission</a></li>
+                <li><a href="#conflits-ports">Résolution des conflits de ports</a></li>
+            </ol>
+        </section>
+        
+        <section id="demarrage-arret">
+            <h2>Démarrage et arrêt des conteneurs</h2>
+            
+            <h3>Démarrage des conteneurs</h3>
+            <p>Pour démarrer tous les conteneurs et l'application Flask:</p>
+            <div class="command">
+                <span class="prompt">$</span> poetry run bash ./start_all.sh
+            </div>
+            
+            <p>Si vous rencontrez une erreur de permission:</p>
+            <div class="command">
+                <span class="prompt">$</span> chmod +x start_all.sh<br>
+                <span class="prompt">$</span> poetry run bash ./start_all.sh
+            </div>
+            
+            <p>Alternativement, vous pouvez utiliser directement Docker Compose pour les conteneurs seuls:</p>
+            <div class="command">
+                <span class="prompt">$</span> docker-compose up -d
+            </div>
+            
+            <p>Puis démarrer l'application Flask séparément avec Poetry:</p>
+            <div class="command">
+                <span class="prompt">$</span> poetry run python main.py
+            </div>
+            
+            <h3>Arrêt des conteneurs</h3>
+            <p>Pour arrêter tous les conteneurs:</p>
+            <div class="command">
+                <span class="prompt">$</span> ./stop_all.sh
+            </div>
+            
+            <p>Si vous rencontrez une erreur de permission:</p>
+            <div class="command">
+                <span class="prompt">$</span> chmod +x stop_all.sh<br>
+                <span class="prompt">$</span> ./stop_all.sh
+            </div>
+            
+            <p>Alternativement, vous pouvez utiliser directement Docker Compose:</p>
+            <div class="command">
+                <span class="prompt">$</span> docker-compose down
+            </div>
+            
+            <h3>Vérification des conteneurs en cours d'exécution</h3>
+            <p>Pour vérifier que tous les conteneurs sont en cours d'exécution:</p>
+            <div class="command">
+                <span class="prompt">$</span> docker ps
+            </div>
+        </section>
+        
+        <section id="donnees-persistantes">
+            <h2>Gestion des données persistantes</h2>
+            
+            <h3>Comprendre les volumes Docker</h3>
+            <p>Les données persistantes sont stockées dans des volumes Docker qui sont mappés aux répertoires locaux. Ces dossiers sont créés automatiquement lors du premier démarrage des conteneurs.</p>
+            
+            <h3>Dossiers créés automatiquement</h3>
+            <ul>
+                <li><code>./postgresql/postgres_data</code>: Stocke les données PostgreSQL</li>
+                <li><code>./postgresql/pgadmin_volume</code>: Stocke les configurations de pgAdmin</li>
+                <li><code>./keycloack/keycloak-data</code>: Stocke les données Keycloak</li>
+                <li><code>./portainer/portainer_data</code>: Stocke les données Portainer</li>
+                <li><code>./rapports</code>: Dossier partagé pour les rapports (utilisé par plusieurs services)</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>Important</strong>: Les dossiers créés par les conteneurs Docker peuvent avoir des propriétaires et des permissions spécifiques qui les rendent difficiles à supprimer. Par exemple:
+            </div>
+            
+            <div class="command">
+                drwx------ 19  70 root 4096 May 17 14:44 postgres_data<br>
+                drwxrwxr-x  5 5050 5050 4096 May 17 14:52 pgadmin_volume
+            </div>
+            
+            <p>Ces dossiers sont créés avec des utilisateurs spécifiques à Docker (ID 70 pour postgres, 5050 pour pgAdmin) et peuvent nécessiter des privilèges root pour être supprimés.</p>
+            
+            <h3>Solution pour supprimer les dossiers avec permissions spéciales</h3>
+            <p>Si vous devez supprimer ces dossiers (par exemple pour un nettoyage complet):</p>
+            <div class="command">
+                <span class="prompt">$</span> sudo rm -rf ./postgresql/postgres_data<br>
+                <span class="prompt">$</span> sudo rm -rf ./postgresql/pgadmin_volume
+            </div>
+            
+            <h3>Problème de GitHub et données sensibles</h3>
+            <div class="warning">
+                <strong>Attention</strong>: Ces dossiers contiennent des données sensibles et ne doivent PAS être ajoutés à Git ou GitHub. Assurez-vous qu'ils sont listés dans votre fichier <code>.gitignore</code>.
+            </div>
+            
+            <p>Exemple de <code>.gitignore</code>:</p>
+            <div class="command">
+                # Données persistantes Docker<br>
+                postgresql/postgres_data/<br>
+                postgresql/pgadmin_volume/<br>
+                keycloack/keycloak-data/<br>
+                portainer/portainer_data/<br>
+                rapports/
+            </div>
+        </section>
+        
+        <section id="keycloak">
+            <h2>Problèmes courants avec Keycloak</h2>
+            
+            <h3>Échec du démarrage de Keycloak</h3>
+            <p>Si Keycloak ne démarre pas correctement:</p>
+            
+            <ol>
+                <li>Vérifiez les logs:
+                    <div class="command">
+                        <span class="prompt">$</span> docker logs keycloak
+                    </div>
+                </li>
+                <li>Problèmes courants:
+                    <ul>
+                        <li>Problèmes de permissions sur le volume des données</li>
+                        <li>Conflit de port (8080 déjà utilisé)</li>
+                        <li>Problèmes de mémoire insuffisante</li>
+                    </ul>
+                </li>
+                <li>Solutions:
+                    <ul>
+                        <li>Recréer le dossier de données:
+                            <div class="command">
+                                <span class="prompt">$</span> sudo rm -rf ./keycloack/keycloak-data && mkdir -p ./keycloack/keycloak-data
+                            </div>
+                        </li>
+                        <li>Vérifier si le port 8080 est déjà utilisé:
+                            <div class="command">
+                                <span class="prompt">$</span> sudo lsof -i :8080
+                            </div>
+                        </li>
+                        <li>Augmenter la mémoire disponible dans les paramètres Docker</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+        
+        <section id="postgresql">
+            <h2>Problèmes courants avec PostgreSQL et pgAdmin</h2>
+            
+            <h3>PostgreSQL ne démarre pas</h3>
+            <p>Si PostgreSQL ne démarre pas:</p>
+            
+            <ol>
+                <li>Vérifiez les logs:
+                    <div class="command">
+                        <span class="prompt">$</span> docker logs toolbox_postgres
+                    </div>
+                </li>
+                <li>Problèmes courants:
+                    <ul>
+                        <li>Corruption des données</li>
+                        <li>Problèmes de permissions sur le volume des données</li>
+                        <li>Conflit de port (5432 déjà utilisé)</li>
+                    </ul>
+                </li>
+                <li>Solutions:
+                    <ul>
+                        <li>Recréer le dossier de données:
+                            <div class="command">
+                                <span class="prompt">$</span> sudo rm -rf ./postgresql/postgres_data && mkdir -p ./postgresql/postgres_data
+                            </div>
+                        </li>
+                        <li>Vérifier si le port 5432 est déjà utilisé:
+                            <div class="command">
+                                <span class="prompt">$</span> sudo lsof -i :5432
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>pgAdmin n'affiche pas les serveurs</h3>
+            <p>Si vous ne voyez pas vos serveurs dans pgAdmin:</p>
+            
+            <ol>
+                <li>Vérifiez que PostgreSQL est bien démarré</li>
+                <li>Essayez d'ajouter manuellement une connexion au serveur avec ces paramètres:
+                    <ul>
+                        <li>Nom: Toolbox PostgreSQL</li>
+                        <li>Hôte: postgres (nom du service dans docker-compose)</li>
+                        <li>Port: 5432</li>
+                        <li>Base de données: toolbox_db</li>
+                        <li>Utilisateur: toolbox_user</li>
+                        <li>Mot de passe: secure_password</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Dossiers créés par PostgreSQL et pgAdmin</h3>
+            <div class="warning">
+                <strong>Important</strong>: Lorsque vous connectez PostgreSQL via pgAdmin, des dossiers de données persistantes sont automatiquement créés:
+            </div>
+            
+            <div class="command">
+                ./postgresql/postgres_data   # Données PostgreSQL (propriétaire: ID 70, permissions: 700)<br>
+                ./postgresql/pgadmin_volume  # Données pgAdmin (propriétaire: ID 5050, permissions: 755)
+            </div>
+            
+            <p>Ces dossiers:</p>
+            <ul>
+                <li>Sont nécessaires au bon fonctionnement des services</li>
+                <li>Ne peuvent pas être supprimés sans privilèges root</li>
+                <li>Ne doivent pas être ajoutés à Git/GitHub car ils contiennent des données sensibles</li>
+            </ul>
+        </section>
+        
+        <section id="portainer">
+            <h2>Problèmes courants avec Portainer</h2>
+            
+            <h3>Échec du démarrage de Portainer</h3>
+            <p>Si Portainer ne démarre pas:</p>
+            
+            <ol>
+                <li>Vérifiez les logs:
+                    <div class="command">
+                        <span class="prompt">$</span> docker logs portainer
+                    </div>
+                </li>
+                <li>Problèmes courants:
+                    <ul>
+                        <li>Problèmes d'accès au socket Docker</li>
+                        <li>Conflit de port (9000 déjà utilisé)</li>
+                    </ul>
+                </li>
+                <li>Solutions:
+                    <ul>
+                        <li>Vérifier les permissions:
+                            <div class="command">
+                                <span class="prompt">$</span> sudo chmod 666 /var/run/docker.sock
+                            </div>
+                        </li>
+                        <li>Vérifier si le port 9000 est déjà utilisé:
+                            <div class="command">
+                                <span class="prompt">$</span> sudo lsof -i :9000
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Utilisation de Portainer pour gérer les conteneurs</h3>
+            <p>Portainer est accessible à l'adresse: <a href="http://localhost:9000" target="_blank">http://localhost:9000</a></p>
+        </section>
+        
+        <section id="permissions">
+            <h2>Erreurs de permission</h2>
+            
+            <h3>Erreurs lors de l'accès aux fichiers créés par Docker</h3>
+            <p>Les fichiers créés par les conteneurs Docker appartiennent souvent à l'utilisateur root ou à des utilisateurs spécifiques à Docker:</p>
+            
+            <p>Solution:</p>
+            <div class="command">
+                <span class="prompt"># Pour accéder temporairement aux fichiers</span><br>
+                <span class="prompt">$</span> sudo ls -la ./postgresql/postgres_data<br><br>
+                <span class="prompt"># Pour changer le propriétaire (à utiliser avec précaution)</span><br>
+                <span class="prompt">$</span> sudo chown -R votre_utilisateur:votre_groupe ./postgresql/postgres_data
+            </div>
+        </section>
+        
+        <section id="conflits-ports">
+            <h2>Résolution des conflits de ports</h2>
+            
+            <p>Si certains ports sont déjà utilisés sur votre système, vous devrez modifier le fichier docker-compose.yml.</p>
+            
+            <h3>Ports utilisés par défaut:</h3>
+            <ul>
+                <li>PostgreSQL: 5432</li>
+                <li>pgAdmin: 5050</li>
+                <li>Keycloak: 8080</li>
+                <li>Portainer: 9000</li>
+            </ul>
+            
+            <h3>Pour changer un port (exemple pour PostgreSQL):</h3>
+            <div class="command">
+                postgres:<br>
+                &nbsp;&nbsp;# ...<br>
+                &nbsp;&nbsp;ports:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- "5433:5432"  # Utiliser le port 5433 à la place de 5432
+            </div>
+            
+            <p>Après avoir modifié le fichier, redémarrez les conteneurs:</p>
+            <div class="command">
+                <span class="prompt">$</span> docker-compose down<br>
+                <span class="prompt">$</span> docker-compose up -d
+            </div>
+        </section>
+        
+        <div class="footer">
+            <p>Ce guide devrait vous aider à résoudre les problèmes courants avec votre Toolbox. Si vous rencontrez des problèmes non répertoriés ici, n'hésitez pas à consulter la documentation officielle de Docker et des services spécifiques, ou à demander de l'aide à votre équipe de support.</p>
+            <p>© 2025 Toolbox de Cybersécurité</p>
+        </div>
+    </div>
+</body>
+</html>

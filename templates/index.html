@@ -48,6 +48,54 @@
 
     <!-- Department Container with Grid Layout -->
     <div class="department-container">
+         <!-- Admin only section -->
+{% if 'admin' in user_info.realm_access.roles %}
+<div class="department admin-department">
+    <h2>Administration</h2>
+    <div class="module-card">
+        <h3>🐳 Portainer</h3>
+        <p>Interface d'administration des conteneurs</p>
+        <a href="http://127.0.0.1:9000" target="_blank">
+            <button type="button">Accéder à Portainer</button>
+        </a>
+    </div>
+    <div class="module-card">
+        <h3>👥 Gestion des utilisateurs</h3>
+        <p>Configuration des utilisateurs et des rôles</p>
+        <a href="http://127.0.0.1:8080/admin/master/console/#/Toolbox/" target="_blank">
+            <button type="button">Console Keycloak</button>
+        </a>
+    </div>
+    <div class="module-card">
+        <h3>🗄️ Base de Données</h3>
+        <p>Gestion de la base de données PostgreSQL</p>
+        <a href="http://127.0.0.1:5050" target="_blank">
+            <button type="button">Accéder à pgAdmin</button>
+        </a>
+    </div>
+    <div class="module-card">
+    <h3>📤 Importer des Rapports</h3>
+    <p>Importez les rapports dans la base de données</p>
+    <a href="{{ url_for('import_reports_page') }}">
+        <button type="button">Importer les rapports</button>
+    </a>
+    </div>
+    <div class="module-card">
+        <h3>💾 Sauvegarde & Restauration</h3>
+        <p>Gérez les sauvegardes des rapports</p>
+        <a href="{{ url_for('backup_restore_page') }}">
+            <button type="button">Gérer les sauvegardes</button>
+        </a>
+    </div>
+    <div class="module-card">
+        <h3>🔑 Gestion des Clés</h3>
+        <p>Gérer les clés cryptographiques du système</p>
+        <a href="{{ url_for('key_management_page') }}">
+            <button type="button">Gérer les clés</button>
+        </a>
+    </div>
+</div>
+{% endif %}
         <!-- Security Department (SOC, EDR, XDR) -->
         {% if 'securite' in user_info.realm_access.roles or 'admin' in user_info.realm_access.roles %}
         <div class="department security-department">
@@ -107,12 +155,6 @@
                     <button type="submit">Lancer SQLmap</button>
                 </form>
             </div>
-            <div class="module-card">
-                <h3>📦 OWASP Dependency-Check</h3>
-                <form action="/owaspdependencycheck" method="get">
-                    <button type="submit">Lancer OWASP Dependency-Check</button>
-                </form>
-            </div>
         </div>
         {% endif %}
 
@@ -121,27 +163,9 @@
         <div class="department infrastructure-department">
             <h2>Pôle Infrastructure</h2>
             <div class="module-card">
-                <h3>🔒 OpenVAS</h3>
-                <form action="/openvas" method="get">
-                    <button type="submit">Lancer OpenVAS</button>
-                </form>
-            </div>
-            <div class="module-card">
                 <h3>🔑 Hydra</h3>
                 <form action="/hydra" method="get">
                     <button type="submit">Lancer Hydra</button>
-                </form>
-            </div>
-            <div class="module-card">
-                <h3>📡 Airodump-ng</h3>
-                <form action="/airodump-ng" method="get">    
-                    <button type="submit">Lancer Airodump-ng</button>
-                </form>
-            </div>
-            <div class="module-card">
-                <h3>📶 Aircrack-ng</h3>
-                <form action="/aircrack-ng" method="get">
-                    <button type="submit">Lancer Aircrack-ng</button>
                 </form>
             </div>
         </div>
@@ -155,12 +179,6 @@
                 <h3>🔍 Nikto</h3>
                 <form action="/nikto" method="get">
                     <button type="submit">Lancer Nikto</button>
-                </form>
-            </div>
-            <div class="module-card">
-                <h3>🔐 SSLyze</h3>
-                <form action="/sslyze" method="get">
-                    <button type="submit">Lancer SSLyze</button>
                 </form>
             </div>
             <div class="module-card">
@@ -183,21 +201,9 @@
         <div class="department hr-department">
             <h2>Pôle Ressources Humaines et Administration (OSINT)</h2>
             <div class="module-card">
-                <h3>🕵️ Sherlock</h3>
-                <form action="/sherlock" method="get">
-                    <button type="submit">Lancer Sherlock</button>
-                </form>
-            </div>
-            <div class="module-card">
                 <h3>📧 Harvester</h3>
                 <form action="/harvester" method="get">
                     <button type="submit">Lancer Harvester</button>
-                </form>
-            </div>
-            <div class="module-card">
-                <h3>📄 Metagoofil</h3>
-                <form action="/metagoofil" method="get">
-                    <button type="submit">Lancer Metagoofil</button>
                 </form>
             </div>
             <div class="module-card">
@@ -208,55 +214,6 @@
             </div>
         </div>
         {% endif %}
-        
-     <!-- Admin only section -->
-{% if 'admin' in user_info.realm_access.roles %}
-<div class="department admin-department">
-    <h2>Administration</h2>
-    <div class="module-card">
-        <h3>🐳 Portainer</h3>
-        <p>Interface d'administration des conteneurs</p>
-        <a href="http://127.0.0.1:9000" target="_blank">
-            <button type="button">Accéder à Portainer</button>
-        </a>
-    </div>
-    <div class="module-card">
-        <h3>👥 Gestion des utilisateurs</h3>
-        <p>Configuration des utilisateurs et des rôles</p>
-        <a href="http://127.0.0.1:8080/admin/master/console/#/Toolbox/" target="_blank">
-            <button type="button">Console Keycloak</button>
-        </a>
-    </div>
-    <div class="module-card">
-        <h3>🗄️ Base de Données</h3>
-        <p>Gestion de la base de données PostgreSQL</p>
-        <a href="http://127.0.0.1:5050" target="_blank">
-            <button type="button">Accéder à pgAdmin</button>
-        </a>
-    </div>
-    <div class="module-card">
-    <h3>📤 Importer des Rapports</h3>
-    <p>Importez les rapports dans la base de données</p>
-    <a href="{{ url_for('import_reports_page') }}">
-        <button type="button">Importer les rapports</button>
-    </a>
-    </div>
-    <div class="module-card">
-        <h3>💾 Sauvegarde & Restauration</h3>
-        <p>Gérez les sauvegardes des rapports</p>
-        <a href="{{ url_for('backup_restore_page') }}">
-            <button type="button">Gérer les sauvegardes</button>
-        </a>
-    </div>
-    <div class="module-card">
-        <h3>🔑 Gestion des Clés</h3>
-        <p>Gérer les clés cryptographiques du système</p>
-        <a href="{{ url_for('key_management_page') }}">
-            <button type="button">Gérer les clés</button>
-        </a>
-    </div>
-</div>
-{% endif %}
     </div>
 
     <script>

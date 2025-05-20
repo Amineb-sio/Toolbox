@@ -1,0 +1,4 @@
+postgresql/postgres_data/
+portainer/portainer_data/
+keycloack/keycloak-data/
+**/pgadmin_volume/

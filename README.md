@@ -1,134 +1,151 @@
-# Toolbox - Guide d'installation et d'utilisation
+# Toolbox de Cybersécurité
 
-Ce document détaille les étapes nécessaires pour installer et utiliser la toolbox.
+<div align="center">
+  
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.13+-green.svg)
+![Licence](https://img.shields.io/badge/license-MIT-orange.svg)
 
-## Prérequis
+</div>
 
-- Python 3
-- Docker et Docker Compose (pour certains modules)
-- Un système Linux (recommandé Kali Linux)
+Une suite complète d'outils de cybersécurité intégrés dans une interface web unifiée. Cette plateforme rassemble de nombreux outils populaires tels que Metasploit, Nmap, OWASP ZAP, et bien d'autres pour faciliter les tests de pénétration et les analyses de sécurité.
 
-## Installation de Poetry
+## 🌟 Fonctionnalités
 
-Poetry est utilisé pour gérer les dépendances du projet.
+- **Interface Unifiée** : Accédez à tous vos outils de sécurité depuis une seule interface web
+- **Authentification Sécurisée** : Gestion des utilisateurs via Keycloak
+- **Architecture Microservices** : Chaque outil est encapsulé dans son propre service
+- **Sauvegarde et Restauration** : Système intégré de sauvegarde pour vos configurations et résultats
+- **Système de Logs** : Journalisation complète des actions pour l'audit et le dépannage
+
+## 🛠️ Outils Intégrés
+
+- Metasploit Web Interface
+- Nmap Scanner
+- OWASP ZAP
+- WPScan
+- Gobuster
+- TCPdump Analyzer
+- SQLmap
+- Hydra
+- Nikto
+- John the Ripper
+- TheHarvester
+- Subfinder
+- Auto-Sécurité
+
+## 📋 Prérequis
+
+- Système d'exploitation Linux (Kali Linux recommandé)
+- Python 3.13+
+- Docker et Docker Compose
+- Poetry (gestionnaire de dépendances Python)
+
+## 🚀 Installation
+
+### 1. Cloner le dépôt
 
 ```bash
-# Installation de Poetry
+git clone https://github.com/Amineb-sio/Toolbox.git
+cd Toolbox
+```
+
+### 2. Installation de Poetry (si non installé)
+
+```bash
 curl -sSL https://install.python-poetry.org | python3 -
-
-# Vérification de l'installation
-poetry --version
 ```
 
-## Installation des dépendances du projet 🔵
+### 3. Installation des dépendances
 
 ```bash
-# Installation des dépendances
 poetry install
-
-# Vérification des dépendances installées (marquées en bleu)
-poetry show
 ```
 
-## Configuration 🌐
-
-Avant de lancer la toolbox, vous devez configurer votre adresse IP dans le fichier `main.py`.
+### 4. Lancement des services Docker
 
 ```bash
-# Récupération de votre adresse IP
-ip a
-
-# Remplacez l'URL dans main.py par votre adresse IP
-# Exemple: "http://192.168.1.10"
+docker-compose up -d
 ```
 
-## Lancement de la toolbox 🛠️
+Cette commande démarrera :
+- Portainer (port 9000)
+- Keycloak (port 8080)
+- PostgreSQL (port 5432)
+- pgAdmin (port 5050)
+
+### 5. Démarrage de la Toolbox
 
 ```bash
 poetry run bash ./start_all.sh
 ```
 
-## Installation de Docker (pour les modules complémentaires) 🐳
+L'application sera accessible à l'adresse : **http://127.0.0.1:5000**
 
-Si vous utilisez Kali Linux et que vous souhaitez tester les conteneurs avec certains outils :
+## 🔐 Authentification
+
+L'authentification est gérée par Keycloak, accessible sur **http://localhost:8080**. 
+
+## 📁 Structure des Données
+
+- **Sessions** : `/tmp/tmp[random]`
+- **Sauvegardes** : `./backups`
+- **Clés cryptographiques** : `./secure_keys`
+- **Logs** : `./logs`
+
+## 🐳 Gestion des Conteneurs Docker
+
+### Arrêter et nettoyer tous les conteneurs et images
 
 ```bash
-# Installation de Docker
-sudo apt install -y docker.io
-sudo systemctl enable docker --now
-sudo usermod -aG docker $USER
-
-# Installation de Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Vérification de l'installation
-docker-compose --version
+docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q)
 ```
 
-## Utilisation des modules Docker 📦
+### Utilisation des modules Docker spécifiques
 
 Pour les modules standard :
-
 ```bash
-# Se placer dans le dossier du module
 cd chemin/vers/module
-
-# Lancer le conteneur
 docker-compose up -d
 ```
 
 Pour les modules avec Dockerfile :
-
 ```bash
-# Se placer dans le dossier du module
 cd chemin/vers/module
-
-# Construire et lancer le conteneur
 docker-compose up --build -d
 ```
 
-## Configuration du clavier français sur Kali Linux ⌨️
+## 🔍 Dépannage
 
+En cas de problème, vérifiez les journaux dans le répertoire `./logs`.
+
+Pour redémarrer tous les services :
 ```bash
-# Méthode rapide
-setxkbmap fr
-
-# Méthode permanente
-sudo dpkg-reconfigure keyboard-configuration
-# Choisir le premier PC
-# Choisir French AZERTY
-# Valider les options suivantes avec Entrée
+docker-compose down
+docker-compose up -d
+poetry run bash ./start_all.sh
 ```
 
-## Tâches à réaliser ✅ 
+## 📚 Documentation
 
-- Architecture
-  - [x] Concevoir l'architecture globale de la toolbox (Amine)
-  - [ ] Définir les interfaces entre les différents modules (Amine, Jeremy, Stephane)
-  - [x] Concevoir le système de stockage des résultats (Amine)
-- Développement
-  - [x] Développer l'interface utilisateur (Amine)
-  - [ ] Créer le module de gestion des plugins (Amine)
-  - [x] Implémenter le système de logging (Amine)
-- Intégration
-  - [x] Intégrer Metasploit pour l'exploitation (Amine)
-  - [x] Intégrer Wireshark pour l'analyse de trafic (Amine)
-  - [x] Intégrer SQLmap pour la détection et l'exploitation des injections SQL (Amine)
-- Sécurité
-  - [x] Configurer l'authentification et l'autorisation des utilisateurs (Amine)
-  - [x] Mettre en place un système de gestion des clés (Amine)
-  - [x] Ajouter une vérification de mot de passe renforcée (ex: contraintes de complexité et expiration) (Amine)
-- Tests
-  - [ ] Créer des scénarios de tests d'intégration (Amine)
-- Documentation
-  - [ ] Rédiger la documentation technique de la toolbox (Jeremy, Amine, Stephane)
-  - [ ] Élaborer un guide de dépannage (Amine)
-- Déploiement
-  - [ ] Configurer l'environnement de production (Amine)
-  - [ ] Créer des scripts de déploiement automatisé (Amine)
-  - [x] Mettre en place un système de sauvegarde et restauration (Amine)
-- Forensique
-  - [ ] Intégrer des capacités d'analyse de trafic réseau (Amine)
-- Optimisation
-  - [x] Réduire la taille des fichiers journaux (Amine)
+Une documentation complète est disponible dans le dossier `docs/`.
+
+## 🌐 Navigateurs Supportés
+
+- Google Chrome (recommandé)
+- Firefox
+- Edge
+
+## 👨‍💻 Développeurs
+
+- Amine Boukherouba
+- Stéphane YE
+- Jeremy Corinthe
+
+## 📜 Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+---
+
+⭐ N'hésitez pas à donner une étoile à ce projet si vous le trouvez utile !

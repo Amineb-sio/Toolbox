@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation Technique - Toolbox de Cybersécurité</title>
+    <style>
+        @page {
+            margin: 2cm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .header p {
+            margin: 10px 0 0;
+            font-size: 18px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h2 {
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+        }
+        .toc h2 {
+            margin-top: 0;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 5px solid #2ecc71;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #e74c3c;
+            background-color: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .note {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 5px solid #2196f3;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .warning {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-left: 5px solid #ff9800;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .command {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .logo {
+            width: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+        @media print {
+            .header {
+                background-color: #2c3e50 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .command {
+                background-color: #2c3e50 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .note, .warning, .toc {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            a {
+                color: #3498db !important;
+                text-decoration: none;
+            }
+            pre, code {
+                font-size: 10px;
+            }
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Documentation Technique - Toolbox de Cybersécurité</h1>
+        <p>Guide d'installation et d'utilisation</p>
+    </div>
+    
+    <div class="container">
+        <div class="toc">
+            <h2>Table des matières</h2>
+            <ol>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#prerequis">Prérequis</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#configuration">Configuration des services</a></li>
+                <li><a href="#demarrage">Démarrage de l'application</a></li>
+                <li><a href="#architecture">Architecture de la solution</a></li>
+                <li><a href="#composants">Composants et services</a></li>
+                <li><a href="#depannage">Dépannage</a></li>
+            </ol>
+        </div>
+        
+        <section id="introduction">
+            <h2>1. Introduction</h2>
+            <p>La Toolbox de Cybersécurité est une suite d'outils intégrés permettant d'effectuer diverses tâches liées à la sécurité informatique. Cette plateforme regroupe plusieurs outils populaires tels que Metasploit, Nmap, OWASP ZAP, WPScan, Gobuster, TCPdump, SQLmap, Hydra, Nikto, John the Ripper, TheHarvester et Subfinder dans une interface web unifiée.</p>
+            
+            <p>Dépôt GitHub: <a href="https://github.com/Amineb-sio/Toolbox" target="_blank">https://github.com/Amineb-sio/Toolbox</a></p>
+        </section>
+        
+        <section id="prerequis">
+            <h2>2. Prérequis</h2>
+            <ul>
+                <li>Système d'exploitation compatible (Kali Linux recommandé)</li>
+                <li>Python 3.13 ou supérieur</li>
+                <li>Poetry (gestionnaire de dépendances Python)</li>
+                <li>Docker et Docker Compose</li>
+                <li>Connexion Internet pour télécharger les dépendances et les images Docker</li>
+            </ul>
+        </section>
+        
+        <section id="installation">
+            <h2>3. Installation</h2>
+            
+            <h3>3.1. Cloner le dépôt</h3>
+            <div class="command">
+                git clone https://github.com/Amineb-sio/Toolbox.git<br>
+                cd Toolbox
+            </div>
+            
+            <h3>3.2. Installation des dépendances Python</h3>
+            <p>La Toolbox utilise Poetry pour gérer ses dépendances. Pour installer toutes les dépendances nécessaires, exécutez la commande suivante dans le répertoire principal de la Toolbox:</p>
+            <div class="command">
+                poetry install
+            </div>
+            
+            <p>Cette commande va créer un environnement virtuel et installer toutes les dépendances définies dans le fichier <code>pyproject.toml</code>, notamment:</p>
+            <ul>
+                <li>Flask et ses extensions</li>
+                <li>Requests</li>
+                <li>SQLAlchemy</li>
+                <li>Cryptographie</li>
+                <li>Outils d'analyse réseau</li>
+                <li>Bibliothèques de reporting</li>
+                <li>Et d'autres dépendances spécifiques</li>
+            </ul>
+            
+            <div class="note">
+                <strong>Note:</strong> L'installation des dépendances peut prendre plusieurs minutes en fonction de la vitesse de votre connexion Internet.
+            </div>
+            
+            <h3>3.3. Déploiement des services Docker</h3>
+            <p>La Toolbox s'appuie sur plusieurs services Docker pour fonctionner correctement. Pour démarrer ces services, exécutez:</p>
+            <div class="command">
+                docker-compose up -d
+            </div>
+            
+            <p>Cette commande va télécharger et démarrer les conteneurs suivants:</p>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Port</th>
+                </tr>
+                <tr>
+                    <td>Portainer</td>
+                    <td>Interface de gestion Docker</td>
+                    <td>9000</td>
+                </tr>
+                <tr>
+                    <td>Keycloak</td>
+                    <td>Service d'authentification</td>
+                    <td>8080</td>
+                </tr>
+                <tr>
+                    <td>PostgreSQL</td>
+                    <td>Base de données</td>
+                    <td>5432</td>
+                </tr>
+                <tr>
+                    <td>pgAdmin</td>
+                    <td>Interface d'administration PostgreSQL</td>
+                    <td>5050</td>
+                </tr>
+            </table>
+            
+            <p>Le système téléchargera les images suivantes:</p>
+            <ul>
+                <li>portainer/portainer-ce</li>
+                <li>quay.io/keycloak/keycloak:24.0.1</li>
+                <li>postgres:15-alpine</li>
+                <li>dpage/pgadmin4:latest</li>
+            </ul>
+        </section>
+        
+        <section id="configuration">
+            <h2>4. Configuration des services</h2>
+            
+            <h3>4.1. Keycloak</h3>
+            <p>Keycloak est configuré pour gérer l'authentification des utilisateurs. La Toolbox est préconfigurée pour se connecter à l'instance Keycloak sur <code>http://localhost:8080</code>.</p>
+            
+            <p>Par défaut, vous pourrez vous connecter avec le compte administrateur configuré dans Keycloak.</p>
+            
+            <h3>4.2. Base de données PostgreSQL</h3>
+            <p>La base de données PostgreSQL est utilisée pour stocker les données de l'application. Les identifiants de connexion par défaut sont définis dans le fichier <code>docker-compose.yml</code>.</p>
+        </section>
+        
+        <section id="demarrage">
+            <h2>5. Démarrage de l'application</h2>
+            <p>Pour démarrer tous les services de la Toolbox, utilisez le script de démarrage fourni:</p>
+            <div class="command">
+                poetry run bash ./start_all.sh
+            </div>
+            
+            <p>Ce script va:</p>
+            <ol>
+                <li>Démarrer tous les microservices Python en arrière-plan</li>
+                <li>Initialiser le système de journalisation</li>
+                <li>Démarrer l'application principale sur <code>http://127.0.0.1:5000</code></li>
+            </ol>
+            
+            <h3>5.1. Services démarrés par le script</h3>
+            <ul>
+                <li>Metasploit Web Interface</li>
+                <li>Nmap Scanner</li>
+                <li>OWASP ZAP</li>
+                <li>WPScan</li>
+                <li>Gobuster</li>
+                <li>TCPdump Analyzer</li>
+                <li>SQLmap</li>
+                <li>Hydra</li>
+                <li>Nikto</li>
+                <li>John the Ripper</li>
+                <li>TheHarvester</li>
+                <li>Subfinder</li>
+                <li>Auto-Sécurité</li>
+            </ul>
+            
+            <p>Une fois démarré, vous verrez des logs similaires à ceux-ci:</p>
+            <pre>
+Lancement de /home/kali/Desktop/Toolbox/Python metasploit Webmin/app.py en arrière-plan...
+Lancement de /home/kali/Desktop/Toolbox/Python nmap/app.py en arrière-plan...
+Lancement de /home/kali/Desktop/Toolbox/Python owasp/app.py en arrière-plan...
+...</pre>
+            
+            <div class="warning">
+                <strong>Attention:</strong> Assurez-vous que tous les services Docker sont en cours d'exécution avant de démarrer l'application principale.
+            </div>
+        </section>
+        
+        <section id="architecture">
+            <h2>6. Architecture de la solution</h2>
+            <p>La Toolbox suit une architecture microservices où chaque outil est encapsulé dans son propre service Python. L'application principale (main.py) sert de point d'entrée et de coordination entre ces différents services.</p>
+            
+            <h3>6.1. Stockage des données</h3>
+            <ul>
+                <li><strong>Sessions</strong>: /tmp/tmp[random]</li>
+                <li><strong>Sauvegardes</strong>: /[chemin_installation]/backups</li>
+                <li><strong>Clés cryptographiques</strong>: /[chemin_installation]/secure_keys</li>
+                <li><strong>Logs</strong>: /[chemin_installation]/logs</li>
+                <li><strong>URL de base pour les redirections</strong>: http://127.0.0.1</li>
+                <li><strong>Configuration Keycloak</strong>: http://localhost:8080</li>
+            </ul>
+        </section>
+        
+        <section id="composants">
+            <h2>7. Composants et services</h2>
+            
+            <h3>7.1. Services principaux</h3>
+            <ul>
+                <li><strong>Application Web Flask</strong>: Interface utilisateur accessible sur http://127.0.0.1:5000</li>
+                <li><strong>Keycloak</strong>: Gestion des identités et des accès sur http://localhost:8080</li>
+                <li><strong>PostgreSQL</strong>: Base de données persistante</li>
+                <li><strong>Portainer</strong>: Gestion des conteneurs Docker sur http://localhost:9000</li>
+            </ul>
+            
+            <h3>7.2. Microservices d'outils de sécurité</h3>
+            <p>Chaque outil est implémenté comme un microservice Python indépendant qui expose une API REST pour l'interaction avec l'application principale.</p>
+        </section>
+        
+        <section id="depannage">
+            <h2>8. Dépannage</h2>
+            
+            <h3>8.1. Logs</h3>
+            <p>Les logs de l'application sont stockés dans le répertoire <code>/[chemin_installation]/logs</code> et suivent un format de nommage <code>toolbox_YYYY-MM-DD.log</code>.</p>
+            
+            <p>Exemple de logs:</p>
+            <pre>
+05-20 03:34:47 - I - [logging_system:166] - ========================================
+05-20 03:34:47 - I - [logging_system:167] - Démarrage Toolbox: 2025-05-20 03:34:47
+05-20 03:34:47 - I - [logging_system:168] - Log level: INFO
+05-20 03:34:47 - I - [logging_system:169] - Log file: /home/kali/Desktop/Toolbox/logs/toolbox_2025-05-20.log</pre>
+            
+            <h3>8.2. Problèmes courants</h3>
+            <ul>
+                <li><strong>Service non disponible</strong>: Vérifiez que tous les conteneurs Docker sont en cours d'exécution avec <code>docker ps</code></li>
+                <li><strong>Erreur d'authentification</strong>: Assurez-vous que Keycloak est correctement configuré et accessible</li>
+                <li><strong>Microservice non démarré</strong>: Vérifiez les logs spécifiques du service dans le répertoire des logs</li>
+            </ul>
+            
+            <p>Pour redémarrer tous les services:</p>
+            <div class="command">
+                docker-compose down<br>
+                docker-compose up -d<br>
+                poetry run bash ./start_all.sh
+            </div>
+            
+            <h3>8.3. Nettoyage des conteneurs Docker</h3>
+            <p>Si vous avez besoin de nettoyer votre environnement Docker, vous pouvez utiliser les commandes suivantes pour arrêter et supprimer tous les conteneurs et images:</p>
+            
+            <div class="command">
+                # Arrêter tous les conteneurs<br>
+                docker stop $(docker ps -aq)<br><br>
+                # Supprimer tous les conteneurs<br>
+                docker rm $(docker ps -aq)<br><br>
+                # Supprimer toutes les images<br>
+                docker rmi $(docker images -q)
+            </div>
+            
+            <p>Ou en une seule commande:</p>
+            <div class="command">
+                docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q)
+            </div>
+        </section>
+        
+        <div class="footer">
+            <p>© 2025 Toolbox de Cybersécurité - Documentation Technique v1.0</p>
+        </div>
+    </div>
+</body>
+</html>

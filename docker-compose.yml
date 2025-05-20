@@ -1,0 +1,60 @@
+version: '3.8'
+services:
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer/portainer_data:/data
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.1
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: dev-file
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./keycloack/keycloak-data:/opt/keycloak/data
+    restart: unless-stopped
+    user: "root"  # Utiliser root pour éviter les problèmes de permission
+  # PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: toolbox_postgres
+    environment:
+      POSTGRES_DB: toolbox_db
+      POSTGRES_USER: toolbox_user
+      POSTGRES_PASSWORD: secure_password
+    volumes:
+      - ./postgresql/postgres_data:/var/lib/postgresql/data
+      - ./postgresql/init-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U toolbox_user -d toolbox_db"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 60s
+  # pgAdmin
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: toolbox_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: secure_password
+    volumes:
+      - ./postgresql/pgadmin_volume:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    user: "root"

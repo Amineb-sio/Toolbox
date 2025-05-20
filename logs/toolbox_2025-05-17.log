@@ -1,0 +1,108 @@
+05-17 12:04:09 - I - [logging_system:166] - ========================================
+05-17 12:04:09 - I - [logging_system:167] - Démarrage Toolbox: 2025-05-17 12:04:09
+05-17 12:04:09 - I - [logging_system:168] - Log level: INFO
+05-17 12:04:09 - I - [logging_system:169] - Log file: /home/kali/Desktop/Toolbox/logs/toolbox_2025-05-17.log
+05-17 12:04:09 - I - [logging_system:170] - ========================================
+05-17 12:04:09 - I - [main:135] - Clé maître chargée avec succès
+05-17 12:04:09 - I - [main:176] - Clés chargées: 1 clés trouvées
+05-17 12:04:09 - I - [main:1512] - 🚀 Application démarrée
+05-17 12:04:09 - I - [main:1513] - 📁 Sessions stockées dans: /tmp/tmpwcwz8t00
+05-17 12:04:09 - I - [main:1514] - 💾 Sauvegardes stockées dans: /home/kali/Desktop/Toolbox/backups
+05-17 12:04:09 - I - [main:1515] - 🔑 Clés cryptographiques stockées dans: /home/kali/Desktop/Toolbox/secure_keys
+05-17 12:04:09 - I - [main:1516] - 📊 Logs stockés dans: /home/kali/Desktop/Toolbox/logs
+05-17 12:04:09 - I - [main:1517] - 🔗 URL de base pour les redirections: http://127.0.0.1
+05-17 12:04:09 - I - [main:1518] - 🔐 Keycloak configuré sur: http://localhost:8080
+05-17 12:04:09 - I - [main:1521] - 🌐 Accéder à l'application via: http://127.0.0.1:5000 ou http://localhost:5000
+05-17 12:04:22 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:04:27 - I - [logging_system:203] - GET /login 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:04:52 - I - [main:400] - Token obtenu avec succès
+05-17 12:04:52 - I - [main:421] - Informations utilisateur obtenues avec succès
+05-17 12:04:53 - I - [main:565] - Utilisateur connecté: admin
+05-17 12:04:53 - I - [logging_system:203] - GET /callback 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:04:53 - I - [main:488] - Utilisateur connecté: admin
+05-17 12:04:53 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:06:12 - I - [main:1385] - Redirection vers wpscan: admin
+05-17 12:06:12 - I - [logging_system:203] - GET /wpscan 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:06:42 - I - [main:1350] - Redirection vers nmap: admin
+05-17 12:06:42 - I - [logging_system:203] - GET /nmap 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:06:50 - I - [main:1350] - Redirection vers nmap: admin
+05-17 12:06:50 - I - [logging_system:203] - GET /nmap 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:07:27 - I - [main:1350] - Redirection vers nmap: admin
+05-17 12:07:27 - I - [logging_system:203] - GET /nmap 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:07:29 - I - [main:1385] - Redirection vers wpscan: admin
+05-17 12:07:29 - I - [logging_system:203] - GET /wpscan 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:07:41 - I - [logging_system:203] - GET /import-reports 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:07:44 - I - [main:488] - Utilisateur connecté: admin
+05-17 12:07:44 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:07:47 - I - [logging_system:203] - GET /key-management 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:07:51 - I - [main:488] - Utilisateur connecté: admin
+05-17 12:07:51 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:08:45 - I - [main:1490] - Redirection vers autosecurite: admin
+05-17 12:08:45 - I - [logging_system:203] - GET /autosecurite 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:08:58 - I - [main:1385] - Redirection vers wpscan: admin
+05-17 12:08:58 - I - [logging_system:203] - GET /wpscan 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 12:15:15 - I - [main:1121] - Nombre total de sauvegardes trouvées: 1
+05-17 12:15:15 - I - [logging_system:203] - GET /backup-restore 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:29:07 - I - [logging_system:166] - ========================================
+05-17 14:29:07 - I - [logging_system:167] - Démarrage Toolbox: 2025-05-17 14:29:07
+05-17 14:29:07 - I - [logging_system:168] - Log level: INFO
+05-17 14:29:07 - I - [logging_system:169] - Log file: /home/kali/Desktop/Toolbox/logs/toolbox_2025-05-17.log
+05-17 14:29:07 - I - [logging_system:170] - ========================================
+05-17 14:29:07 - I - [main:135] - Clé maître chargée avec succès
+05-17 14:29:07 - I - [main:176] - Clés chargées: 1 clés trouvées
+05-17 14:29:07 - I - [main:1512] - 🚀 Application démarrée
+05-17 14:29:07 - I - [main:1513] - 📁 Sessions stockées dans: /tmp/tmp11ppc3v3
+05-17 14:29:07 - I - [main:1514] - 💾 Sauvegardes stockées dans: /home/kali/Desktop/Toolbox/backups
+05-17 14:29:07 - I - [main:1515] - 🔑 Clés cryptographiques stockées dans: /home/kali/Desktop/Toolbox/secure_keys
+05-17 14:29:07 - I - [main:1516] - 📊 Logs stockés dans: /home/kali/Desktop/Toolbox/logs
+05-17 14:29:07 - I - [main:1517] - 🔗 URL de base pour les redirections: http://127.0.0.1
+05-17 14:29:07 - I - [main:1518] - 🔐 Keycloak configuré sur: http://localhost:8080
+05-17 14:29:07 - I - [main:1521] - 🌐 Accéder à l'application via: http://127.0.0.1:5000 ou http://localhost:5000
+05-17 14:29:14 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:29:16 - I - [logging_system:203] - GET /login 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:29:21 - I - [main:400] - Token obtenu avec succès
+05-17 14:29:21 - I - [main:421] - Informations utilisateur obtenues avec succès
+05-17 14:29:21 - I - [main:565] - Utilisateur connecté: admin
+05-17 14:29:21 - I - [logging_system:203] - GET /callback 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:29:21 - I - [main:488] - Utilisateur connecté: admin
+05-17 14:29:21 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:29:24 - I - [main:1350] - Redirection vers nmap: admin
+05-17 14:29:24 - I - [logging_system:203] - GET /nmap 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:30:02 - I - [main:1392] - Redirection vers sqlmap: admin
+05-17 14:30:02 - I - [logging_system:203] - GET /sqlmap 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:30:11 - I - [main:1385] - Redirection vers wpscan: admin
+05-17 14:30:11 - I - [logging_system:203] - GET /wpscan 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:30:16 - I - [main:1385] - Redirection vers wpscan: admin
+05-17 14:30:16 - I - [logging_system:203] - GET /wpscan 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:30:28 - I - [main:1392] - Redirection vers sqlmap: admin
+05-17 14:30:28 - I - [logging_system:203] - GET /sqlmap 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:30:30 - I - [main:1385] - Redirection vers wpscan: admin
+05-17 14:30:30 - I - [logging_system:203] - GET /wpscan 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:30:32 - I - [main:1392] - Redirection vers sqlmap: admin
+05-17 14:30:32 - I - [logging_system:203] - GET /sqlmap 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:30:46 - I - [main:1357] - Redirection vers webmin: admin
+05-17 14:30:46 - I - [logging_system:203] - GET /webmin 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:42:29 - I - [logging_system:166] - ========================================
+05-17 14:42:29 - I - [logging_system:167] - Démarrage Toolbox: 2025-05-17 14:42:29
+05-17 14:42:29 - I - [logging_system:168] - Log level: INFO
+05-17 14:42:29 - I - [logging_system:169] - Log file: /home/kali/Desktop/Toolbox/logs/toolbox_2025-05-17.log
+05-17 14:42:29 - I - [logging_system:170] - ========================================
+05-17 14:42:29 - I - [main:135] - Clé maître chargée avec succès
+05-17 14:42:29 - I - [main:176] - Clés chargées: 1 clés trouvées
+05-17 14:42:29 - I - [main:1512] - 🚀 Application démarrée
+05-17 14:42:29 - I - [main:1513] - 📁 Sessions stockées dans: /tmp/tmpca_t68s1
+05-17 14:42:29 - I - [main:1514] - 💾 Sauvegardes stockées dans: /home/kali/Desktop/Toolbox/backups
+05-17 14:42:29 - I - [main:1515] - 🔑 Clés cryptographiques stockées dans: /home/kali/Desktop/Toolbox/secure_keys
+05-17 14:42:29 - I - [main:1516] - 📊 Logs stockés dans: /home/kali/Desktop/Toolbox/logs
+05-17 14:42:29 - I - [main:1517] - 🔗 URL de base pour les redirections: http://127.0.0.1
+05-17 14:42:29 - I - [main:1518] - 🔐 Keycloak configuré sur: http://localhost:8080
+05-17 14:42:29 - I - [main:1521] - 🌐 Accéder à l'application via: http://127.0.0.1:5000 ou http://localhost:5000
+05-17 14:44:24 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:44:25 - I - [logging_system:203] - GET /login 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:44:32 - I - [main:400] - Token obtenu avec succès
+05-17 14:44:32 - I - [main:421] - Informations utilisateur obtenues avec succès
+05-17 14:44:32 - I - [main:565] - Utilisateur connecté: admin
+05-17 14:44:32 - I - [logging_system:203] - GET /callback 302 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:44:32 - I - [main:488] - Utilisateur connecté: admin
+05-17 14:44:32 - I - [logging_system:203] - GET / 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64
+05-17 14:44:52 - I - [logging_system:203] - GET /import-reports 200 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64

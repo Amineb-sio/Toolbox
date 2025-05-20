@@ -49,12 +49,13 @@ root_logger = setup_logging(app, logging.DEBUG if app.debug else logging.INFO)
 logger = get_module_logger(__name__)  # Logger spécifique au module principal
 app.wsgi_app = RequestLogger(app.wsgi_app, app.logger)  # Middleware pour logger les requêtes HTTP
 
-# Configuration Keycloak
-KC_SERVER = "http://localhost:8080"
+# Configuration Keycloak - MISE À JOUR
+KC_SERVER = "http://localhost:8080"  # Utiliser le nom complet du conteneur
 KC_REALM = "Toolbox"
 KC_CLIENT_ID = "python-app"
 KC_CLIENT_SECRET = "lqGJ9GsF434c0gLGtFoRJOavP6YgSgPI"
 KC_REDIRECT_URI = "http://127.0.0.1:5000/callback"
+
 
 # Configuration de la base de données PostgreSQL
 DB_CONFIG = {
@@ -408,8 +409,13 @@ def get_userinfo(access_token):
     headers = {'Authorization': f'Bearer {access_token}'}
     
     logger.debug(f"Demande de userinfo à Keycloak: {userinfo_url}")
+    logger.debug(f"Headers: {headers}")
+    
     response = requests.get(userinfo_url, headers=headers)
     logger.debug(f"Réponse de userinfo: {response.status_code}")
+    
+    if response.status_code != 200:
+        logger.error(f"Contenu de la réponse d'erreur: {response.text}")
     
     if response.status_code == 200:
         logger.info("Informations utilisateur obtenues avec succès")
@@ -681,7 +687,6 @@ def rotate_key_api(key_id):
         return jsonify({'success': False, 'error': 'Erreur lors de la rotation de la clé'}), 500
 
 # -------------------- Routes pour la gestion des rapports --------------------
-
 @app.route('/reports')
 @login_required
 def reports():
@@ -1337,7 +1342,6 @@ def delete_backup_api():
             'success': False,
             'error': str(e)
         }), 500
-
 # Routes pour les différents outils avec vérification de rôle
 @app.route('/nmap')
 @login_required
