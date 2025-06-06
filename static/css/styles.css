@@ -67,167 +67,55 @@ body {
 
 .header-left {
     font-weight: bold;
-    font-size: 18px; /* Légèrement plus grand pour équilibrer la hauteur */
-    margin-left: 135px; /* Ajout de marge à gauche pour décaler le texte vers la droite */
-    padding-left: 20px; /* Petit padding supplémentaire */
+    font-size: 18px;
+    flex: 1;
+    text-align: left;
+    margin-top: 15px; /* Ajoute de l'espace en haut */
+    padding-top: 10px; /* Padding supplémentaire */
 }
 
-h1 {
-    text-align: center;
-    margin: 30px 0;
-    color: var(--primary-color);
+.header-center {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.department-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 40px;
-    width: 80%;
-    max-width: 1200px;
-    margin: 20px auto;
-}
-
-.department {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 0 15px var(--card-shadow);
-    padding: 30px;
-    border: 1px solid var(--card-border);
+.logo {
+    height: 60px;
+    width: auto;
+    max-height: 70px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-    margin-bottom: 30px;
 }
 
-.department:hover {
-    transform: scale(1.02);
-}
-
-.department h2 {
-    font-size: 22px;
-    font-weight: bold;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--secondary-color);
-    text-shadow: 1px 1px 2px var(--card-shadow);
-    margin-top: 0;
-}
-
-.security-department h2 {
-    color: var(--security-color);
-}
-
-.development-department h2 {
-    color: var(--development-color);
-}
-
-.infrastructure-department h2 {
-    color: var(--infrastructure-color);
-}
-
-.support-department h2 {
-    color: var(--support-color);
-}
-
-.hr-department h2 {
-    color: var(--hr-color);
-}
-
-.module-card {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid var(--card-border);
-    transition: transform 0.3s ease;
-    box-shadow: 0 0 10px var(--card-shadow);
-}
-
-.module-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px var(--card-shadow);
-}
-
-.module-card h3 {
-    margin-top: 0;
-    color: var(--module-title-color);
-}
-
-.module-card p {
-    color: var(--text-color);
-    margin-bottom: 15px;
-}
-
-button {
-    padding: 12px 25px;
-    background-color: var(--button-bg);
-    color: #444;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-/* Style spécifique pour les boutons en mode sombre */
-body.dark button {
-    color: #333; /* Texte foncé pour contraster avec le fond blanc */
-}
-
-/* Hover effect for buttons based on department */
-.security-department button:hover {
-    background-color: var(--security-color);
-    color: white;
-}
-
-.development-department button:hover {
-    background-color: var(--development-color);
-    color: white;
-}
-
-.infrastructure-department button:hover {
-    background-color: var(--infrastructure-color);
-    color: black; /* Pour la lisibilité avec un fond jaune */
-}
-
-.support-department button:hover {
-    background-color: var(--support-color);
-    color: white;
-}
-
-.hr-department button:hover {
-    background-color: var(--hr-color);
-    color: white;
-}
-
-#theme-toggle {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-    padding: 8px 12px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .user-controls {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    flex: 1;
     display: flex;
-    gap: 10px;
-    z-index: 5;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
 }
-
 .user-info {
-    margin-right: 20px;
     text-align: right;
     font-weight: bold;
     color: var(--header-text);
+    margin-right: 15px;
 }
 
-.user-actions button, .user-actions a {
+.user-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-actions button, 
+.user-actions a {
     padding: 8px 15px;
     background-color: var(--button-bg);
     color: white;
@@ -238,6 +126,7 @@ body.dark button {
     display: inline-block;
     font-size: 14px;
     transition: background-color 0.3s;
+    font-weight: 500;
 }
 
 /* Ajustement de la couleur du texte pour les boutons d'action en mode sombre */
@@ -246,7 +135,8 @@ body.dark .user-actions a {
     color: #333;
 }
 
-.user-actions button:hover, .user-actions a:hover {
+.user-actions button:hover, 
+.user-actions a:hover {
     background-color: var(--button-hover);
 }
 
@@ -272,13 +162,13 @@ body.dark .user-actions a {
     display: inline-block;
     padding: 3px 8px;
     margin: 2px;
-    margin-top: 4px; /* Ajoute de l'espace vers le haut */
-    vertical-align: middle; /* Aide à bien aligner avec le texte */
+    margin-top: 4px;
+    vertical-align: middle;
     border-radius: 12px;
     font-size: 12px;
     color: white;
     background-color: var(--role-bg);
-    font-weight: bold; /* Rend tous les badges en gras */
+    font-weight: bold;
 }
 
 /* Style pour les badges */
@@ -310,6 +200,101 @@ body.dark .user-actions a {
     background-color: var(--role-osint-bg);
 }
 
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    padding: 8px 12px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    color: var(--primary-color);
+    font-size: 2.5em;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.department-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.department {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--card-shadow);
+    padding: 30px;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.department::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+.department:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px var(--card-shadow);
+}
+
+.department h2 {
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--secondary-color);
+    text-shadow: 1px 1px 2px var(--card-shadow);
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.security-department h2 {
+    color: var(--security-color);
+}
+
+.development-department h2 {
+    color: var(--development-color);
+}
+
+.infrastructure-department h2 {
+    color: var(--infrastructure-color);
+}
+
+.support-department h2 {
+    color: var(--support-color);
+}
+
+.hr-department h2 {
+    color: var(--hr-color);
+}
+
 /* Admin department style */
 .admin-department {
     background-color: #ffebee;
@@ -328,4 +313,222 @@ body.dark .admin-department {
 
 body.dark .admin-department h2 {
     color: #ff6659;
+}
+
+.module-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.module-card:hover::before {
+    opacity: 1;
+}
+
+.module-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px var(--card-shadow);
+}
+
+.module-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--module-title-color);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.module-card p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: var(--button-bg);
+    color: #444;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    min-width: 140px;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Style spécifique pour les boutons en mode sombre */
+body.dark button {
+    color: #333; /* Texte foncé pour contraster avec le fond blanc */
+}
+
+/* Hover effect for buttons based on department */
+.security-department button:hover {
+    background-color: var(--security-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.development-department button:hover {
+    background-color: var(--development-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.infrastructure-department button:hover {
+    background-color: var(--infrastructure-color);
+    color: black; /* Pour la lisibilité avec un fond jaune */
+    transform: translateY(-2px);
+}
+
+.support-department button:hover {
+    background-color: var(--support-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.hr-department button:hover {
+    background-color: var(--hr-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.admin-department button:hover {
+    background-color: #c62828;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Animations pour l'apparition des éléments */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.department {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.department:nth-child(1) { animation-delay: 0.1s; }
+.department:nth-child(2) { animation-delay: 0.2s; }
+.department:nth-child(3) { animation-delay: 0.3s; }
+.department:nth-child(4) { animation-delay: 0.4s; }
+.department:nth-child(5) { animation-delay: 0.5s; }
+.department:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 15px;
+    }
+    
+    .header-left {
+        margin-left: 0;
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .user-controls {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .department-container {
+        grid-template-columns: 1fr;
+        width: 95%;
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    .department {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+        margin: 20px 0;
+    }
+    
+    .logo {
+        height: 50px;
+        max-height: 60px;
+    }
+    
+    #theme-toggle {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .user-actions button,
+    .user-actions a {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .module-card {
+        padding: 15px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 120px;
+    }
 }
