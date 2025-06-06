@@ -9,11 +9,16 @@
 <body>
     <button id="theme-toggle">🌙 Mode Sombre</button>
     
-    <div class="header-container">
-        <!-- Author Information -->
-        <div class="header-left">
-            Equipe : Jérémy, Amine, Stéphane
-        </div>
+<div class="header-container">
+    <!-- Author Information -->
+    <div class="header-left">
+        Equipe : Jérémy, Amine, Stéphane
+    </div>
+    
+    <!-- Logo centré -->
+    <div class="header-center">
+        <img src="{{ url_for('static', filename='images/logosaj.png') }}" alt="Logo" class="logo">
+    </div>
         
         <!-- User info and controls -->
         <div class="user-controls">
