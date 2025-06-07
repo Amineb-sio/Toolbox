@@ -114,6 +114,29 @@ Pour les modules avec Dockerfile :
 cd chemin/vers/module
 docker-compose up --build -d
 ```
+## 🌐 Analyseur de Trafic Réseau
+
+Démarrage du module d'analyse réseau
+
+
+```bash
+poetry run bash ./start_network_analyzer.sh
+```
+L'analyseur sera accessible à l'adresse : http://127.0.0.1:5022
+Fonctionnalités de l'analyseur
+
+Analyse de fichiers PCAP : Support des formats .pcap, .pcapng, .cap
+Capture en temps réel : Surveillance du trafic réseau en direct
+Détection d'anomalies : Identification automatique d'activités suspectes
+Rapports détaillés : Génération de rapports JSON, CSV et HTML
+Interface intuitive : Analyse simple via interface web
+
+### Utilisation
+
+Lancez l'analyseur avec la commande ci-dessus
+Accédez à l'interface web sur le port 5022
+Uploadez vos fichiers PCAP ou analysez les fichiers existants
+Consultez les rapports générés dans le répertoire Python_network_analyzer/rapports/
 
 ## 🔍 Dépannage
 

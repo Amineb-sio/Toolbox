@@ -1,0 +1,62 @@
+2025-06-07 07:39:34,564 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5022
+ * Running on http://192.168.58.128:5022
+2025-06-07 07:39:34,564 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 07:39:34,565 - INFO -  * Restarting with stat
+2025-06-07 07:39:35,033 - WARNING -  * Debugger is active!
+2025-06-07 07:39:35,033 - INFO -  * Debugger PIN: 102-930-769
+2025-06-07 07:39:36,254 - INFO - 127.0.0.1 - - [07/Jun/2025 07:39:36] "GET / HTTP/1.1" 200 -
+2025-06-07 07:39:36,295 - INFO - 127.0.0.1 - - [07/Jun/2025 07:39:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-07 07:39:41,194 - INFO - Début de l'analyse du fichier: ../Python_wireshark/capture_any.pcap
+2025-06-07 07:39:41,194 - INFO - 127.0.0.1 - - [07/Jun/2025 07:39:41] "[32mPOST /analyze HTTP/1.1[0m" 302 -
+2025-06-07 07:39:41,199 - INFO - 127.0.0.1 - - [07/Jun/2025 07:39:41] "GET / HTTP/1.1" 200 -
+2025-06-07 07:39:48,363 - INFO - Début de l'analyse du fichier: ../Python_wireshark/capture_eth0.pcap
+2025-06-07 07:39:48,363 - INFO - 127.0.0.1 - - [07/Jun/2025 07:39:48] "[32mPOST /analyze HTTP/1.1[0m" 302 -
+2025-06-07 07:39:48,368 - INFO - 127.0.0.1 - - [07/Jun/2025 07:39:48] "GET / HTTP/1.1" 200 -
+2025-06-07 07:39:53,274 - INFO - 127.0.0.1 - - [07/Jun/2025 07:39:53] "GET / HTTP/1.1" 200 -
+2025-06-07 07:41:30,487 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5022
+ * Running on http://192.168.58.128:5022
+2025-06-07 07:41:30,487 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 07:41:30,487 - INFO -  * Restarting with stat
+2025-06-07 07:41:30,987 - WARNING -  * Debugger is active!
+2025-06-07 07:41:30,988 - INFO -  * Debugger PIN: 102-930-769
+2025-06-07 07:41:33,570 - INFO - 127.0.0.1 - - [07/Jun/2025 07:41:33] "GET / HTTP/1.1" 200 -
+2025-06-07 07:41:33,608 - INFO - 127.0.0.1 - - [07/Jun/2025 07:41:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-07 07:41:34,658 - INFO - Début de l'analyse du fichier: ../Python_wireshark/capture_any.pcap
+2025-06-07 07:41:34,750 - INFO - Fichier chargé: 389 paquets
+2025-06-07 07:41:34,755 - INFO - Rapports générés: rapports/analysis_20250607_074134_20250607_074134_report.json, rapports/analysis_20250607_074134_20250607_074134_summary.txt
+2025-06-07 07:41:34,755 - INFO - Analyse terminée: 389 paquets
+2025-06-07 07:41:34,766 - INFO - 127.0.0.1 - - [07/Jun/2025 07:41:34] "[32mPOST /analyze HTTP/1.1[0m" 302 -
+2025-06-07 07:41:34,771 - INFO - 127.0.0.1 - - [07/Jun/2025 07:41:34] "GET / HTTP/1.1" 200 -
+2025-06-07 07:42:55,263 - INFO -  * Detected change in '/home/kali/Desktop/Toolbox-Amine/Python_network_analyzer/app.py', reloading
+2025-06-07 07:42:55,366 - INFO -  * Restarting with stat
+2025-06-07 07:42:55,813 - WARNING -  * Debugger is active!
+2025-06-07 07:42:55,814 - INFO -  * Debugger PIN: 102-930-769
+2025-06-07 07:43:03,513 - INFO - 127.0.0.1 - - [07/Jun/2025 07:43:03] "GET / HTTP/1.1" 200 -
+2025-06-07 07:43:04,778 - INFO - Début de l'analyse du fichier: ../Python_wireshark/capture_any.pcap
+2025-06-07 07:43:04,825 - INFO - Fichier chargé: 389 paquets
+2025-06-07 07:43:04,831 - INFO - Rapports générés: rapports/analysis_20250607_074304_20250607_074304_report.json, rapports/analysis_20250607_074304_20250607_074304_summary.txt
+2025-06-07 07:43:04,831 - INFO - Analyse terminée: 389 paquets
+2025-06-07 07:43:04,836 - INFO - 127.0.0.1 - - [07/Jun/2025 07:43:04] "POST /analyze HTTP/1.1" 200 -
+2025-06-07 07:43:10,959 - INFO - Début de l'analyse du fichier: ../Python_wireshark/capture_eth0.pcap
+2025-06-07 07:43:11,060 - INFO - Fichier chargé: 435 paquets
+2025-06-07 07:43:11,066 - INFO - Rapports générés: rapports/analysis_20250607_074310_20250607_074311_report.json, rapports/analysis_20250607_074310_20250607_074311_summary.txt
+2025-06-07 07:43:11,066 - INFO - Analyse terminée: 435 paquets
+2025-06-07 07:43:11,071 - INFO - 127.0.0.1 - - [07/Jun/2025 07:43:11] "POST /analyze HTTP/1.1" 200 -
+2025-06-07 07:51:32,640 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5022
+ * Running on http://192.168.58.128:5022
+2025-06-07 07:51:32,641 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 07:51:32,641 - INFO -  * Restarting with stat
+2025-06-07 07:51:33,072 - WARNING -  * Debugger is active!
+2025-06-07 07:51:33,072 - INFO -  * Debugger PIN: 102-930-769
+2025-06-07 07:51:35,087 - INFO - 127.0.0.1 - - [07/Jun/2025 07:51:35] "GET / HTTP/1.1" 200 -
+2025-06-07 07:55:03,661 - INFO - Début de l'analyse du fichier: ../Python_wireshark/capture_any.pcap
+2025-06-07 07:55:03,709 - INFO - Fichier chargé: 389 paquets
+2025-06-07 07:55:03,714 - INFO - Rapports générés: rapports/analysis_20250607_075503_20250607_075503_report.json, rapports/analysis_20250607_075503_20250607_075503_summary.txt
+2025-06-07 07:55:03,715 - INFO - Analyse terminée: 389 paquets
+2025-06-07 07:55:03,719 - INFO - 127.0.0.1 - - [07/Jun/2025 07:55:03] "POST /analyze HTTP/1.1" 200 -

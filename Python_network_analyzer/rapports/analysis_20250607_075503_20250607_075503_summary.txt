@@ -1,0 +1,16 @@
+Rapport d'analyse - analysis_20250607_075503
+Généré le: 2025-06-07 07:55:03.714892
+==================================================
+
+Paquets analysés: 389
+IPs sources uniques: 13
+IPs destinations uniques: 14
+Protocoles détectés: 2
+Alertes détectées: 0
+
+Top 5 sources:
+  192.168.47.128: 156 paquets
+  104.18.4.159: 116 paquets
+  127.0.0.1: 40 paquets
+  192.124.249.13: 18 paquets
+  34.36.54.80: 12 paquets
