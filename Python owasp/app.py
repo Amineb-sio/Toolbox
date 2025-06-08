@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger('zap_web')
 
 app = Flask(__name__)
-ZAP_API_URL = "http://127.0.0.1:8080"
+ZAP_API_URL = "http://127.0.0.1:8090"  # PORT MODIFIÉ de 8080 à 8090
 API_KEY = "monapikey"  # Remplacez par votre clé API ZAP
 
 # Timeout pour les requêtes vers ZAP
@@ -25,11 +25,11 @@ def index():
     return render_template('index.html')
 
 def is_zap_running():
-    """Vérifie si ZAP est en cours d'exécution sur le port 8080"""
+    """Vérifie si ZAP est en cours d'exécution sur le port 8090"""  # COMMENTAIRE MODIFIÉ
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.settimeout(2)  # Timeout réduit pour une vérification rapide
-            return s.connect_ex(('127.0.0.1', 8080)) == 0
+            return s.connect_ex(('127.0.0.1', 8090)) == 0  # PORT MODIFIÉ de 8080 à 8090
     except Exception as e:
         logger.error(f"Erreur lors de la vérification de ZAP: {str(e)}")
         return False
@@ -40,8 +40,8 @@ def check_zap():
     logger.info("Vérification de la connexion à ZAP")
     
     if not is_zap_running():
-        logger.warning("ZAP n'est pas en cours d'exécution sur le port 8080")
-        return jsonify({"status": "error", "message": "ZAP n'est pas en cours d'exécution sur le port 8080"})
+        logger.warning("ZAP n'est pas en cours d'exécution sur le port 8090")  # MESSAGE MODIFIÉ
+        return jsonify({"status": "error", "message": "ZAP n'est pas en cours d'exécution sur le port 8090"})  # MESSAGE MODIFIÉ
     
     try:
         response = requests.get(f"{ZAP_API_URL}/JSON/core/view/version/?apikey={API_KEY}", timeout=ZAP_TIMEOUT)
@@ -444,12 +444,12 @@ def download_report(report_type):
 if __name__ == '__main__':
     # Vérifier si ZAP est en cours d'exécution
     if not is_zap_running():
-        print("AVERTISSEMENT: ZAP ne semble pas être en cours d'exécution sur le port 8080.")
+        print("AVERTISSEMENT: ZAP ne semble pas être en cours d'exécution sur le port 8090.")  # MESSAGE MODIFIÉ
         print("Assurez-vous que le service ZAP est démarré avant d'utiliser cette application.")
         print("Vous pouvez le démarrer avec: sudo systemctl start zap.service")
         print("Ou utilisez le script launch_zap_web.sh fourni.")
     else:
-        print("ZAP est déjà en cours d'exécution sur le port 8080")
+        print("ZAP est déjà en cours d'exécution sur le port 8090")  # MESSAGE MODIFIÉ
     
     # Créer le répertoire templates s'il n'existe pas
     templates_dir = os.path.join(os.getcwd(), 'templates')
