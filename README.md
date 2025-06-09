@@ -62,8 +62,13 @@ curl -sSL https://install.python-poetry.org | python3 -
 ```bash
 poetry install
 ```
+### 4. Installation de Docker (si non installé)
 
-### 4. Lancement des services Docker
+```bash
+sudo apt-get update && sudo apt-get install -y docker.io
+```
+
+### 5. Lancement des services Docker
 
 ```bash
 docker-compose up -d
@@ -75,7 +80,26 @@ Cette commande démarrera :
 - PostgreSQL (port 5432)
 - pgAdmin (port 5050)
 
-### 5. Démarrage de la Toolbox
+### 6. Configuration d'OWASP ZAP
+
+Pour faire fonctionner OWASP ZAP, suivez ces étapes :
+
+Se rendre dans le dossier /usr/share et télécharger le dépôt git de zaproxy :
+```bash
+cd /usr/share
+```
+```bash
+sudo git clone https://github.com/ParrotSec/zaproxy
+```
+Démarrer OWASP ZAP en mode daemon :
+
+```bash
+sudo /usr/share/zaproxy/zap.sh -daemon -port 8090 -config api.key=monapikey
+```
+
+Une fois démarré, vous pouvez tester la connexion depuis l'interface OWASP dans la toolbox (l'indicateur doit être en vert).
+
+### 7. Démarrage de la Toolbox
 
 ```bash
 poetry run bash ./start_all.sh
@@ -83,9 +107,12 @@ poetry run bash ./start_all.sh
 
 L'application sera accessible à l'adresse : **http://127.0.0.1:5000**
 
+
+
+
 ## 🔧 Maintenance & Développement
 
-Mettre à jour les dépendances :
+Mettre à jour les dépendances de Poetry en cas d'erreur :
 
 ```bash
 poetry update
