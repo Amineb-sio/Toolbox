@@ -62,10 +62,12 @@ curl -sSL https://install.python-poetry.org | python3 -
 ```bash
 poetry install
 ```
-### 4. Installation de Docker (si non installé)
+### 4. Installation de Docker et Docker Compose (si non installé) 
 
 ```bash
 sudo apt-get update && sudo apt-get install -y docker.io
+
+sudo apt install docker-compose
 ```
 
 ### 5. Lancement des services Docker
