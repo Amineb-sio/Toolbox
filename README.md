@@ -83,6 +83,14 @@ poetry run bash ./start_all.sh
 
 L'application sera accessible à l'adresse : **http://127.0.0.1:5000**
 
+## 🔧 Maintenance & Développement
+
+Mettre à jour les dépendances :
+
+```bash
+poetry update
+```
+
 ## 🔐 Authentification
 
 L'authentification est gérée par Keycloak, accessible sur **http://localhost:8080**. 
