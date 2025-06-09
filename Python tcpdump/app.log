@@ -1,8 +1,8 @@
-2025-05-17 14:42:30,036 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
-2025-05-17 14:42:30,044 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'docker0', 'br-ec8648d60aae', 'br-03da7628870d', 'vethd9755fe@if201', 'veth78b7b58@if227', 'veth8471cdf@if237', 'veth97f2da8@if239', 'vethb0b4f9d@if241', 'vethc7db1d2@if243']
-2025-05-17 14:42:30,057 - werkzeug - INFO -  * Restarting with stat
-2025-05-17 14:42:30,541 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
-2025-05-17 14:42:30,547 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'docker0', 'br-ec8648d60aae', 'br-03da7628870d', 'vethd9755fe@if201', 'veth78b7b58@if227', 'veth8471cdf@if237', 'veth97f2da8@if239', 'vethb0b4f9d@if241', 'vethc7db1d2@if243']
-2025-05-17 14:42:30,551 - werkzeug - WARNING -  * Debugger is active!
-2025-05-17 14:42:30,551 - werkzeug - INFO -  * Debugger PIN: 729-599-959
-(103888) wsgi starting up on http://0.0.0.0:5016
+2025-06-08 09:30:00,079 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
+2025-06-08 09:30:00,100 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'br-1d9ef1c1d033', 'docker0', 'br-5df5f4d3a5a2', 'br-dbdef9a61f8e', 'br-ec8648d60aae', 'br-03da7628870d', 'br-e805438f6269', 'vethec55ea9@if19', 'vethe69e0f2@if21', 'veth13944a1@if23', 'veth8bb2320@if25', 'veth304c9ba@if27', 'vetha8f524d@if35', 'veth1b1a8b5@if37']
+2025-06-08 09:30:00,107 - werkzeug - INFO -  * Restarting with stat
+2025-06-08 09:30:02,077 - __main__ - INFO - Démarrage de l'application sur 0.0.0.0:5016
+2025-06-08 09:30:02,098 - __main__ - INFO - Interfaces réseau disponibles: ['eth0', 'br-1d9ef1c1d033', 'docker0', 'br-5df5f4d3a5a2', 'br-dbdef9a61f8e', 'br-ec8648d60aae', 'br-03da7628870d', 'br-e805438f6269', 'vethec55ea9@if19', 'vethe69e0f2@if21', 'veth13944a1@if23', 'veth8bb2320@if25', 'veth304c9ba@if27', 'vetha8f524d@if35', 'veth1b1a8b5@if37']
+2025-06-08 09:30:02,108 - werkzeug - WARNING -  * Debugger is active!
+2025-06-08 09:30:02,109 - werkzeug - INFO -  * Debugger PIN: 128-595-887
+(452020) wsgi starting up on http://0.0.0.0:5016

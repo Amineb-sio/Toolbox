@@ -19,7 +19,10 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
+# Obtenir le chemin absolu du répertoire contenant le script
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(__name__, template_folder=os.path.join(basedir, 'templates'))
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key_for_development')
 socketio = SocketIO(app, async_mode="eventlet", cors_allowed_origins="*")
 
@@ -473,9 +476,6 @@ def server_error(e):
     return render_template('error.html', error="Erreur serveur interne"), 500
 
 if __name__ == "__main__":
-    # S'assurer que le dossier templates existe
-    os.makedirs('templates', exist_ok=True)
-    
     # Afficher les informations sur le démarrage
     host = "0.0.0.0"
     port = 5016

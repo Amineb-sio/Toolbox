@@ -4,7 +4,7 @@
 TOOLBOX_DIR="$(pwd)"
 
 # Arrêter les sous-modules en arrière-plan
-declare -a MODULES=("Python metasploit Webmin" "Python wireshark" "Python nmap" "Python owasp" "Python wpscan" "Python gobuster" "Python tcpdump" "Python sqlmap" "Python hydra" "Python nikto" "Python johntheripper" "Python harvester" "Python subfinder" "Python autosecurite")
+declare -a MODULES=("Python metasploit Webmin" "Python_wireshark" "Python nmap" "Python owasp" "Python wpscan" "Python gobuster" "Python tcpdump" "Python sqlmap" "Python hydra" "Python nikto" "Python johntheripper" "Python harvester" "Python subfinder" "Python autosecurite")
 
 for module in "${MODULES[@]}"; do
     MODULE_PATH="$TOOLBOX_DIR/$module"
