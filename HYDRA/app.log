@@ -1,0 +1,5 @@
+🚀 Serveur lancé sur http://0.0.0.0:5010
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 5010 is in use by another program. Either identify and stop that program, or start the server with a different port.
