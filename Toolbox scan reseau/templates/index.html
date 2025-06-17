@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyseur Réseau</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #45b7d1;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --danger-color: #dc3545;
+            --success-color: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+        
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        
+        .card-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        form {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+        
+        .btn-danger:hover {
+            background-color: #bd2130;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background-color: white;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .alert {
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            margin-right: 0.5rem;
+            border-radius: 4px 4px 0 0;
+            background-color: #f8f9fa;
+        }
+        
+        .tab.active {
+            background-color: white;
+            border-color: #ddd;
+            border-bottom-color: white;
+            margin-bottom: -1px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-network-wired"></i> Analyseur Réseau</h1>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('capture')">Capture de Paquets</div>
+            <div class="tab" onclick="showTab('scan')">Scanner Réseau & Ports</div>
+        </div>
+
+        <div id="capture" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-ethernet"></i> Capture de Paquets Réseau</h2>
+                </div>
+                <form action="/capture" method="post">
+                    <div class="form-group">
+                        <label for="interface">Interface Réseau:</label>
+                        <select id="interface" name="interface">
+                            {% for iface in interfaces %}
+                                <option value="{{ iface }}">{{ iface }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="custom_interface">Ou spécifiez une interface personnalisée:</label>
+                        <input type="text" id="custom_interface" name="custom_interface" placeholder="ex: eth0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filter">Filtre (syntaxe tcpdump):</label>
+                        <input type="text" id="filter" name="filter" placeholder="ex: port 80 or port 443">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="packet_limit">Nombre maximum de paquets à capturer:</label>
+                        <input type="number" id="packet_limit" name="packet_limit" value="50" min="1" max="1000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="verbose">Niveau de détail:</label>
+                        <select id="verbose" name="verbose">
+                            <option value="off">Normal</option>
+                            <option value="low">Détaillé</option>
+                            <option value="medium">Très détaillé</option>
+                            <option value="high">Maximum</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-play"></i> Démarrer la Capture
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="scan" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-search"></i> Scanner le Réseau & Ports</h2>
+                </div>
+                <form action="/network_scan" method="post">
+                    <div class="form-group">
+                        <label for="base_ip">Entrez l'IP de base (ex: 192.168.1):</label>
+                        <input type="text" id="base_ip" name="base_ip" required placeholder="ex: 192.168.1">
+                    </div>
+                    
+                    <p class="info">Cette action va scanner toutes les adresses IP de {{ base_ip }}.1 à {{ base_ip }}.254 et vérifier les ports courants ouverts.</p>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-network-wired"></i> Scanner
+                    </button>
+                </form>
+                
+                {% if error %}
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle"></i> {{ error }}
+                </div>
+                {% endif %}
+                
+                {% if results %}
+                <h3>Résultats du Scan</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Adresse IP</th>
+                            <th>Ports Ouverts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ip, ports in results.items() %}
+                        <tr>
+                            <td>{{ ip }}</td>
+                            <td>
+                                {% if ports %}
+                                    {{ ports | join(", ") }}
+                                {% else %}
+                                    <span class="text-muted">Aucun port ouvert</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Cacher tous les contenus d'onglets
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Désactiver tous les onglets
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activer l'onglet sélectionné
+            document.getElementById(tabId).classList.add('active');
+            
+            // Trouver et activer le bouton d'onglet correspondant
+            document.querySelectorAll('.tab').forEach(tab => {
+                if (tab.textContent.toLowerCase().includes(tabId)) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
