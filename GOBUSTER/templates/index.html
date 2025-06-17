@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gobuster API</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .loading { display: none; font-size: 18px; color: blue; }
+        button { padding: 10px 20px; font-size: 16px; }
+    </style>
+    <script>
+        function showLoading() {
+            document.getElementById("loading").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>Bienvenue sur l'interface Gobuster</h1>
+    
+    <form action="/run_gobuster" method="GET" onsubmit="showLoading()">
+        <label for="url">URL cible :</label>
+        <input type="text" id="url" name="url" placeholder="http://example.com" required>
+        
+        <label for="wordlist">Wordlist :</label>
+        <input type="text" id="wordlist" name="wordlist" value="/usr/share/wordlists/dirb/common.txt" required>
+
+        <button type="submit">Lancer Gobuster</button>
+    </form>
+
+    <p id="loading" class="loading">⏳ Analyse en cours... Merci de patienter.</p>
+</body>
+</html>
