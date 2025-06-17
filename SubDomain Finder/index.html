@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Subfinder - Analyse et Export</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60%;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e7f3e7;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+        }
+        .export-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Subdomain Finder</h1>
+
+    <form method="POST" action="/find_subdomains">
+        <input type="text" name="domain" placeholder="exemple.com" required>
+        <input type="hidden" name="output_format" value="display">
+        <button type="submit">Analyser</button>
+    </form>
+
+    {% if domain and subdomains %}
+    <div class="result">
+        <h3>Résultats pour {{ domain }} :</h3>
+        <pre>{{ subdomains | join('\n') }}</pre>
+
+        <div class="export-buttons">
+            <form method="POST" action="/find_subdomains" style="display:inline;">
+                <input type="hidden" name="domain" value="{{ domain }}">
+                <input type="hidden" name="output_format" value="html">
+                <button type="submit">Exporter en HTML</button>
+            </form>
+
+            <form method="POST" action="/find_subdomains" style="display:inline;">
+                <input type="hidden" name="domain" value="{{ domain }}">
+                <input type="hidden" name="output_format" value="csv">
+                <button type="submit">Exporter en CSV</button>
+            </form>
+
+            <form method="POST" action="/find_subdomains" style="display:inline;">
+                <input type="hidden" name="domain" value="{{ domain }}">
+                <input type="hidden" name="output_format" value="txt">
+                <button type="submit">Exporter en TXT</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
